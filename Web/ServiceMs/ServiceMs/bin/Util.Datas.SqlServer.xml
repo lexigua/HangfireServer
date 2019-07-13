@@ -1,0 +1,157 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Util.Datas.SqlServer</name>
+    </assembly>
+    <members>
+        <member name="T:Util.Datas.SqlServer.Bulks.BulkInsert`1">
+            <summary>
+            批量插入
+            </summary>
+        </member>
+        <member name="M:Util.Datas.SqlServer.Bulks.BulkInsert`1.#ctor(System.Data.Entity.DbContext,System.Collections.Generic.IEnumerable{`0})">
+            <summary>
+            初始化批量插入
+            </summary>
+            <param name="context">数据上下文</param>
+            <param name="entities">实体集</param>
+        </member>
+        <member name="M:Util.Datas.SqlServer.Bulks.BulkInsert`1.Insert(System.Int32,System.Data.SqlClient.SqlBulkCopyOptions)">
+            <summary>
+            插入数据
+            </summary>
+            <param name="batchSize">批大小</param>
+            <param name="options">批量选项</param>
+        </member>
+        <member name="P:Util.Datas.SqlServer.Bulks.BulkInsert`1.Context">
+            <summary>
+            数据上下文
+            </summary>
+        </member>
+        <member name="P:Util.Datas.SqlServer.Bulks.BulkInsert`1.Entities">
+            <summary>
+            实体集
+            </summary>
+        </member>
+        <member name="P:Util.Datas.SqlServer.Bulks.BulkInsert`1.Map">
+            <summary>
+            实体映射
+            </summary>
+        </member>
+        <member name="T:Util.Datas.SqlServer.Extensions">
+            <summary>
+            仓储扩展
+            </summary>
+        </member>
+        <member name="M:Util.Datas.SqlServer.Extensions.BulkInsert``2(Util.Domains.Repositories.IRepository{``0,``1},System.Collections.Generic.IEnumerable{``0},System.Int32,System.Data.SqlClient.SqlBulkCopyOptions)">
+            <summary>
+            批量插入
+            </summary>
+            <typeparam name="TEntity">实体类型</typeparam>
+            <typeparam name="TKey">实体标识类型</typeparam>
+            <param name="repository">仓储</param>
+            <param name="entities">实体集合</param>
+            <param name="batchSize">批大小</param>
+            <param name="options">批量选项</param>
+        </member>
+        <member name="M:Util.Datas.SqlServer.Extensions.Execute``2(Util.Domains.Repositories.IRepository{``0,``1},System.String,System.Object,System.Data.IDbTransaction)">
+            <summary>
+            通过Sql执行数据更新操作
+            </summary>
+            <typeparam name="TEntity">实体类型</typeparam>
+            <typeparam name="TKey">实体标识类型</typeparam>
+            <param name="repository">仓储</param>
+            <param name="sql">Sql语句</param>
+            <param name="param">Sql参数，使用匿名对象传入，范例：new{Name="A"}</param>
+            <param name="transaction">事务</param>
+        </member>
+        <member name="M:Util.Datas.SqlServer.Extensions.Truncate``2(Util.Domains.Repositories.IRepository{``0,``1})">
+            <summary>
+            清空数据
+            </summary>
+            <typeparam name="TEntity">实体类型</typeparam>
+            <typeparam name="TKey">实体标识类型</typeparam>
+            <param name="repository">仓储</param>
+        </member>
+        <member name="T:Util.Datas.SqlServer.Queries.Builders.SqlBuilder2012">
+            <summary>
+            SqlServer2012 Sql生成器
+            </summary>
+        </member>
+        <member name="T:Util.Datas.SqlServer.Queries.Builders.SqlBuilder">
+            <summary>
+            SqlServer Sql生成器
+            </summary>
+        </member>
+        <member name="M:Util.Datas.SqlServer.Queries.Builders.SqlBuilder.GetParamPrefix">
+            <summary>
+            获取参数前缀
+            </summary>
+        </member>
+        <member name="M:Util.Datas.SqlServer.Queries.Builders.SqlBuilder.GetSql(System.Text.StringBuilder)">
+            <summary>
+            获取Sql
+            </summary>
+        </member>
+        <member name="M:Util.Datas.SqlServer.Queries.Builders.SqlBuilder.CreateNoPagerSql(System.Text.StringBuilder)">
+            <summary>
+            创建不分页Sql
+            </summary>
+        </member>
+        <member name="M:Util.Datas.SqlServer.Queries.Builders.SqlBuilder.AppendSqlBody(System.Text.StringBuilder)">
+            <summary>
+            添加Sql共享子句
+            </summary>
+        </member>
+        <member name="M:Util.Datas.SqlServer.Queries.Builders.SqlBuilder.CreatePagerSql(System.Text.StringBuilder)">
+            <summary>
+            创建分页Sql
+            </summary>
+        </member>
+        <member name="M:Util.Datas.SqlServer.Queries.Builders.SqlBuilder2012.CreatePagerSql(System.Text.StringBuilder)">
+            <summary>
+            创建分页Sql
+            </summary>
+        </member>
+        <member name="T:Util.Datas.SqlServer.Queries.SqlServerQuery">
+            <summary>
+            SqlServer查询对象
+            </summary>
+        </member>
+        <member name="M:Util.Datas.SqlServer.Queries.SqlServerQuery.CreateSqlBuilder">
+            <summary>
+            创建Sql生成器
+            </summary>
+        </member>
+        <member name="T:Util.Datas.SqlServer.Queries.SqlServerQuery2012">
+            <summary>
+            SqlServer2012查询对象
+            </summary>
+        </member>
+        <member name="M:Util.Datas.SqlServer.Queries.SqlServerQuery2012.CreateSqlBuilder">
+            <summary>
+            创建Sql生成器
+            </summary>
+        </member>
+        <member name="T:Util.Datas.SqlServer.SqlHelper">
+            <summary>
+            Sql操作
+            </summary>
+        </member>
+        <member name="M:Util.Datas.SqlServer.SqlHelper.BulkCopy(System.Data.SqlClient.SqlConnection,System.String,System.Data.DataTable,System.Int32,System.Data.SqlClient.SqlBulkCopyOptions)">
+            <summary>
+            批量插入
+            </summary>
+            <param name="connection">连接</param>
+            <param name="destTableName">目标表名</param>
+            <param name="source">数据源</param>
+            <param name="batchSize">批大小</param>
+            <param name="options">批量选项</param>
+        </member>
+        <member name="M:Util.Datas.SqlServer.SqlHelper.BulkCopy(System.Data.SqlClient.SqlConnection,System.Data.SqlClient.SqlTransaction,System.String,System.Data.DataTable,System.Int32,System.Data.SqlClient.SqlBulkCopyOptions)">
+            <summary>
+            批量插入
+            </summary>
+        </member>
+    </members>
+</doc>

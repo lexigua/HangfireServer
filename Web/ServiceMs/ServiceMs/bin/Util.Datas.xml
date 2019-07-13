@@ -1,0 +1,822 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Util.Datas</name>
+    </assembly>
+    <members>
+        <member name="T:Util.Datas.Extensions">
+            <summary>
+            查询扩展
+            </summary>
+        </member>
+        <member name="M:Util.Datas.Extensions.Filter``1(System.Linq.IQueryable{``0},System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}})">
+            <summary>
+            过滤
+            </summary>
+            <typeparam name="T">实体类型</typeparam>
+            <param name="source">数据源</param>
+            <param name="predicate">谓词</param>
+        </member>
+        <member name="M:Util.Datas.Extensions.Filter``1(System.Linq.IQueryable{``0},Util.Domains.Repositories.ICriteria{``0})">
+            <summary>
+            过滤
+            </summary>
+            <typeparam name="T">实体类型</typeparam>
+            <param name="source">数据源</param>
+            <param name="criteria">查询条件</param>
+        </member>
+        <member name="M:Util.Datas.Extensions.Filter``1(System.Linq.IQueryable{``0},Util.Domains.Repositories.ICriteria)">
+            <summary>
+            过滤
+            </summary>
+            <typeparam name="T">实体类型</typeparam>
+            <param name="source">数据源</param>
+            <param name="criteria">查询条件</param>
+        </member>
+        <member name="M:Util.Datas.Extensions.FilterInt``2(System.Linq.IQueryable{``0},System.Linq.Expressions.Expression{System.Func{``0,``1}},System.Nullable{System.Int32},System.Nullable{System.Int32})">
+            <summary>
+            过滤整数段
+            </summary>
+            <typeparam name="T">实体类型</typeparam>
+            <typeparam name="TProperty">属性类型</typeparam>
+            <param name="source">数据源</param>
+            <param name="propertyExpression">属性表达式，范例：t => t.Age</param>
+            <param name="min">最小值</param>
+            <param name="max">最大值</param>
+        </member>
+        <member name="M:Util.Datas.Extensions.FilterDouble``2(System.Linq.IQueryable{``0},System.Linq.Expressions.Expression{System.Func{``0,``1}},System.Nullable{System.Double},System.Nullable{System.Double})">
+            <summary>
+            过滤double数值段
+            </summary>
+            <typeparam name="T">实体类型</typeparam>
+            <typeparam name="TProperty">属性类型</typeparam>
+            <param name="source">数据源</param>
+            <param name="propertyExpression">属性表达式，范例：t => t.Age</param>
+            <param name="min">最小值</param>
+            <param name="max">最大值</param>
+        </member>
+        <member name="M:Util.Datas.Extensions.FilterDecimal``2(System.Linq.IQueryable{``0},System.Linq.Expressions.Expression{System.Func{``0,``1}},System.Nullable{System.Decimal},System.Nullable{System.Decimal})">
+            <summary>
+            过滤decimal数值段
+            </summary>
+            <typeparam name="T">实体类型</typeparam>
+            <typeparam name="TProperty">属性类型</typeparam>
+            <param name="source">数据源</param>
+            <param name="propertyExpression">属性表达式，范例：t => t.Age</param>
+            <param name="min">最小值</param>
+            <param name="max">最大值</param>
+        </member>
+        <member name="M:Util.Datas.Extensions.FilterDate``2(System.Linq.IQueryable{``0},System.Linq.Expressions.Expression{System.Func{``0,``1}},System.Nullable{System.DateTime},System.Nullable{System.DateTime})">
+            <summary>
+            过滤日期段，不包含时间
+            </summary>
+            <typeparam name="T">实体类型</typeparam>
+            <typeparam name="TProperty">属性类型</typeparam>
+            <param name="source">数据源</param>
+            <param name="propertyExpression">属性表达式，范例：t => t.Age</param>
+            <param name="min">最小值</param>
+            <param name="max">最大值</param>
+        </member>
+        <member name="M:Util.Datas.Extensions.FilterDateTime``2(System.Linq.IQueryable{``0},System.Linq.Expressions.Expression{System.Func{``0,``1}},System.Nullable{System.DateTime},System.Nullable{System.DateTime})">
+            <summary>
+            过滤日期时间段，包含时间
+            </summary>
+            <typeparam name="T">实体类型</typeparam>
+            <typeparam name="TProperty">属性类型</typeparam>
+            <param name="source">数据源</param>
+            <param name="propertyExpression">属性表达式，范例：t => t.Age</param>
+            <param name="min">最小值</param>
+            <param name="max">最大值</param>
+        </member>
+        <member name="M:Util.Datas.Extensions.OrderBy``1(System.Linq.IQueryable{``0},System.String)">
+            <summary>
+            排序
+            </summary>
+            <typeparam name="T">实体类型</typeparam>
+            <param name="source">数据源</param>
+            <param name="propertyName">排序属性名，多个属性用逗号分隔，降序用desc字符串，范例：Name,Age desc</param>
+        </member>
+        <member name="M:Util.Datas.Extensions.PagerResult``1(System.Linq.IQueryable{``0},System.Int32,System.Int32)">
+            <summary>
+            创建分页列表
+            </summary>
+            <typeparam name="T">实体类型</typeparam>
+            <param name="source">数据源</param>
+            <param name="page">页索引，表示第几页，从1开始</param>
+            <param name="pageSize">每页显示行数，默认20</param>
+        </member>
+        <member name="M:Util.Datas.Extensions.PagerResult``1(System.Linq.IQueryable{``0},Util.Domains.Repositories.IPager)">
+            <summary>
+            创建分页列表
+            </summary>
+            <typeparam name="T">实体类型</typeparam>
+            <param name="source">数据源</param>
+            <param name="pager">分页对象</param>
+        </member>
+        <member name="M:Util.Datas.Extensions.OrderBy``1(System.Linq.IQueryable{``0},Util.Domains.Repositories.IPager)">
+            <summary>
+            排序
+            </summary>
+        </member>
+        <member name="M:Util.Datas.Extensions.Pager``1(System.Linq.IQueryable{``0},Util.Domains.Repositories.IPager)">
+            <summary>
+            分页
+            </summary>
+            <typeparam name="T">实体类型</typeparam>
+            <param name="source">数据源</param>
+            <param name="pager">分页对象</param>
+        </member>
+        <member name="M:Util.Datas.Extensions.ToPageList``1(System.Collections.Generic.IEnumerable{``0},Util.Domains.Repositories.IPager)">
+            <summary>
+            转换为分页列表
+            </summary>
+            <typeparam name="T">实体类型</typeparam>
+            <param name="source">数据源</param>
+            <param name="pager">分页对象</param>
+        </member>
+        <member name="T:Util.Datas.Helper">
+            <summary>
+            数据操作
+            </summary>
+        </member>
+        <member name="M:Util.Datas.Helper.ToDataTable``1(System.Collections.Generic.List{``0})">
+            <summary>
+            将实体集合转换为DataTable
+            </summary>
+            <typeparam name="T">实体类型</typeparam>
+            <param name="entities">实体集合</param>
+        </member>
+        <member name="M:Util.Datas.Helper.CreateTable``1">
+            <summary>
+            创建表
+            </summary>
+        </member>
+        <member name="M:Util.Datas.Helper.FillData``1(System.Data.DataTable,System.Collections.Generic.IEnumerable{``0})">
+            <summary>
+            填充数据
+            </summary>
+        </member>
+        <member name="M:Util.Datas.Helper.CreateRow``1(System.Data.DataTable,``0)">
+            <summary>
+            创建行
+            </summary>
+        </member>
+        <member name="T:Util.Datas.Queries.Criterias.AndCriteria`1">
+            <summary>
+            与查询条件
+            </summary>
+            <typeparam name="TEntity">实体类型</typeparam>
+        </member>
+        <member name="T:Util.Datas.Queries.Criterias.CriteriaBase`1">
+            <summary>
+            查询条件
+            </summary>
+            <typeparam name="TEntity">实体类型</typeparam>
+        </member>
+        <member name="M:Util.Datas.Queries.Criterias.CriteriaBase`1.GetPredicate">
+            <summary>
+            获取谓词
+            </summary>
+        </member>
+        <member name="P:Util.Datas.Queries.Criterias.CriteriaBase`1.Predicate">
+            <summary>
+            谓词
+            </summary>
+        </member>
+        <member name="M:Util.Datas.Queries.Criterias.AndCriteria`1.#ctor(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}},System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}})">
+            <summary>
+            初始化与查询条件
+            </summary>
+            <param name="first">谓词1</param>
+            <param name="second">谓词2</param>
+        </member>
+        <member name="T:Util.Datas.Queries.Criterias.Criteria`1">
+            <summary>
+            查询条件
+            </summary>
+            <typeparam name="TEntity">实体类型</typeparam>
+        </member>
+        <member name="M:Util.Datas.Queries.Criterias.Criteria`1.#ctor(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}})">
+            <summary>
+            初始化查询条件
+            </summary>
+            <param name="predicate">谓词</param>
+        </member>
+        <member name="T:Util.Datas.Queries.Criterias.DateSegmentCriteria`2">
+            <summary>
+            日期段过滤条件 - 不包含时间
+            </summary>
+            <typeparam name="TEntity">实体类型</typeparam>
+            <typeparam name="TProperty">属性类型</typeparam>
+        </member>
+        <member name="T:Util.Datas.Queries.Criterias.SegmentCriteria`3">
+            <summary>
+            段过滤条件
+            </summary>
+            <typeparam name="TEntity">实体类型</typeparam>
+            <typeparam name="TProperty">属性类型</typeparam>
+            <typeparam name="TValue">值类型</typeparam>
+        </member>
+        <member name="M:Util.Datas.Queries.Criterias.SegmentCriteria`3.#ctor(System.Linq.Expressions.Expression{System.Func{`0,`1}},System.Nullable{`2},System.Nullable{`2})">
+            <summary>
+            初始化段过滤条件
+            </summary>
+            <param name="propertyExpression">属性表达式</param>
+            <param name="min">最小值</param>
+            <param name="max">最大值</param>
+        </member>
+        <member name="M:Util.Datas.Queries.Criterias.SegmentCriteria`3.IsMinGreaterMax(System.Nullable{`2},System.Nullable{`2})">
+            <summary>
+            最小值是否大于最大值
+            </summary>
+            <param name="min">最小值</param>
+            <param name="max">最大值</param>
+        </member>
+        <member name="M:Util.Datas.Queries.Criterias.SegmentCriteria`3.GetPredicate">
+            <summary>
+            获取谓词
+            </summary>
+        </member>
+        <member name="M:Util.Datas.Queries.Criterias.SegmentCriteria`3.CreateLeftExpression">
+            <summary>
+            创建左操作数，即 t => t.Property >= Min
+            </summary>
+        </member>
+        <member name="M:Util.Datas.Queries.Criterias.SegmentCriteria`3.GetMinValue">
+            <summary>
+            获取最小值
+            </summary>
+        </member>
+        <member name="M:Util.Datas.Queries.Criterias.SegmentCriteria`3.CreateRightExpression">
+            <summary>
+            创建右操作数，即 t => t.Property &lt;= Max
+            </summary>
+        </member>
+        <member name="M:Util.Datas.Queries.Criterias.SegmentCriteria`3.GetMaxOperator">
+            <summary>
+            获取最大值相关的运算符
+            </summary>
+        </member>
+        <member name="M:Util.Datas.Queries.Criterias.SegmentCriteria`3.GetMaxValue">
+            <summary>
+            获取最大值
+            </summary>
+        </member>
+        <member name="P:Util.Datas.Queries.Criterias.SegmentCriteria`3.PropertyExpression">
+            <summary>
+            属性表达式
+            </summary>
+        </member>
+        <member name="P:Util.Datas.Queries.Criterias.SegmentCriteria`3.Builder">
+            <summary>
+            表达式生成器
+            </summary>
+        </member>
+        <member name="P:Util.Datas.Queries.Criterias.SegmentCriteria`3.Min">
+            <summary>
+            最小值
+            </summary>
+        </member>
+        <member name="P:Util.Datas.Queries.Criterias.SegmentCriteria`3.Max">
+            <summary>
+            最大值
+            </summary>
+        </member>
+        <member name="M:Util.Datas.Queries.Criterias.DateSegmentCriteria`2.#ctor(System.Linq.Expressions.Expression{System.Func{`0,`1}},System.Nullable{System.DateTime},System.Nullable{System.DateTime})">
+            <summary>
+            初始化日期段过滤条件
+            </summary>
+            <param name="propertyExpression">属性表达式</param>
+            <param name="min">最小值</param>
+            <param name="max">最大值</param>
+        </member>
+        <member name="M:Util.Datas.Queries.Criterias.DateSegmentCriteria`2.IsMinGreaterMax(System.Nullable{System.DateTime},System.Nullable{System.DateTime})">
+            <summary>
+            最小值是否大于最大值
+            </summary>
+        </member>
+        <member name="M:Util.Datas.Queries.Criterias.DateSegmentCriteria`2.GetMinValue">
+            <summary>
+            获取最小值
+            </summary>
+        </member>
+        <member name="M:Util.Datas.Queries.Criterias.DateSegmentCriteria`2.GetMaxValue">
+            <summary>
+            获取最大值
+            </summary>
+        </member>
+        <member name="M:Util.Datas.Queries.Criterias.DateSegmentCriteria`2.GetMaxOperator">
+            <summary>
+            获取最大值相关的运算符
+            </summary>
+        </member>
+        <member name="T:Util.Datas.Queries.Criterias.DateTimeSegmentCriteria`2">
+            <summary>
+            日期时间段过滤条件 - 包含时间
+            </summary>
+            <typeparam name="TEntity">实体类型</typeparam>
+            <typeparam name="TProperty">属性类型</typeparam>
+        </member>
+        <member name="M:Util.Datas.Queries.Criterias.DateTimeSegmentCriteria`2.#ctor(System.Linq.Expressions.Expression{System.Func{`0,`1}},System.Nullable{System.DateTime},System.Nullable{System.DateTime})">
+            <summary>
+            初始化日期时间段过滤条件
+            </summary>
+            <param name="propertyExpression">属性表达式</param>
+            <param name="min">最小值</param>
+            <param name="max">最大值</param>
+        </member>
+        <member name="M:Util.Datas.Queries.Criterias.DateTimeSegmentCriteria`2.IsMinGreaterMax(System.Nullable{System.DateTime},System.Nullable{System.DateTime})">
+            <summary>
+            最小值是否大于最大值
+            </summary>
+        </member>
+        <member name="T:Util.Datas.Queries.Criterias.DecimalSegmentCriteria`2">
+            <summary>
+            decimal数值段过滤条件
+            </summary>
+            <typeparam name="TEntity">实体类型</typeparam>
+            <typeparam name="TProperty">属性类型</typeparam>
+        </member>
+        <member name="M:Util.Datas.Queries.Criterias.DecimalSegmentCriteria`2.#ctor(System.Linq.Expressions.Expression{System.Func{`0,`1}},System.Nullable{System.Decimal},System.Nullable{System.Decimal})">
+            <summary>
+            初始化decimal数值段过滤条件
+            </summary>
+            <param name="propertyExpression">属性表达式</param>
+            <param name="min">最小值</param>
+            <param name="max">最大值</param>
+        </member>
+        <member name="M:Util.Datas.Queries.Criterias.DecimalSegmentCriteria`2.IsMinGreaterMax(System.Nullable{System.Decimal},System.Nullable{System.Decimal})">
+            <summary>
+            最小值是否大于最大值
+            </summary>
+        </member>
+        <member name="T:Util.Datas.Queries.Criterias.DoubleSegmentCriteria`2">
+            <summary>
+            double数值段过滤条件
+            </summary>
+            <typeparam name="TEntity">实体类型</typeparam>
+            <typeparam name="TProperty">属性类型</typeparam>
+        </member>
+        <member name="M:Util.Datas.Queries.Criterias.DoubleSegmentCriteria`2.#ctor(System.Linq.Expressions.Expression{System.Func{`0,`1}},System.Nullable{System.Double},System.Nullable{System.Double})">
+            <summary>
+            初始化double数值段过滤条件
+            </summary>
+            <param name="propertyExpression">属性表达式</param>
+            <param name="min">最小值</param>
+            <param name="max">最大值</param>
+        </member>
+        <member name="M:Util.Datas.Queries.Criterias.DoubleSegmentCriteria`2.IsMinGreaterMax(System.Nullable{System.Double},System.Nullable{System.Double})">
+            <summary>
+            最小值是否大于最大值
+            </summary>
+        </member>
+        <member name="T:Util.Datas.Queries.Criterias.IntSegmentCriteria`2">
+            <summary>
+            整数段过滤条件
+            </summary>
+            <typeparam name="TEntity">实体类型</typeparam>
+            <typeparam name="TProperty">属性类型</typeparam>
+        </member>
+        <member name="M:Util.Datas.Queries.Criterias.IntSegmentCriteria`2.#ctor(System.Linq.Expressions.Expression{System.Func{`0,`1}},System.Nullable{System.Int32},System.Nullable{System.Int32})">
+            <summary>
+            初始化整数段过滤条件
+            </summary>
+            <param name="propertyExpression">属性表达式</param>
+            <param name="min">最小值</param>
+            <param name="max">最大值</param>
+        </member>
+        <member name="M:Util.Datas.Queries.Criterias.IntSegmentCriteria`2.IsMinGreaterMax(System.Nullable{System.Int32},System.Nullable{System.Int32})">
+            <summary>
+            最小值是否大于最大值
+            </summary>
+        </member>
+        <member name="T:Util.Datas.Queries.Criterias.OrCriteria`1">
+            <summary>
+            或查询条件
+            </summary>
+            <typeparam name="TEntity">实体类型</typeparam>
+        </member>
+        <member name="M:Util.Datas.Queries.Criterias.OrCriteria`1.#ctor(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}},System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}})">
+            <summary>
+            初始化与查询条件
+            </summary>
+            <param name="first">谓词1</param>
+            <param name="second">谓词2</param>
+        </member>
+        <member name="T:Util.Datas.Queries.IQuery`2">
+            <summary>
+            查询对象
+            </summary>
+            <typeparam name="TEntity">实体类型</typeparam>
+            <typeparam name="TKey">实体标识类型</typeparam>
+        </member>
+        <member name="M:Util.Datas.Queries.IQuery`2.Filter(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}},System.Boolean)">
+            <summary>
+            添加谓词,仅能添加一个条件,如果参数值为空，则忽略该条件
+            </summary>
+            <param name="predicate">谓词</param>
+            <param name="isOr">是否使用Or连接</param>
+        </member>
+        <member name="M:Util.Datas.Queries.IQuery`2.Filter(System.String,System.Object,Util.Operator)">
+            <summary>
+            过滤条件
+            </summary>
+            <param name="propertyName">属性名</param>
+            <param name="value">值</param>
+            <param name="operator">运算符</param>
+        </member>
+        <member name="M:Util.Datas.Queries.IQuery`2.Filter(Util.Domains.Repositories.ICriteria{`0})">
+            <summary>
+            添加查询条件
+            </summary>
+            <param name="criteria">查询条件</param>
+        </member>
+        <member name="M:Util.Datas.Queries.IQuery`2.FilterInt``1(System.Linq.Expressions.Expression{System.Func{`0,``0}},System.Nullable{System.Int32},System.Nullable{System.Int32})">
+            <summary>
+            过滤int数值段
+            </summary>
+            <typeparam name="TProperty">属性类型</typeparam>
+            <param name="propertyExpression">属性表达式，范例：t => t.Age</param>
+            <param name="min">最小值</param>
+            <param name="max">最大值</param>
+        </member>
+        <member name="M:Util.Datas.Queries.IQuery`2.FilterDouble``1(System.Linq.Expressions.Expression{System.Func{`0,``0}},System.Nullable{System.Double},System.Nullable{System.Double})">
+            <summary>
+            过滤double数值段
+            </summary>
+            <typeparam name="TProperty">属性类型</typeparam>
+            <param name="propertyExpression">属性表达式，范例：t => t.Age</param>
+            <param name="min">最小值</param>
+            <param name="max">最大值</param>
+        </member>
+        <member name="M:Util.Datas.Queries.IQuery`2.FilterDate``1(System.Linq.Expressions.Expression{System.Func{`0,``0}},System.Nullable{System.DateTime},System.Nullable{System.DateTime})">
+            <summary>
+            过滤日期段，不包含时间
+            </summary>
+            <typeparam name="TProperty">属性类型</typeparam>
+            <param name="propertyExpression">属性表达式，范例：t => t.Age</param>
+            <param name="min">最小值</param>
+            <param name="max">最大值</param>
+        </member>
+        <member name="M:Util.Datas.Queries.IQuery`2.FilterDateTime``1(System.Linq.Expressions.Expression{System.Func{`0,``0}},System.Nullable{System.DateTime},System.Nullable{System.DateTime})">
+            <summary>
+            过滤日期时间段，包含时间
+            </summary>
+            <typeparam name="TProperty">属性类型</typeparam>
+            <param name="propertyExpression">属性表达式，范例：t => t.Age</param>
+            <param name="min">最小值</param>
+            <param name="max">最大值</param>
+        </member>
+        <member name="M:Util.Datas.Queries.IQuery`2.FilterDecimal``1(System.Linq.Expressions.Expression{System.Func{`0,``0}},System.Nullable{System.Decimal},System.Nullable{System.Decimal})">
+            <summary>
+            过滤decimal数值段
+            </summary>
+            <typeparam name="TProperty">属性类型</typeparam>
+            <param name="propertyExpression">属性表达式，范例：t => t.Age</param>
+            <param name="min">最小值</param>
+            <param name="max">最大值</param>
+        </member>
+        <member name="M:Util.Datas.Queries.IQuery`2.And(Util.Datas.Queries.IQuery{`0,`1})">
+            <summary>
+            与连接,将传入的查询条件合并到当前对象
+            </summary>
+            <param name="query">查询对象</param>
+        </member>
+        <member name="M:Util.Datas.Queries.IQuery`2.And(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}})">
+            <summary>
+            与连接,将传入的查询条件合并到当前对象
+            </summary>
+            <param name="predicate">谓词</param>
+        </member>
+        <member name="M:Util.Datas.Queries.IQuery`2.Or(Util.Datas.Queries.IQuery{`0,`1})">
+            <summary>
+            或连接,将传入的查询条件合并到当前对象
+            </summary>
+            <param name="query">查询对象</param>
+        </member>
+        <member name="M:Util.Datas.Queries.IQuery`2.Or(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}})">
+            <summary>
+            或连接,将传入的查询条件合并到当前对象
+            </summary>
+            <param name="predicate">谓词</param>
+        </member>
+        <member name="M:Util.Datas.Queries.IQuery`2.OrderBy``1(System.Linq.Expressions.Expression{System.Func{`0,``0}},System.Boolean)">
+            <summary>
+            添加排序，支持多次调用OrderBy创建多级排序
+            </summary>
+            <typeparam name="TProperty">属性类型</typeparam>
+            <param name="expression">属性表达式</param>
+            <param name="desc">是否降序</param>
+        </member>
+        <member name="M:Util.Datas.Queries.IQuery`2.OrderBy(System.String,System.Boolean)">
+            <summary>
+            添加排序，支持多次调用OrderBy创建多级排序
+            </summary>
+            <param name="propertyName">排序属性</param>
+            <param name="desc">是否降序</param>
+        </member>
+        <member name="M:Util.Datas.Queries.IQuery`2.GetList(System.Linq.IQueryable{`0})">
+            <summary>
+            获取列表
+            </summary>
+            <param name="queryable">数据源</param>
+        </member>
+        <member name="M:Util.Datas.Queries.IQuery`2.GetPagerList(System.Linq.IQueryable{`0})">
+            <summary>
+            获取分页列表
+            </summary>
+            <param name="queryable">数据源</param>
+        </member>
+        <member name="T:Util.Datas.Queries.IQuery`1">
+            <summary>
+            查询对象
+            </summary>
+            <typeparam name="TEntity">实体类型</typeparam>
+        </member>
+        <member name="T:Util.Datas.Queries.OrderBys.OrderByBuilder">
+            <summary>
+            排序生成器
+            </summary>
+        </member>
+        <member name="M:Util.Datas.Queries.OrderBys.OrderByBuilder.#ctor">
+            <summary>
+            初始化排序生成器
+            </summary>
+        </member>
+        <member name="M:Util.Datas.Queries.OrderBys.OrderByBuilder.Generate">
+            <summary>
+            生成排序字符串
+            </summary>
+        </member>
+        <member name="M:Util.Datas.Queries.OrderBys.OrderByBuilder.Add(System.String,System.Boolean)">
+            <summary>
+            添加排序
+            </summary>
+            <param name="name">排序属性</param>
+            <param name="desc">是否降序</param>
+        </member>
+        <member name="M:Util.Datas.Queries.OrderBys.OrderByBuilder.Add(System.String,Util.Datas.Queries.OrderDirection)">
+            <summary>
+            添加排序
+            </summary>
+            <param name="name">排序属性</param>
+            <param name="direction">排序方向</param>
+        </member>
+        <member name="P:Util.Datas.Queries.OrderBys.OrderByBuilder.Items">
+            <summary>
+            排序项
+            </summary>
+        </member>
+        <member name="T:Util.Datas.Queries.OrderBys.OrderByItem">
+            <summary>
+            排序项
+            </summary>
+        </member>
+        <member name="M:Util.Datas.Queries.OrderBys.OrderByItem.#ctor(System.String,Util.Datas.Queries.OrderDirection)">
+            <summary>
+            初始化排序项
+            </summary>
+            <param name="name">排序属性</param>
+            <param name="direction">排序方向</param>
+        </member>
+        <member name="M:Util.Datas.Queries.OrderBys.OrderByItem.Generate">
+            <summary>
+            创建排序字符串
+            </summary>
+        </member>
+        <member name="P:Util.Datas.Queries.OrderBys.OrderByItem.Name">
+            <summary>
+            排序属性
+            </summary>
+        </member>
+        <member name="P:Util.Datas.Queries.OrderBys.OrderByItem.Direction">
+            <summary>
+            排序方向
+            </summary>
+        </member>
+        <member name="T:Util.Datas.Queries.OrderDirection">
+            <summary>
+            排序方向
+            </summary>
+        </member>
+        <member name="F:Util.Datas.Queries.OrderDirection.Asc">
+            <summary>
+            升序
+            </summary>
+        </member>
+        <member name="F:Util.Datas.Queries.OrderDirection.Desc">
+            <summary>
+            降序
+            </summary>
+        </member>
+        <member name="T:Util.Datas.Queries.OrderDirectioneExtensions">
+            <summary>
+            排序方向枚举扩展
+            </summary>
+        </member>
+        <member name="M:Util.Datas.Queries.OrderDirectioneExtensions.Description(System.Nullable{Util.Datas.Queries.OrderDirection})">
+            <summary>
+            获取描述
+            </summary>
+        </member>
+        <member name="T:Util.Datas.Queries.Query`2">
+            <summary>
+            查询对象
+            </summary>
+            <typeparam name="TEntity">实体类型</typeparam>
+            <typeparam name="TKey">实体标识类型</typeparam>
+        </member>
+        <member name="M:Util.Datas.Queries.Query`2.#ctor">
+            <summary>
+            初始化查询对象
+            </summary>
+        </member>
+        <member name="M:Util.Datas.Queries.Query`2.#ctor(Util.Domains.Repositories.IPager)">
+            <summary>
+            初始化查询对象
+            </summary>
+            <param name="pager">分页对象</param>
+        </member>
+        <member name="M:Util.Datas.Queries.Query`2.GetPredicate">
+            <summary>
+            获取谓词
+            </summary>
+        </member>
+        <member name="M:Util.Datas.Queries.Query`2.GetOrderBy">
+            <summary>
+            获取排序
+            </summary>
+        </member>
+        <member name="M:Util.Datas.Queries.Query`2.Filter(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}},System.Boolean)">
+            <summary>
+            添加谓词,仅能添加一个条件,如果参数值为空，则忽略该条件
+            </summary>
+            <param name="predicate">谓词</param>
+            <param name="isOr">是否使用Or连接</param>
+        </member>
+        <member name="M:Util.Datas.Queries.Query`2.Filter(System.String,System.Object,Util.Operator)">
+            <summary>
+            过滤条件
+            </summary>
+            <param name="propertyName">属性名</param>
+            <param name="value">值</param>
+            <param name="operator">运算符</param>
+        </member>
+        <member name="M:Util.Datas.Queries.Query`2.Filter(Util.Domains.Repositories.ICriteria{`0})">
+            <summary>
+            添加查询条件
+            </summary>
+            <param name="criteria">查询条件</param>
+        </member>
+        <member name="M:Util.Datas.Queries.Query`2.FilterInt``1(System.Linq.Expressions.Expression{System.Func{`0,``0}},System.Nullable{System.Int32},System.Nullable{System.Int32})">
+            <summary>
+            过滤int数值段
+            </summary>
+            <typeparam name="TProperty">属性类型</typeparam>
+            <param name="propertyExpression">属性表达式，范例：t => t.Age</param>
+            <param name="min">最小值</param>
+            <param name="max">最大值</param>
+        </member>
+        <member name="M:Util.Datas.Queries.Query`2.FilterDouble``1(System.Linq.Expressions.Expression{System.Func{`0,``0}},System.Nullable{System.Double},System.Nullable{System.Double})">
+            <summary>
+            过滤double数值段
+            </summary>
+            <typeparam name="TProperty">属性类型</typeparam>
+            <param name="propertyExpression">属性表达式，范例：t => t.Age</param>
+            <param name="min">最小值</param>
+            <param name="max">最大值</param>
+        </member>
+        <member name="M:Util.Datas.Queries.Query`2.FilterDate``1(System.Linq.Expressions.Expression{System.Func{`0,``0}},System.Nullable{System.DateTime},System.Nullable{System.DateTime})">
+            <summary>
+            过滤日期段，不包含时间
+            </summary>
+            <typeparam name="TProperty">属性类型</typeparam>
+            <param name="propertyExpression">属性表达式，范例：t => t.Age</param>
+            <param name="min">最小值</param>
+            <param name="max">最大值</param>
+        </member>
+        <member name="M:Util.Datas.Queries.Query`2.FilterDateTime``1(System.Linq.Expressions.Expression{System.Func{`0,``0}},System.Nullable{System.DateTime},System.Nullable{System.DateTime})">
+            <summary>
+            过滤日期时间段，包含时间
+            </summary>
+            <typeparam name="TProperty">属性类型</typeparam>
+            <param name="propertyExpression">属性表达式，范例：t => t.Age</param>
+            <param name="min">最小值</param>
+            <param name="max">最大值</param>
+        </member>
+        <member name="M:Util.Datas.Queries.Query`2.FilterDecimal``1(System.Linq.Expressions.Expression{System.Func{`0,``0}},System.Nullable{System.Decimal},System.Nullable{System.Decimal})">
+            <summary>
+            过滤decimal数值段
+            </summary>
+            <typeparam name="TProperty">属性类型</typeparam>
+            <param name="propertyExpression">属性表达式，范例：t => t.Age</param>
+            <param name="min">最小值</param>
+            <param name="max">最大值</param>
+        </member>
+        <member name="M:Util.Datas.Queries.Query`2.And(Util.Datas.Queries.IQuery{`0,`1})">
+            <summary>
+            与连接,将传入的查询条件合并到当前对象
+            </summary>
+            <param name="query">查询对象</param>
+        </member>
+        <member name="M:Util.Datas.Queries.Query`2.And(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}})">
+            <summary>
+            与连接,将传入的查询条件合并到当前对象
+            </summary>
+            <param name="predicate">谓词</param>
+        </member>
+        <member name="M:Util.Datas.Queries.Query`2.Or(Util.Datas.Queries.IQuery{`0,`1})">
+            <summary>
+            或连接,将传入的查询条件合并到当前对象
+            </summary>
+            <param name="query">查询对象</param>
+        </member>
+        <member name="M:Util.Datas.Queries.Query`2.Or(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}})">
+            <summary>
+            或连接,将传入的查询条件合并到当前对象
+            </summary>
+            <param name="predicate">谓词</param>
+        </member>
+        <member name="M:Util.Datas.Queries.Query`2.OrderBy``1(System.Linq.Expressions.Expression{System.Func{`0,``0}},System.Boolean)">
+            <summary>
+            添加排序，支持多次调用OrderBy创建多级排序
+            </summary>
+            <typeparam name="TProperty">属性类型</typeparam>
+            <param name="expression">属性表达式</param>
+            <param name="desc">是否降序</param>
+        </member>
+        <member name="M:Util.Datas.Queries.Query`2.OrderBy(System.String,System.Boolean)">
+            <summary>
+            添加排序，支持多次调用OrderBy创建多级排序
+            </summary>
+            <param name="propertyName">排序属性</param>
+            <param name="desc">是否降序</param>
+        </member>
+        <member name="M:Util.Datas.Queries.Query`2.Clear">
+            <summary>
+            清理
+            </summary>
+        </member>
+        <member name="M:Util.Datas.Queries.Query`2.GetList(System.Linq.IQueryable{`0})">
+            <summary>
+            获取列表
+            </summary>
+            <param name="queryable">数据源</param>
+        </member>
+        <member name="M:Util.Datas.Queries.Query`2.Execute(System.Linq.IQueryable{`0})">
+            <summary>
+            执行过滤和分页
+            </summary>
+        </member>
+        <member name="M:Util.Datas.Queries.Query`2.FilterBy(System.Linq.IQueryable{`0})">
+            <summary>
+            过滤
+            </summary>
+        </member>
+        <member name="M:Util.Datas.Queries.Query`2.GetPagerList(System.Linq.IQueryable{`0})">
+            <summary>
+            获取分页列表
+            </summary>
+            <param name="queryable">数据源</param>
+        </member>
+        <member name="P:Util.Datas.Queries.Query`2.Criteria">
+            <summary>
+            查询条件
+            </summary>
+        </member>
+        <member name="P:Util.Datas.Queries.Query`2.OrderBuilder">
+            <summary>
+            排序生成器
+            </summary>
+        </member>
+        <member name="T:Util.Datas.Queries.QueryHelper">
+            <summary>
+            查询操作
+            </summary>
+        </member>
+        <member name="M:Util.Datas.Queries.QueryHelper.ValidatePredicate``1(System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}})">
+            <summary>
+            验证谓词，无效返回null
+            </summary>
+            <typeparam name="T">实体类型</typeparam>
+            <param name="predicate">谓词</param>
+        </member>
+        <member name="T:Util.Datas.Queries.Query`1">
+            <summary>
+            查询对象
+            </summary>
+            <typeparam name="TEntity">实体类型</typeparam>
+        </member>
+        <member name="M:Util.Datas.Queries.Query`1.#ctor">
+            <summary>
+            初始化查询对象
+            </summary>
+        </member>
+        <member name="M:Util.Datas.Queries.Query`1.#ctor(Util.Domains.Repositories.IPager)">
+            <summary>
+            初始化查询对象
+            </summary>
+            <param name="pager">分页对象</param>
+        </member>
+    </members>
+</doc>

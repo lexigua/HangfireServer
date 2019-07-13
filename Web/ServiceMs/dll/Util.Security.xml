@@ -1,0 +1,526 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Util.Security</name>
+    </assembly>
+    <members>
+        <member name="T:Util.Security.Identity">
+            <summary>
+            身份标识
+            </summary>
+        </member>
+        <member name="M:Util.Security.Identity.#ctor">
+            <summary>
+            初始化身份标识
+            </summary>
+        </member>
+        <member name="M:Util.Security.Identity.#ctor(System.Boolean,System.String,System.String[],System.String,System.String)">
+            <summary>
+            初始化身份标识
+            </summary>
+            <param name="isAuthenticated">是否认证</param>
+            <param name="userId">用户标识</param>
+            <param name="roleIds">角色编号列表</param>
+            <param name="applicationId">应用程序编号</param>
+            <param name="tenantId">租户编号</param>
+        </member>
+        <member name="M:Util.Security.Identity.Validate">
+            <summary>
+            验证
+            </summary>
+        </member>
+        <member name="M:Util.Security.Identity.Unauthenticated">
+            <summary>
+            未认证的身份标识
+            </summary>
+        </member>
+        <member name="P:Util.Security.Identity.AuthenticationType">
+            <summary>
+            认证类型
+            </summary>
+        </member>
+        <member name="P:Util.Security.Identity.IsAuthenticated">
+            <summary>
+            是否认证
+            </summary>
+        </member>
+        <member name="P:Util.Security.Identity.Name">
+            <summary>
+            用户标识
+            </summary>
+        </member>
+        <member name="P:Util.Security.Identity.UserId">
+            <summary>
+            用户编号
+            </summary>
+        </member>
+        <member name="P:Util.Security.Identity.RoleIds">
+            <summary>
+            角色编号列表
+            </summary>
+        </member>
+        <member name="P:Util.Security.Identity.FullName">
+            <summary>
+            用户姓名
+            </summary>
+        </member>
+        <member name="P:Util.Security.Identity.Role">
+            <summary>
+            角色
+            </summary>
+        </member>
+        <member name="P:Util.Security.Identity.ApplicationId">
+            <summary>
+            应用程序编号
+            </summary>
+        </member>
+        <member name="P:Util.Security.Identity.ApplicationCode">
+            <summary>
+            应用程序编码
+            </summary>
+        </member>
+        <member name="P:Util.Security.Identity.Application">
+            <summary>
+            应用程序名称
+            </summary>
+        </member>
+        <member name="P:Util.Security.Identity.TenantId">
+            <summary>
+            租户编号
+            </summary>
+        </member>
+        <member name="P:Util.Security.Identity.TenantCode">
+            <summary>
+            租户编码
+            </summary>
+        </member>
+        <member name="P:Util.Security.Identity.Tenant">
+            <summary>
+            租户名称
+            </summary>
+        </member>
+        <member name="P:Util.Security.Identity.Skin">
+            <summary>
+            皮肤
+            </summary>
+        </member>
+        <member name="P:Util.Security.Identity.MenuStyle">
+            <summary>
+            菜单样式
+            </summary>
+        </member>
+        <member name="T:Util.Security.IKeyService">
+            <summary>
+            密钥服务
+            </summary>
+        </member>
+        <member name="M:Util.Security.IKeyService.GetKey">
+            <summary>
+            获取密钥
+            </summary>
+        </member>
+        <member name="T:Util.Security.IPermissionManager">
+            <summary>
+            权限管理器
+            </summary>
+        </member>
+        <member name="M:Util.Security.IPermissionManager.HasPermission(System.String)">
+            <summary>
+            检查当前用户是否具有该资源的权限
+            </summary>
+            <param name="resourceUri">资源标识，一般为网页地址,范例：/a/b/c</param>
+        </member>
+        <member name="T:Util.Security.ISecurityManager">
+            <summary>
+            安全管理器
+            </summary>
+        </member>
+        <member name="M:Util.Security.ISecurityManager.IsInApplication(System.Guid)">
+            <summary>
+            检测该用户是否属于当前应用程序
+            </summary>
+            <param name="userId">用户编号</param>
+        </member>
+        <member name="M:Util.Security.ISecurityManager.IsInTenant(System.Guid)">
+            <summary>
+            检测该用户是否属于当前租户
+            </summary>
+            <param name="userId">用户编号</param>
+        </member>
+        <member name="M:Util.Security.ISecurityManager.GetPermissionsByResource(System.String)">
+            <summary>
+            获取资源的权限列表
+            </summary>
+            <param name="resourceUri">资源标识</param>
+        </member>
+        <member name="T:Util.Security.Permission">
+            <summary>
+            权限
+            </summary>
+        </member>
+        <member name="M:Util.Security.Permission.#ctor(System.String,System.Boolean)">
+            <summary>
+            初始化权限
+            </summary>
+            <param name="roleId">角色编号</param>
+            <param name="isDeny">是否拒绝</param>
+        </member>
+        <member name="M:Util.Security.Permission.Validate(System.String)">
+            <summary>
+            验证角色编号
+            </summary>
+        </member>
+        <member name="M:Util.Security.Permission.HasPermission(System.String)">
+            <summary>
+            验证是否具有资源访问权限
+            </summary>
+            <param name="roleId">角色编号</param>
+        </member>
+        <member name="M:Util.Security.Permission.Filter(System.String)">
+            <summary>
+            过滤参数
+            </summary>
+        </member>
+        <member name="P:Util.Security.Permission.RoleId">
+            <summary>
+            角色编号
+            </summary>
+        </member>
+        <member name="P:Util.Security.Permission.IsDeny">
+            <summary>
+            是否拒绝
+            </summary>
+        </member>
+        <member name="T:Util.Security.PermissionManagerBase">
+            <summary>
+            权限管理器
+            </summary>
+        </member>
+        <member name="M:Util.Security.PermissionManagerBase.#ctor(Util.Security.ISecurityManager,System.Boolean)">
+            <summary>
+            初始化权限管理器
+            </summary>
+            <param name="securityManager">安全管理器</param>
+            <param name="ignore">是否忽视权限</param>
+        </member>
+        <member name="F:Util.Security.PermissionManagerBase._identity">
+            <summary>
+            用户身份标识
+            </summary>
+        </member>
+        <member name="F:Util.Security.PermissionManagerBase._securityManager">
+            <summary>
+            安全管理器
+            </summary>
+        </member>
+        <member name="F:Util.Security.PermissionManagerBase._ignore">
+            <summary>
+            是否忽视权限
+            </summary>
+        </member>
+        <member name="M:Util.Security.PermissionManagerBase.HasPermission(System.String)">
+            <summary>
+            检查当前用户是否具有该资源的权限
+            </summary>
+            <param name="resourceUri">资源标识，一般为网页地址,范例：/a/b/c</param>
+        </member>
+        <member name="M:Util.Security.PermissionManagerBase.GetIdentity">
+            <summary>
+            获取用户身份标识
+            </summary>
+        </member>
+        <member name="M:Util.Security.PermissionManagerBase.Validate">
+            <summary>
+            基础验证
+            </summary>
+        </member>
+        <member name="M:Util.Security.PermissionManagerBase.ValidateBefore">
+            <summary>
+            验证前
+            </summary>
+        </member>
+        <member name="M:Util.Security.PermissionManagerBase.ValidateAuthenticated">
+            <summary>
+            验证是否已登录
+            </summary>
+        </member>
+        <member name="M:Util.Security.PermissionManagerBase.ValidateApplication">
+            <summary>
+            验证用户是否属于当前应用程序
+            </summary>
+        </member>
+        <member name="M:Util.Security.PermissionManagerBase.GetUserId">
+            <summary>
+            获取用户编号
+            </summary>
+        </member>
+        <member name="M:Util.Security.PermissionManagerBase.ValidateTenant">
+            <summary>
+            验证用户是否属于当前租户
+            </summary>
+        </member>
+        <member name="M:Util.Security.PermissionManagerBase.IsIgnore">
+            <summary>
+            忽视权限检测
+            </summary>
+        </member>
+        <member name="M:Util.Security.PermissionManagerBase.ValidateRoles(System.String)">
+            <summary>
+            验证用户角色是否被授权访问该资源
+            </summary>
+        </member>
+        <member name="M:Util.Security.PermissionManagerBase.ValidateAfter">
+            <summary>
+            验证后
+            </summary>
+        </member>
+        <member name="T:Util.Security.Principal">
+            <summary>
+            安全主体
+            </summary>
+        </member>
+        <member name="M:Util.Security.Principal.#ctor">
+            <summary>
+            初始化安全主体
+            </summary>
+        </member>
+        <member name="M:Util.Security.Principal.#ctor(System.Security.Principal.IIdentity)">
+            <summary>
+            初始化安全主体
+            </summary>
+        </member>
+        <member name="M:Util.Security.Principal.IsInRole(System.String)">
+            <summary>
+            验证用户是否在指定角色中
+            </summary>
+            <param name="role">角色</param>
+        </member>
+        <member name="M:Util.Security.Principal.Unauthenticated">
+            <summary>
+            未认证安全主体
+            </summary>
+        </member>
+        <member name="P:Util.Security.Principal.Identity">
+            <summary>
+            身份标识
+            </summary>
+        </member>
+        <member name="T:Util.Security.ResourcePermissions">
+            <summary>
+            资源权限列表
+            </summary>
+        </member>
+        <member name="M:Util.Security.ResourcePermissions.#ctor(System.String,System.Collections.Generic.IEnumerable{Util.Security.Permission})">
+            <summary>
+            初始化资源权限列表
+            </summary>
+            <param name="resourceUri">资源标识</param>
+            <param name="permissions">权限列表</param>
+        </member>
+        <member name="M:Util.Security.ResourcePermissions.HasPermission(System.String[])">
+            <summary>
+            验证是否具有资源访问权限
+            </summary>
+            <param name="roleIds">角色编号列表</param>
+        </member>
+        <member name="P:Util.Security.ResourcePermissions.ResourceUri">
+            <summary>
+            资源标识
+            </summary>
+        </member>
+        <member name="P:Util.Security.ResourcePermissions.Permissions">
+            <summary>
+            权限列表
+            </summary>
+        </member>
+        <member name="T:Util.Security.SecurityContext">
+            <summary>
+            安全上下文
+            </summary>
+        </member>
+        <member name="P:Util.Security.SecurityContext.User">
+            <summary>
+            当前用户安全主体
+            </summary>
+        </member>
+        <member name="P:Util.Security.SecurityContext.Identity">
+            <summary>
+            当前用户身份标识
+            </summary>
+        </member>
+        <member name="T:Util.Security.UnauthenticatedException">
+            <summary>
+            未授权访问异常
+            </summary>
+        </member>
+        <member name="M:Util.Security.UnauthenticatedException.#ctor(System.Exception)">
+            <summary>
+            初始化未授权访问异常
+            </summary>
+        </member>
+        <member name="M:Util.Security.UnauthenticatedException.#ctor(System.String,System.Exception)">
+            <summary>
+            初始化未授权访问异常
+            </summary>
+        </member>
+        <member name="T:Util.Security.UnauthenticatedIdentity">
+            <summary>
+            未认证的身份标识
+            </summary>
+        </member>
+        <member name="M:Util.Security.UnauthenticatedIdentity.#ctor">
+            <summary>
+            初始化未认证的身份标识
+            </summary>
+        </member>
+        <member name="T:Util.Security.UnauthenticatedPrincipal">
+            <summary>
+            未认证安全主体
+            </summary>
+        </member>
+        <member name="M:Util.Security.UnauthenticatedPrincipal.#ctor">
+            <summary>
+            初始化未认证安全主体
+            </summary>
+        </member>
+        <member name="T:Util.Security.Webs.AuthorizeAttributeBase">
+            <summary>
+            授权
+            </summary>
+        </member>
+        <member name="M:Util.Security.Webs.AuthorizeAttributeBase.AuthorizeCore(System.Web.HttpContextBase)">
+            <summary>
+            授权
+            </summary>
+            <param name="httpContext">Http上下文</param>
+        </member>
+        <member name="M:Util.Security.Webs.AuthorizeAttributeBase.CreatePermissionManager(System.Web.HttpContextBase)">
+            <summary>
+            创建权限管理器
+            </summary>
+            <param name="httpContext">Http上下文</param>
+        </member>
+        <member name="P:Util.Security.Webs.AuthorizeAttributeBase.Ignore">
+            <summary>
+            忽视权限
+            </summary>
+        </member>
+        <member name="P:Util.Security.Webs.AuthorizeAttributeBase.Uri">
+            <summary>
+            资源标识
+            </summary>
+        </member>
+        <member name="T:Util.Security.Webs.AuthorizeModuleBase">
+            <summary>
+            基授权模块
+            </summary>
+        </member>
+        <member name="M:Util.Security.Webs.AuthorizeModuleBase.Init(System.Web.HttpApplication)">
+            <summary>
+            初始化
+            </summary>
+        </member>
+        <member name="M:Util.Security.Webs.AuthorizeModuleBase.SetPrincipal(System.Object,System.EventArgs)">
+            <summary>
+            设置安全主体
+            </summary>
+        </member>
+        <member name="M:Util.Security.Webs.AuthorizeModuleBase.GetPrincipal(System.Guid)">
+            <summary>
+            获取安全主体
+            </summary>
+        </member>
+        <member name="M:Util.Security.Webs.AuthorizeModuleBase.GetIdentity(System.Guid)">
+            <summary>
+            获取用户标识
+            </summary>
+            <param name="userId">用户编号</param>
+        </member>
+        <member name="M:Util.Security.Webs.AuthorizeModuleBase.GetSecurityService">
+            <summary>
+            获取安全服务
+            </summary>
+        </member>
+        <member name="M:Util.Security.Webs.AuthorizeModuleBase.Dispose">
+            <summary>
+            释放资源
+            </summary>
+        </member>
+        <member name="T:Util.Security.Webs.HttpContextAdapter">
+            <summary>
+            HttpContext适配器
+            </summary>
+        </member>
+        <member name="T:Util.Security.Webs.IHttpContextAdapter">
+            <summary>
+            Http上下文适配器
+            </summary>
+        </member>
+        <member name="M:Util.Security.Webs.IHttpContextAdapter.GetIdentity">
+            <summary>
+            获取身份标识
+            </summary>
+        </member>
+        <member name="M:Util.Security.Webs.HttpContextAdapter.GetIdentity">
+            <summary>
+            获取身份标识
+            </summary>
+        </member>
+        <member name="T:Util.Security.Webs.HttpContextBaseAdapter">
+            <summary>
+            HttpContextBase适配器
+            </summary>
+        </member>
+        <member name="M:Util.Security.Webs.HttpContextBaseAdapter.#ctor(System.Web.HttpContextBase)">
+            <summary>
+            初始化HttpContextBase适配器
+            </summary>
+            <param name="httpContext">Http上下文</param>
+        </member>
+        <member name="F:Util.Security.Webs.HttpContextBaseAdapter._httpContext">
+            <summary>
+            Http上下文
+            </summary>
+        </member>
+        <member name="M:Util.Security.Webs.HttpContextBaseAdapter.GetIdentity">
+            <summary>
+            获取身份标识
+            </summary>
+        </member>
+        <member name="T:Util.Security.Webs.WebPermissionManager">
+            <summary>
+            Web权限管理器
+            </summary>
+        </member>
+        <member name="M:Util.Security.Webs.WebPermissionManager.#ctor(Util.Security.Webs.IHttpContextAdapter,Util.Security.ISecurityManager,System.Boolean)">
+            <summary>
+            初始化Web权限管理器
+            </summary>
+            <param name="httpContext">Http上下文</param>
+            <param name="securityManager">安全管理器</param>
+            <param name="ignore">是否忽视权限</param>
+        </member>
+        <member name="F:Util.Security.Webs.WebPermissionManager._httpContext">
+            <summary>
+            Http上下文
+            </summary>
+        </member>
+        <member name="M:Util.Security.Webs.WebPermissionManager.GetIdentity">
+            <summary>
+            创建用户身份标识
+            </summary>
+        </member>
+        <member name="T:Util.Security.Webs.WebSecurity">
+            <summary>
+            Web安全操作
+            </summary>
+        </member>
+        <member name="M:Util.Security.Webs.WebSecurity.Authenticate(System.String,System.Boolean)">
+            <summary>
+            安全认证
+            </summary>
+            <param name="userId">用户编号</param>
+            <param name="isPersistent">是否</param>
+        </member>
+    </members>
+</doc>

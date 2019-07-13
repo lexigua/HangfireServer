@@ -1,0 +1,11 @@
+﻿   #formQuery dl {
+        width: auto;
+    }
+
+/*    #formQuery dt {
+        width: 50px;
+    }*/
+
+    #formQuery dl dt label {
+        width: auto;
+    }

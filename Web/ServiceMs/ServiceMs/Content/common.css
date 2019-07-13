@@ -1,0 +1,31 @@
+body,ul,li{padding:0;margin:0;list-style: none;}
+.main_warp{
+	width:60%;
+	margin:50px 20%;
+	border:1px solid;
+}
+.title{
+	width:100%;
+	text-align: center;
+}
+.parameter_warp{
+	overflow: hidden;
+	margin-top: 10px;
+}
+.parameter1 li,
+.parameter2 li,
+.parameter3 li,
+.parameter4 li{
+	float:left;
+}
+.parameter_warp{
+	font-size: 16px;
+
+}
+.table{
+	width:100%;
+	margin-top:10px;
+	height:600px;
+	display:block;
+	border:1px solid;
+}

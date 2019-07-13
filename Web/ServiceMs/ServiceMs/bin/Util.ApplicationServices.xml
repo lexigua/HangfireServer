@@ -1,0 +1,743 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Util.ApplicationServices</name>
+    </assembly>
+    <members>
+        <member name="T:Util.ApplicationServices.BatchService`4">
+            <summary>
+            批操作服务
+            </summary>
+            <typeparam name="TEntity">实体类型</typeparam>
+            <typeparam name="TDto">数据传输对象类型</typeparam>
+            <typeparam name="TQuery">查询实体类型</typeparam>
+            <typeparam name="TKey">实体标识类型</typeparam>
+        </member>
+        <member name="T:Util.ApplicationServices.ServiceBase`4">
+            <summary>
+            应用服务
+            </summary>
+            <typeparam name="TEntity">实体类型</typeparam>
+            <typeparam name="TDto">数据传输对象类型</typeparam>
+            <typeparam name="TQuery">查询实体类型</typeparam>
+            <typeparam name="TKey">实体标识类型</typeparam>
+        </member>
+        <member name="T:Util.ApplicationServices.IServiceBase`2">
+            <summary>
+            应用服务
+            </summary>
+            <typeparam name="TDto">数据传输对象类型</typeparam>
+            <typeparam name="TQuery">查询实体类型</typeparam>
+        </member>
+        <member name="M:Util.ApplicationServices.IServiceBase`2.Create">
+            <summary>
+            创建实体
+            </summary>
+        </member>
+        <member name="M:Util.ApplicationServices.IServiceBase`2.Get(System.Object)">
+            <summary>
+            通过编号获取
+            </summary>
+            <param name="id">实体编号</param>
+        </member>
+        <member name="M:Util.ApplicationServices.IServiceBase`2.GetByIds(System.String)">
+            <summary>
+            通过编号集合获取列表
+            </summary>
+            <param name="ids">Id集合字符串，多个Id用逗号分隔</param>
+        </member>
+        <member name="M:Util.ApplicationServices.IServiceBase`2.GetAll">
+            <summary>
+            获取全部列表
+            </summary>
+        </member>
+        <member name="M:Util.ApplicationServices.IServiceBase`2.Query(`1)">
+            <summary>
+            查询
+            </summary>
+            <param name="query">查询实体</param>
+        </member>
+        <member name="M:Util.ApplicationServices.IServiceBase`2.Save(`0)">
+            <summary>
+            保存
+            </summary>
+            <param name="dto">数据传输对象</param>
+        </member>
+        <member name="M:Util.ApplicationServices.IServiceBase`2.Delete(System.String)">
+            <summary>
+            删除
+            </summary>
+            <param name="ids">Id集合字符串，多个Id用逗号分隔</param>
+        </member>
+        <member name="M:Util.ApplicationServices.ServiceBase`4.#ctor(Util.Datas.IUnitOfWork,Util.Domains.Repositories.IRepository{`0,`3})">
+            <summary>
+            初始化应用服务
+            </summary>
+            <param name="unitOfWork">工作单元</param>
+            <param name="repository">仓储</param>
+        </member>
+        <member name="F:Util.ApplicationServices.ServiceBase`4.Repository">
+            <summary>
+            仓储
+            </summary>
+        </member>
+        <member name="M:Util.ApplicationServices.ServiceBase`4.ToDto(`0)">
+            <summary>
+            转换为数据传输对象
+            </summary>
+            <param name="entity">实体</param>
+        </member>
+        <member name="M:Util.ApplicationServices.ServiceBase`4.ToEntity(`1)">
+            <summary>
+            转换为实体
+            </summary>
+            <param name="dto">数据传输对象</param>
+        </member>
+        <member name="M:Util.ApplicationServices.ServiceBase`4.LogBefore(`0)">
+            <summary>
+            记录更新前实体状态
+            </summary>
+            <param name="entity">实体</param>
+        </member>
+        <member name="M:Util.ApplicationServices.ServiceBase`4.AddLog(`0)">
+            <summary>
+            添加日志
+            </summary>
+            <param name="entity">实体</param>
+        </member>
+        <member name="M:Util.ApplicationServices.ServiceBase`4.WriteLog(System.String,`0)">
+            <summary>
+            写日志
+            </summary>
+            <param name="caption">标题</param>
+            <param name="entity">实体</param>
+        </member>
+        <member name="M:Util.ApplicationServices.ServiceBase`4.WriteLog(System.String)">
+            <summary>
+            写日志
+            </summary>
+            <param name="caption">标题</param>
+        </member>
+        <member name="M:Util.ApplicationServices.ServiceBase`4.WriteLog(System.String,System.Collections.Generic.IList{`0})">
+            <summary>
+            写日志
+            </summary>
+            <param name="caption">标题</param>
+            <param name="entities">实体集合</param>
+        </member>
+        <member name="M:Util.ApplicationServices.ServiceBase`4.WriteLog(Util.Domains.Repositories.IPager,System.String)">
+            <summary>
+            写日志
+            </summary>
+            <param name="query">查询参数</param>
+            <param name="sql">Sql语句</param>
+        </member>
+        <member name="M:Util.ApplicationServices.ServiceBase`4.Create">
+            <summary>
+            创建实体
+            </summary>
+        </member>
+        <member name="M:Util.ApplicationServices.ServiceBase`4.Get(System.Object)">
+            <summary>
+            通过编号获取实体
+            </summary>
+            <param name="id">实体编号</param>
+        </member>
+        <member name="M:Util.ApplicationServices.ServiceBase`4.GetByIds(System.String)">
+            <summary>
+            通过编号集合获取列表
+            </summary>
+            <param name="ids">Id集合字符串，多个Id用逗号分隔</param>
+        </member>
+        <member name="M:Util.ApplicationServices.ServiceBase`4.GetEntitiesByIds(System.String)">
+            <summary>
+            通过编号集合获取实体集合
+            </summary>
+        </member>
+        <member name="M:Util.ApplicationServices.ServiceBase`4.GetAll">
+            <summary>
+            获取全部列表
+            </summary>
+        </member>
+        <member name="M:Util.ApplicationServices.ServiceBase`4.Query(`2)">
+            <summary>
+            查询
+            </summary>
+            <param name="param">查询参数</param>
+        </member>
+        <member name="M:Util.ApplicationServices.ServiceBase`4.GetQuery(`2)">
+            <summary>
+            获取查询对象
+            </summary>
+            <param name="param">查询参数</param>
+        </member>
+        <member name="M:Util.ApplicationServices.ServiceBase`4.Save(`1)">
+            <summary>
+            保存
+            </summary>
+            <param name="dto">数据传输对象</param>
+        </member>
+        <member name="M:Util.ApplicationServices.ServiceBase`4.IsNew(`1,`0)">
+            <summary>
+            是否新增
+            </summary>
+            <param name="dto">数据传输对象</param>
+            <param name="entity">领域实体</param>
+        </member>
+        <member name="M:Util.ApplicationServices.ServiceBase`4.Add(`0)">
+            <summary>
+            添加
+            </summary>
+        </member>
+        <member name="M:Util.ApplicationServices.ServiceBase`4.AddBefore(`0)">
+            <summary>
+            添加前操作
+            </summary>
+        </member>
+        <member name="M:Util.ApplicationServices.ServiceBase`4.AddAfter(`0)">
+            <summary>
+            添加后操作
+            </summary>
+        </member>
+        <member name="M:Util.ApplicationServices.ServiceBase`4.Update(`0)">
+            <summary>
+            修改
+            </summary>
+        </member>
+        <member name="M:Util.ApplicationServices.ServiceBase`4.UpdateBefore(`0,`0)">
+            <summary>
+            修改前操作
+            </summary>
+            <param name="newEntity">新实体</param>
+            <param name="oldEntity">数据库中的旧实体</param>
+        </member>
+        <member name="M:Util.ApplicationServices.ServiceBase`4.Update(`0,`0)">
+            <summary>
+            修改操作
+            </summary>
+            <param name="newEntity">新实体</param>
+            <param name="oldEntity">数据库中的旧实体</param>
+        </member>
+        <member name="M:Util.ApplicationServices.ServiceBase`4.UpdateAfter(`0)">
+            <summary>
+            修改后操作
+            </summary>
+        </member>
+        <member name="M:Util.ApplicationServices.ServiceBase`4.Delete(System.String)">
+            <summary>
+            删除
+            </summary>
+            <param name="ids">Id集合字符串，多个Id用逗号分隔</param>
+        </member>
+        <member name="M:Util.ApplicationServices.ServiceBase`4.DeleteBefore(System.Collections.Generic.List{`0})">
+            <summary>
+            删除前操作
+            </summary>
+            <param name="entities">实体集合</param>
+        </member>
+        <member name="P:Util.ApplicationServices.ServiceBase`4.Log">
+            <summary>
+            日志操作
+            </summary>
+        </member>
+        <member name="P:Util.ApplicationServices.ServiceBase`4.UnitOfWork">
+            <summary>
+            工作单元
+            </summary>
+        </member>
+        <member name="P:Util.ApplicationServices.ServiceBase`4.SelfId">
+            <summary>
+            获取当前用户编号
+            </summary>
+        </member>
+        <member name="T:Util.ApplicationServices.IBatchService`2">
+            <summary>
+            批操作服务
+            </summary>
+            <typeparam name="TDto">数据传输对象类型</typeparam>
+            <typeparam name="TQuery">查询实体类型</typeparam>
+        </member>
+        <member name="M:Util.ApplicationServices.IBatchService`2.Save(System.Collections.Generic.List{`0},System.Collections.Generic.List{`0},System.Collections.Generic.List{`0})">
+            <summary>
+            保存
+            </summary>
+            <param name="addList">新增列表</param>
+            <param name="updateList">修改列表</param>
+            <param name="deleteList">删除列表</param>
+        </member>
+        <member name="M:Util.ApplicationServices.BatchService`4.#ctor(Util.Datas.IUnitOfWork,Util.Domains.Repositories.IRepository{`0,`3})">
+            <summary>
+            初始化批操作服务
+            </summary>
+            <param name="unitOfWork">工作单元</param>
+            <param name="repository">仓储</param>
+        </member>
+        <member name="F:Util.ApplicationServices.BatchService`4._addList">
+            <summary>
+            新增列表
+            </summary>
+        </member>
+        <member name="F:Util.ApplicationServices.BatchService`4._updateList">
+            <summary>
+            修改列表
+            </summary>
+        </member>
+        <member name="F:Util.ApplicationServices.BatchService`4._deleteList">
+            <summary>
+            删除列表
+            </summary>
+        </member>
+        <member name="M:Util.ApplicationServices.BatchService`4.Save(System.Collections.Generic.List{`1},System.Collections.Generic.List{`1},System.Collections.Generic.List{`1})">
+            <summary>
+            保存
+            </summary>
+            <param name="addList">新增列表</param>
+            <param name="updateList">修改列表</param>
+            <param name="deleteList">删除列表</param>
+        </member>
+        <member name="M:Util.ApplicationServices.BatchService`4.SaveBefore(System.Collections.Generic.List{`1},System.Collections.Generic.List{`1},System.Collections.Generic.List{`1})">
+            <summary>
+            保存前操作
+            </summary>
+            <param name="addList">新增列表</param>
+            <param name="updateList">修改列表</param>
+            <param name="deleteList">删除列表</param>
+        </member>
+        <member name="M:Util.ApplicationServices.BatchService`4.FilterList(System.Collections.Generic.List{`1},System.Collections.Generic.IEnumerable{`1})">
+            <summary>
+            过滤无效数据
+            </summary>
+        </member>
+        <member name="M:Util.ApplicationServices.BatchService`4.AddList">
+            <summary>
+            添加列表
+            </summary>
+        </member>
+        <member name="M:Util.ApplicationServices.BatchService`4.UpdateList">
+            <summary>
+            更新列表
+            </summary>
+        </member>
+        <member name="M:Util.ApplicationServices.BatchService`4.DeleteList">
+            <summary>
+            删除列表
+            </summary>
+        </member>
+        <member name="M:Util.ApplicationServices.BatchService`4.DeleteEntities(`0)">
+            <summary>
+            删除实体集合
+            </summary>
+        </member>
+        <member name="M:Util.ApplicationServices.BatchService`4.DeleteEntity(`0)">
+            <summary>
+            删除实体
+            </summary>
+        </member>
+        <member name="M:Util.ApplicationServices.BatchService`4.Save">
+            <summary>
+            保存操作
+            </summary>
+        </member>
+        <member name="M:Util.ApplicationServices.BatchService`4.SaveAfter">
+            <summary>
+            保存后操作
+            </summary>
+        </member>
+        <member name="M:Util.ApplicationServices.BatchService`4.GetResult">
+            <summary>
+            获取结果
+            </summary>
+        </member>
+        <member name="T:Util.ApplicationServices.BatchService`3">
+            <summary>
+            批操作服务
+            </summary>
+            <typeparam name="TEntity">实体类型</typeparam>
+            <typeparam name="TDto">数据传输对象类型</typeparam>
+            <typeparam name="TQuery">查询实体类型</typeparam>
+        </member>
+        <member name="M:Util.ApplicationServices.BatchService`3.#ctor(Util.Datas.IUnitOfWork,Util.Domains.Repositories.IRepository{`0})">
+            <summary>
+            初始化批操作服务
+            </summary>
+            <param name="unitOfWork">工作单元</param>
+            <param name="repository">仓储</param>
+        </member>
+        <member name="T:Util.ApplicationServices.Criterias.TreeEntityCriteria`1">
+            <summary>
+            树型实体查询条件
+            </summary>
+        </member>
+        <member name="M:Util.ApplicationServices.Criterias.TreeEntityCriteria`1.#ctor(Util.Domains.TreeEntityQuery)">
+            <summary>
+            初始化树型实体查询条件
+            </summary>
+            <param name="query">树型实体查询条件</param>
+        </member>
+        <member name="T:Util.ApplicationServices.DtoBase">
+            <summary>
+            数据传输对象
+            </summary>
+        </member>
+        <member name="T:Util.ApplicationServices.IDto">
+            <summary>
+            数据传输对象
+            </summary>
+        </member>
+        <member name="P:Util.ApplicationServices.IDto.Id">
+            <summary>
+            标识
+            </summary>
+        </member>
+        <member name="P:Util.ApplicationServices.DtoBase.Id">
+            <summary>
+            标识
+            </summary>
+        </member>
+        <member name="T:Util.ApplicationServices.Ioc">
+            <summary>
+            容器
+            </summary>
+        </member>
+        <member name="F:Util.ApplicationServices.Ioc.AssemblySkipLoadingPattern">
+            <summary>
+            需要跳过的程序集列表
+            </summary>
+        </member>
+        <member name="M:Util.ApplicationServices.Ioc.Create``1">
+            <summary>
+            创建实例
+            </summary>
+            <typeparam name="T">实例类型</typeparam>
+        </member>
+        <member name="M:Util.ApplicationServices.Ioc.Create(System.Type)">
+            <summary>
+            创建实例
+            </summary>
+            <param name="type">对象类型</param>
+        </member>
+        <member name="M:Util.ApplicationServices.Ioc.RegisterTest(Autofac.Core.IModule[])">
+            <summary>
+            为测试环境注册依赖
+            </summary>
+            <param name="modules">依赖配置</param>
+        </member>
+        <member name="M:Util.ApplicationServices.Ioc.RegisterTypes(System.Collections.Generic.IEnumerable{System.Reflection.Assembly},Autofac.ContainerBuilder)">
+            <summary>
+            注册程序集列表中所有实现了IDependency的类型
+            </summary>
+        </member>
+        <member name="M:Util.ApplicationServices.Ioc.FilterSystemAssembly(System.Collections.Generic.IEnumerable{System.Reflection.Assembly})">
+            <summary>
+            过滤系统程序集
+            </summary>
+        </member>
+        <member name="M:Util.ApplicationServices.Ioc.RegisterMvc(System.Reflection.Assembly,Autofac.Core.IModule[])">
+            <summary>
+            为Mvc注册依赖
+            </summary>
+            <param name="mvcAssembly">mvc项目所在的程序集</param>
+            <param name="modules">依赖配置</param>
+        </member>
+        <member name="T:Util.ApplicationServices.ITreeBatchService`2">
+            <summary>
+            树型实体批操作服务
+            </summary>
+            <typeparam name="TDto">数据传输对象类型</typeparam>
+            <typeparam name="TQuery">查询实体类型</typeparam>
+        </member>
+        <member name="M:Util.ApplicationServices.ITreeBatchService`2.Create(System.String)">
+            <summary>
+            创建实体
+            </summary>
+            <param name="parentId">父Id</param>
+        </member>
+        <member name="M:Util.ApplicationServices.ITreeBatchService`2.GetParentIdsFromPath(`0)">
+            <summary>
+            从路径中获取所有上级节点编号
+            </summary>
+            <param name="dto">数据传输对象</param>
+        </member>
+        <member name="M:Util.ApplicationServices.ITreeBatchService`2.Enable(System.String)">
+            <summary>
+            启用字典
+            </summary>
+            <param name="ids">字典编号列表</param>
+        </member>
+        <member name="M:Util.ApplicationServices.ITreeBatchService`2.Disable(System.String)">
+            <summary>
+            冻结字典
+            </summary>
+            <param name="ids">字典编号列表</param>
+        </member>
+        <member name="M:Util.ApplicationServices.ITreeBatchService`2.FixPath">
+            <summary>
+            修正路径
+            </summary>
+        </member>
+        <member name="T:Util.ApplicationServices.ServiceBase`3">
+            <summary>
+            应用服务
+            </summary>
+            <typeparam name="TEntity">实体类型</typeparam>
+            <typeparam name="TDto">数据传输对象类型</typeparam>
+            <typeparam name="TQuery">查询实体类型</typeparam>
+        </member>
+        <member name="M:Util.ApplicationServices.ServiceBase`3.#ctor(Util.Datas.IUnitOfWork,Util.Domains.Repositories.IRepository{`0})">
+            <summary>
+            初始化应用服务
+            </summary>
+            <param name="unitOfWork">工作单元</param>
+            <param name="repository">仓储</param>
+        </member>
+        <member name="T:Util.ApplicationServices.TenantUploadPathStrategy">
+            <summary>
+            租户上传路径策略
+            </summary>
+        </member>
+        <member name="M:Util.ApplicationServices.TenantUploadPathStrategy.GetPath(System.String,System.String,System.String)">
+            <summary>
+            获取上传路径,形式：/基目录/租户目录/文件分类目录/yyyy-MM-dd/用户Id/文件名-HHmmss.扩展名
+            </summary>
+            <param name="fileName">文件名，包含扩展名</param>
+            <param name="fileCategory">文件分类目录</param>
+            <param name="baseCategory">基目录</param>
+        </member>
+        <member name="M:Util.ApplicationServices.TenantUploadPathStrategy.GetDirectoryPath(System.String,System.String)">
+            <summary>
+            获取上传目录路径,目录形式：/基分类目录/租户目录/文件分类目录/yyyy-MM-dd/用户名/
+            </summary>
+        </member>
+        <member name="M:Util.ApplicationServices.TenantUploadPathStrategy.GetBaseCatetory(System.String)">
+            <summary>
+            获取基目录
+            </summary>
+        </member>
+        <member name="M:Util.ApplicationServices.TenantUploadPathStrategy.GetTenantCategory">
+            <summary>
+            获取租户目录
+            </summary>
+        </member>
+        <member name="M:Util.ApplicationServices.TenantUploadPathStrategy.GetFileCategory(System.String)">
+            <summary>
+            获取文件分类目录
+            </summary>
+        </member>
+        <member name="M:Util.ApplicationServices.TenantUploadPathStrategy.GetUserId">
+            <summary>
+            获取用户Id
+            </summary>
+        </member>
+        <member name="T:Util.ApplicationServices.TreeBatchService`5">
+            <summary>
+            树型实体批操作服务
+            </summary>
+            <typeparam name="TEntity">实体类型</typeparam>
+            <typeparam name="TDto">数据传输对象类型</typeparam>
+            <typeparam name="TQuery">查询实体类型</typeparam>
+            <typeparam name="TKey">实体标识类型</typeparam>
+            <typeparam name="TParentId">父编号类型</typeparam>
+        </member>
+        <member name="M:Util.ApplicationServices.TreeBatchService`5.#ctor(Util.Datas.IUnitOfWork,Util.Domains.Repositories.IRepository{`0,`3})">
+            <summary>
+            初始化批操作服务
+            </summary>
+            <param name="unitOfWork">工作单元</param>
+            <param name="repository">仓储</param>
+        </member>
+        <member name="F:Util.ApplicationServices.TreeBatchService`5._pathChangeList">
+            <summary>
+            需要更新路径的实体列表
+            </summary>
+        </member>
+        <member name="F:Util.ApplicationServices.TreeBatchService`5._updatedPathIds">
+            <summary>
+            已更新路径Id列表
+            </summary>
+        </member>
+        <member name="F:Util.ApplicationServices.TreeBatchService`5._pathBefore">
+            <summary>
+            更新前路径
+            </summary>
+        </member>
+        <member name="M:Util.ApplicationServices.TreeBatchService`5.GetParentIdsFromPath(`1)">
+            <summary>
+            从路径中获取所有上级节点编号
+            </summary>
+            <param name="dto">数据传输对象</param>
+        </member>
+        <member name="M:Util.ApplicationServices.TreeBatchService`5.GetAllChilds(`0)">
+            <summary>
+            获取全部下级实体
+            </summary>
+            <param name="parent">父实体</param>
+        </member>
+        <member name="M:Util.ApplicationServices.TreeBatchService`5.GetChilds(`0)">
+            <summary>
+            获取直接下级
+            </summary>
+            <param name="parent">父实体</param>
+        </member>
+        <member name="M:Util.ApplicationServices.TreeBatchService`5.GetRoots">
+            <summary>
+            获取根节点
+            </summary>
+        </member>
+        <member name="M:Util.ApplicationServices.TreeBatchService`5.Create(System.String)">
+            <summary>
+            创建实体
+            </summary>
+            <param name="parentId">父Id</param>
+        </member>
+        <member name="M:Util.ApplicationServices.TreeBatchService`5.GetSortId(`4)">
+            <summary>
+            获取排序号
+            </summary>
+            <param name="parentId">父Id</param>
+        </member>
+        <member name="M:Util.ApplicationServices.TreeBatchService`5.SaveBefore(System.Collections.Generic.List{`1},System.Collections.Generic.List{`1},System.Collections.Generic.List{`1})">
+            <summary>
+            保存前操作
+            </summary>
+        </member>
+        <member name="M:Util.ApplicationServices.TreeBatchService`5.GetParentChanges">
+            <summary>
+            获取父节点被修改的集合
+            </summary>
+        </member>
+        <member name="M:Util.ApplicationServices.TreeBatchService`5.FilterByPath(System.Collections.Generic.List{`0})">
+            <summary>
+            根据路径过滤，仅保留最顶级节点
+            </summary>
+        </member>
+        <member name="M:Util.ApplicationServices.TreeBatchService`5.GetPathChangeList(System.Collections.Generic.List{`0})">
+            <summary>
+            初始化需要更新路径的实体列表
+            </summary>
+        </member>
+        <member name="M:Util.ApplicationServices.TreeBatchService`5.AddPathChangeList(System.Collections.Generic.List{`0})">
+            <summary>
+            添加需要更新路径的实体列表
+            </summary>
+        </member>
+        <member name="M:Util.ApplicationServices.TreeBatchService`5.InitPath">
+            <summary>
+            初始化路径
+            </summary>
+        </member>
+        <member name="M:Util.ApplicationServices.TreeBatchService`5.InitPath(`0)">
+            <summary>
+            初始化路径
+            </summary>
+        </member>
+        <member name="M:Util.ApplicationServices.TreeBatchService`5.InitEntityPath(`0)">
+            <summary>
+            初始化实体路径
+            </summary>
+        </member>
+        <member name="M:Util.ApplicationServices.TreeBatchService`5.GetParent(`0)">
+            <summary>
+            获取父节点
+            </summary>
+        </member>
+        <member name="M:Util.ApplicationServices.TreeBatchService`5.DeleteEntities(`0)">
+            <summary>
+            删除实体集合
+            </summary>
+        </member>
+        <member name="M:Util.ApplicationServices.TreeBatchService`5.GetResult">
+            <summary>
+            获取结果
+            </summary>
+        </member>
+        <member name="M:Util.ApplicationServices.TreeBatchService`5.GetIds">
+            <summary>
+            获取标识集合
+            </summary>
+        </member>
+        <member name="M:Util.ApplicationServices.TreeBatchService`5.Enable(System.String)">
+            <summary>
+            启用
+            </summary>
+            <param name="ids">字典编号列表</param>
+        </member>
+        <member name="M:Util.ApplicationServices.TreeBatchService`5.Enable(System.String,System.Boolean)">
+            <summary>
+            启用
+            </summary>
+        </member>
+        <member name="M:Util.ApplicationServices.TreeBatchService`5.EnableNodeAndChilds(System.Collections.Generic.List{`0},`0,System.Boolean)">
+            <summary>
+            启用节点及全部下级节点
+            </summary>
+        </member>
+        <member name="M:Util.ApplicationServices.TreeBatchService`5.EnableNode(System.Collections.Generic.List{`0},`0,System.Boolean)">
+            <summary>
+            启用节点
+            </summary>
+        </member>
+        <member name="M:Util.ApplicationServices.TreeBatchService`5.WriteLog(System.Collections.Generic.List{`0},System.Boolean)">
+            <summary>
+            写日志
+            </summary>
+        </member>
+        <member name="M:Util.ApplicationServices.TreeBatchService`5.Disable(System.String)">
+            <summary>
+            冻结
+            </summary>
+            <param name="ids">编号列表</param>
+        </member>
+        <member name="M:Util.ApplicationServices.TreeBatchService`5.FixPath">
+            <summary>
+            修正路径
+            </summary>
+        </member>
+        <member name="M:Util.ApplicationServices.TreeBatchService`5.FixPath(`0,`0)">
+            <summary>
+            修正路径
+            </summary>
+        </member>
+        <member name="M:Util.ApplicationServices.TreeBatchService`5.WriteFixPathLog(`0)">
+            <summary>
+            记录修正路径日志
+            </summary>
+        </member>
+        <member name="M:Util.ApplicationServices.TreeBatchService`5.FixChildPath(`0)">
+            <summary>
+            修复下级子节点
+            </summary>
+        </member>
+        <member name="T:Util.ApplicationServices.TreeBatchService`3">
+            <summary>
+            树型实体批操作服务
+            </summary>
+            <typeparam name="TEntity">实体类型</typeparam>
+            <typeparam name="TDto">数据传输对象类型</typeparam>
+            <typeparam name="TQuery">查询实体类型</typeparam>
+        </member>
+        <member name="M:Util.ApplicationServices.TreeBatchService`3.#ctor(Util.Datas.IUnitOfWork,Util.Domains.Repositories.IRepository{`0,System.Guid})">
+            <summary>
+            初始化批操作服务
+            </summary>
+            <param name="unitOfWork">工作单元</param>
+            <param name="repository">仓储</param>
+        </member>
+        <member name="M:Util.ApplicationServices.TreeBatchService`3.GetSortId(System.Nullable{System.Guid})">
+            <summary>
+            获取排序号
+            </summary>
+            <param name="parentId">父Id</param>
+        </member>
+        <member name="M:Util.ApplicationServices.TreeBatchService`3.GetChilds(`0)">
+            <summary>
+            获取直接下级
+            </summary>
+            <param name="parent">父实体</param>
+        </member>
+        <member name="M:Util.ApplicationServices.TreeBatchService`3.GetRoots">
+            <summary>
+            获取根节点
+            </summary>
+        </member>
+    </members>
+</doc>

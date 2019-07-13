@@ -1,0 +1,700 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Util.Webs</name>
+    </assembly>
+    <members>
+        <member name="T:Util.Webs.AjaxOnlyAttribute">
+            <summary>
+            仅允许Ajax操作
+            </summary>
+        </member>
+        <member name="M:Util.Webs.AjaxOnlyAttribute.#ctor(System.Boolean)">
+            <summary>
+            初始化仅允许Ajax操作
+            </summary>
+            <param name="ignore">跳过Ajax检测</param>
+        </member>
+        <member name="M:Util.Webs.AjaxOnlyAttribute.IsValidForRequest(System.Web.Mvc.ControllerContext,System.Reflection.MethodInfo)">
+            <summary>
+            验证请求有效性
+            </summary>
+            <param name="controllerContext">控制器上下文</param>
+            <param name="methodInfo">方法</param>
+        </member>
+        <member name="P:Util.Webs.AjaxOnlyAttribute.Ignore">
+            <summary>
+            跳过Ajax检测
+            </summary>
+        </member>
+        <member name="T:Util.Webs.ArrayBuilder">
+            <summary>
+            数组生成器
+            </summary>
+        </member>
+        <member name="M:Util.Webs.ArrayBuilder.#ctor">
+            <summary>
+            初始化数组生成器
+            </summary>
+        </member>
+        <member name="F:Util.Webs.ArrayBuilder._list">
+            <summary>
+            数组
+            </summary>
+        </member>
+        <member name="M:Util.Webs.ArrayBuilder.Add(System.String)">
+            <summary>
+            添加项
+            </summary>
+            <param name="item">项</param>
+        </member>
+        <member name="M:Util.Webs.ArrayBuilder.GetResult">
+            <summary>
+            输出结果
+            </summary>
+        </member>
+        <member name="M:Util.Webs.ArrayBuilder.GetMethod">
+            <summary>
+            获取方法
+            </summary>
+        </member>
+        <member name="M:Util.Webs.ArrayBuilder.GetArray">
+            <summary>
+            获取数组
+            </summary>
+        </member>
+        <member name="M:Util.Webs.ArrayBuilder.ToString">
+            <summary>
+            输出结果
+            </summary>
+        </member>
+        <member name="P:Util.Webs.ArrayBuilder.Method">
+            <summary>
+            方法
+            </summary>
+        </member>
+        <member name="T:Util.Webs.AttributeBuilder">
+            <summary>
+            属性生成器
+            </summary>
+        </member>
+        <member name="M:Util.Webs.AttributeBuilder.#ctor(System.String,System.String)">
+            <summary>
+            初始化属性生成器
+            </summary>
+            <param name="attributeSeparator">属性分隔符,范例a="1"中的等号</param>
+            <param name="nodeSeparator">属性节点分隔符，范例a="1",b="2"中的逗号</param>
+        </member>
+        <member name="F:Util.Webs.AttributeBuilder._nodes">
+            <summary>
+            属性节点集合
+            </summary>
+        </member>
+        <member name="F:Util.Webs.AttributeBuilder._attributeSeparator">
+            <summary>
+            属性分隔符
+            </summary>
+        </member>
+        <member name="F:Util.Webs.AttributeBuilder._nodeSeparator">
+            <summary>
+            属性节点分隔符
+            </summary>
+        </member>
+        <member name="M:Util.Webs.AttributeBuilder.Add(System.String)">
+            <summary>
+            添加属性
+            </summary>
+            <param name="value">属性值</param>
+        </member>
+        <member name="M:Util.Webs.AttributeBuilder.Add(System.String,System.String,System.String,System.String)">
+            <summary>
+            添加属性
+            </summary>
+            <param name="name">属性名,范例：class</param>
+            <param name="value">属性值</param>
+            <param name="separator">属性值分隔符，默认为分号</param>
+            <param name="quotes">属性值两边的引号,默认为双引号</param>
+        </member>
+        <member name="M:Util.Webs.AttributeBuilder.MergeNode(System.String,System.String,System.String)">
+            <summary>
+            合并节点
+            </summary>
+        </member>
+        <member name="M:Util.Webs.AttributeBuilder.AddNode(System.String,System.String,System.String,System.String)">
+            <summary>
+            添加节点
+            </summary>
+        </member>
+        <member name="M:Util.Webs.AttributeBuilder.Update(System.String,System.String,System.String,System.String)">
+            <summary>
+            更新属性,不存在则添加
+            </summary>
+            <param name="name">属性名</param>
+            <param name="value">属性值</param>
+            <param name="separator">属性值分隔符，默认为分号</param>
+            <param name="quotes">属性值两边的引号,默认为双引号</param>
+        </member>
+        <member name="M:Util.Webs.AttributeBuilder.UpdateNode(System.String,System.String)">
+            <summary>
+            更新节点
+            </summary>
+        </member>
+        <member name="M:Util.Webs.AttributeBuilder.Remove(System.String)">
+            <summary>
+            移除属性
+            </summary>
+            <param name="name">属性名</param>
+        </member>
+        <member name="M:Util.Webs.AttributeBuilder.AddClass(System.String)">
+            <summary>
+            添加class属性
+            </summary>
+            <param name="class">class属性值</param>
+        </member>
+        <member name="M:Util.Webs.AttributeBuilder.UpdateClass(System.String)">
+            <summary>
+            更新class属性
+            </summary>
+            <param name="class">class属性值</param>
+        </member>
+        <member name="M:Util.Webs.AttributeBuilder.AddStyle(System.String,System.String)">
+            <summary>
+            添加style属性
+            </summary>
+            <param name="name">style属性名</param>
+            <param name="value">style属性值</param>
+        </member>
+        <member name="M:Util.Webs.AttributeBuilder.GetResult">
+            <summary>
+            获取结果
+            </summary>
+        </member>
+        <member name="M:Util.Webs.AttributeBuilder.ToString">
+            <summary>
+            输出结果
+            </summary>
+        </member>
+        <member name="T:Util.Webs.ControllerBase">
+            <summary>
+            基控制器
+            </summary>
+        </member>
+        <member name="M:Util.Webs.ControllerBase.ToJson(System.Object)">
+            <summary>
+            转换为Json字符串
+            </summary>
+            <param name="data">对象</param>
+        </member>
+        <member name="M:Util.Webs.ControllerBase.ToJson(System.Collections.Generic.IEnumerable{System.Object})">
+            <summary>
+            转换为Json字符串
+            </summary>
+            <param name="data">对象</param>
+        </member>
+        <member name="M:Util.Webs.ControllerBase.ToJsonResult(System.Object)">
+            <summary>
+            转换为Json结果
+            </summary>
+            <param name="data">对象</param>
+        </member>
+        <member name="M:Util.Webs.ControllerBase.ToJsonResult(System.Collections.Generic.IEnumerable{System.Object})">
+            <summary>
+            转换为Json结果
+            </summary>
+            <param name="data">对象</param>
+        </member>
+        <member name="T:Util.Webs.ErrorLogAttribute">
+            <summary>
+            记录异常日志
+            </summary>
+        </member>
+        <member name="M:Util.Webs.ErrorLogAttribute.OnException(System.Web.Mvc.ExceptionContext)">
+            <summary>
+            处理异常
+            </summary>
+        </member>
+        <member name="M:Util.Webs.ErrorLogAttribute.WriteLog(System.Web.Mvc.ExceptionContext)">
+            <summary>
+            记录错误日志
+            </summary>
+        </member>
+        <member name="T:Util.Webs.HtmlEscape">
+            <summary>
+            Html转义字符
+            </summary>
+        </member>
+        <member name="F:Util.Webs.HtmlEscape.Quote">
+            <summary>
+            单引号
+            </summary>
+        </member>
+        <member name="T:Util.Webs.Extentions">
+            <summary>
+            HtmlHelper扩展
+            </summary>
+        </member>
+        <member name="M:Util.Webs.Extentions.X(System.Web.Mvc.HtmlHelper)">
+            <summary>
+            创建菜单
+            </summary>
+        </member>
+        <member name="M:Util.Webs.Extentions.Value``2(System.Web.Mvc.HtmlHelper{``0},System.Linq.Expressions.Expression{System.Func{``0,``1}})">
+            <summary>
+            获取值
+            </summary>
+            <typeparam name="TEntity">实体类型</typeparam>
+            <typeparam name="TProperty">属性类型</typeparam>
+            <param name="helper">HtmlHelper</param>
+            <param name="expression">属性表达式</param>
+        </member>
+        <member name="M:Util.Webs.Extentions.Writer``1(System.Web.Mvc.HtmlHelper{``0})">
+            <summary>
+            获取Html写入器
+            </summary>
+            <typeparam name="TEntity">实体类型</typeparam>
+            <param name="helper">HtmlHelper</param>
+        </member>
+        <member name="T:Util.Webs.IMvcService">
+            <summary>
+            Mvc服务
+            </summary>
+        </member>
+        <member name="M:Util.Webs.IMvcService.ImportCss(System.String)">
+            <summary>
+            导入Css
+            </summary>
+            <param name="path">Css文件相对路径</param>
+        </member>
+        <member name="M:Util.Webs.IMvcService.ImportJs(System.String)">
+            <summary>
+            导入Js
+            </summary>
+            <param name="path">Js文件相对路径</param>
+        </member>
+        <member name="T:Util.Webs.JsonAttributeBuilder">
+            <summary>
+            Json属性生成器
+            </summary>
+        </member>
+        <member name="M:Util.Webs.JsonAttributeBuilder.#ctor">
+            <summary>
+            Json属性生成器
+            </summary>
+        </member>
+        <member name="F:Util.Webs.JsonAttributeBuilder._builder">
+            <summary>
+            属性生成器
+            </summary>
+        </member>
+        <member name="M:Util.Webs.JsonAttributeBuilder.Add(System.String,System.Boolean)">
+            <summary>
+            添加属性
+            </summary>
+            <param name="name">属性名,范例：class</param>
+            <param name="value">属性值</param>
+        </member>
+        <member name="M:Util.Webs.JsonAttributeBuilder.Add(System.String,System.Nullable{System.Boolean})">
+            <summary>
+            添加属性
+            </summary>
+            <param name="name">属性名,范例：class</param>
+            <param name="value">属性值</param>
+        </member>
+        <member name="M:Util.Webs.JsonAttributeBuilder.Add(System.String,System.String,System.String)">
+            <summary>
+            添加属性
+            </summary>
+            <param name="name">属性名,范例：class</param>
+            <param name="value">属性值</param>
+            <param name="quotes">属性值引号</param>
+        </member>
+        <member name="M:Util.Webs.JsonAttributeBuilder.Add(System.String)">
+            <summary>
+            添加属性列表
+            </summary>
+            <param name="values">属性列表</param>
+        </member>
+        <member name="M:Util.Webs.JsonAttributeBuilder.GetResult">
+            <summary>
+            获取结果
+            </summary>
+        </member>
+        <member name="T:Util.Webs.MvcBase">
+            <summary>
+            Mvc基操作
+            </summary>
+        </member>
+        <member name="M:Util.Webs.MvcBase.MvcResult(System.String,System.Object[])">
+            <summary>
+            返回Mvc Html结果
+            </summary>
+            <param name="result">结果</param>
+            <param name="args">参数</param>
+        </member>
+        <member name="T:Util.Webs.MvcService">
+            <summary>
+            Mvc服务
+            </summary>
+        </member>
+        <member name="M:Util.Webs.MvcService.ImportCss(System.String)">
+            <summary>
+            导入Css
+            </summary>
+            <param name="path">Css文件相对路径</param>
+        </member>
+        <member name="M:Util.Webs.MvcService.ImportJs(System.String)">
+            <summary>
+            导入Js
+            </summary>
+            <param name="path">Js文件相对路径</param>
+        </member>
+        <member name="T:Util.Webs.Nodes.AttributeListNode">
+            <summary>
+            属性列表节点
+            </summary>
+        </member>
+        <member name="T:Util.Webs.Nodes.IAttributeNode">
+            <summary>
+            属性节点
+            </summary>
+        </member>
+        <member name="M:Util.Webs.Nodes.IAttributeNode.Add(System.String)">
+            <summary>
+            添加属性值
+            </summary>
+            <param name="value">属性值</param>
+        </member>
+        <member name="M:Util.Webs.Nodes.IAttributeNode.Clear">
+            <summary>
+            清空属性值
+            </summary>
+        </member>
+        <member name="M:Util.Webs.Nodes.IAttributeNode.GetResult">
+            <summary>
+            获取结果
+            </summary>
+        </member>
+        <member name="P:Util.Webs.Nodes.IAttributeNode.ValueSeparator">
+            <summary>
+            值分隔符
+            </summary>
+        </member>
+        <member name="M:Util.Webs.Nodes.AttributeListNode.#ctor(System.String)">
+            <summary>
+            初始化属性列表节点
+            </summary>
+            <param name="value">属性值</param>
+        </member>
+        <member name="F:Util.Webs.Nodes.AttributeListNode._values">
+            <summary>
+            值
+            </summary>
+        </member>
+        <member name="M:Util.Webs.Nodes.AttributeListNode.Add(System.String)">
+            <summary>
+            添加属性值
+            </summary>
+            <param name="value">属性值</param>
+        </member>
+        <member name="M:Util.Webs.Nodes.AttributeListNode.Clear">
+            <summary>
+            清空属性值
+            </summary>
+        </member>
+        <member name="M:Util.Webs.Nodes.AttributeListNode.GetResult">
+            <summary>
+            获取结果
+            </summary>
+        </member>
+        <member name="P:Util.Webs.Nodes.AttributeListNode.ValueSeparator">
+            <summary>
+            值分隔符
+            </summary>
+        </member>
+        <member name="T:Util.Webs.Nodes.AttributeNode">
+            <summary>
+            属性节点
+            </summary>
+        </member>
+        <member name="M:Util.Webs.Nodes.AttributeNode.#ctor(System.String)">
+            <summary>
+            初始化属性节点
+            </summary>
+            <param name="name">属性名</param>
+        </member>
+        <member name="F:Util.Webs.Nodes.AttributeNode._items">
+            <summary>
+            属性节点项目集合
+            </summary>
+        </member>
+        <member name="M:Util.Webs.Nodes.AttributeNode.Add(System.String)">
+            <summary>
+            添加属性值
+            </summary>
+            <param name="value">属性值</param>
+        </member>
+        <member name="M:Util.Webs.Nodes.AttributeNode.Clear">
+            <summary>
+            清空属性值
+            </summary>
+        </member>
+        <member name="M:Util.Webs.Nodes.AttributeNode.GetResult">
+            <summary>
+            获取结果
+            </summary>
+        </member>
+        <member name="M:Util.Webs.Nodes.AttributeNode.GetValue">
+            <summary>
+            获取属性值
+            </summary>
+        </member>
+        <member name="M:Util.Webs.Nodes.AttributeNode.ToString">
+            <summary>
+            输出结果
+            </summary>
+        </member>
+        <member name="P:Util.Webs.Nodes.AttributeNode.Name">
+            <summary>
+            属性名称
+            </summary>
+        </member>
+        <member name="P:Util.Webs.Nodes.AttributeNode.ValueSeparator">
+            <summary>
+            值分隔符
+            </summary>
+        </member>
+        <member name="P:Util.Webs.Nodes.AttributeNode.AttributeSeparator">
+            <summary>
+            属性分隔符
+            </summary>
+        </member>
+        <member name="P:Util.Webs.Nodes.AttributeNode.ValueQuotes">
+            <summary>
+            值两边的引号字符串
+            </summary>
+        </member>
+        <member name="T:Util.Webs.Nodes.AttributeNodeItem">
+            <summary>
+            属性节点项目
+            </summary>
+        </member>
+        <member name="M:Util.Webs.Nodes.AttributeNodeItem.#ctor(System.String)">
+            <summary>
+            初始化属性节点项目
+            </summary>
+            <param name="value">值</param>
+        </member>
+        <member name="P:Util.Webs.Nodes.AttributeNodeItem.Value">
+            <summary>
+            值
+            </summary>
+        </member>
+        <member name="T:Util.Webs.ParamBuilder">
+            <summary>
+            参数生成器
+            </summary>
+        </member>
+        <member name="M:Util.Webs.ParamBuilder.#ctor(System.String,System.String)">
+            <summary>
+            初始化参数生成器
+            </summary>
+            <param name="quotes">引号，默认为单引号</param>
+            <param name="separator">分隔符，默认为逗号</param>
+        </member>
+        <member name="F:Util.Webs.ParamBuilder._result">
+            <summary>
+            结果
+            </summary>
+        </member>
+        <member name="F:Util.Webs.ParamBuilder._quotes">
+            <summary>
+            引号
+            </summary>
+        </member>
+        <member name="F:Util.Webs.ParamBuilder._separator">
+            <summary>
+            分隔符
+            </summary>
+        </member>
+        <member name="M:Util.Webs.ParamBuilder.Add(System.String,System.Boolean)">
+            <summary>
+            添加值
+            </summary>
+            <param name="value">值</param>
+            <param name="isAddQuotes">是否添加引号</param>
+        </member>
+        <member name="M:Util.Webs.ParamBuilder.Add(System.String,System.String,System.Boolean)">
+            <summary>
+            添加值
+            </summary>
+            <param name="value">值</param>
+            <param name="defaultValue">默认值，当值为空时使用</param>
+            <param name="isAddQuotes">是否添加引号</param>
+        </member>
+        <member name="M:Util.Webs.ParamBuilder.GetQuotesValue(System.String,System.Boolean)">
+            <summary>
+            获取添加引号后的值
+            </summary>
+        </member>
+        <member name="M:Util.Webs.ParamBuilder.GetResult">
+            <summary>
+            获取结果
+            </summary>
+        </member>
+        <member name="M:Util.Webs.ParamBuilder.ToString">
+            <summary>
+            输出结果
+            </summary>
+        </member>
+        <member name="T:Util.Webs.StateCode">
+            <summary>
+            状态码
+            </summary>
+        </member>
+        <member name="F:Util.Webs.StateCode.Ok">
+            <summary>
+            成功
+            </summary>
+        </member>
+        <member name="F:Util.Webs.StateCode.Fail">
+            <summary>
+            失败
+            </summary>
+        </member>
+        <member name="T:Util.Webs.TextWriters.ITextWriter">
+            <summary>
+            文本写入器
+            </summary>
+        </member>
+        <member name="M:Util.Webs.TextWriters.ITextWriter.Write(System.String)">
+            <summary>
+            写入文本
+            </summary>
+            <param name="text">文本</param>
+        </member>
+        <member name="M:Util.Webs.TextWriters.ITextWriter.GetResult">
+            <summary>
+            获取结果
+            </summary>
+        </member>
+        <member name="T:Util.Webs.TextWriters.StringBuilderWriter">
+            <summary>
+            文本写入器
+            </summary>
+        </member>
+        <member name="M:Util.Webs.TextWriters.StringBuilderWriter.#ctor">
+            <summary>
+            初始化文本写入器
+            </summary>
+        </member>
+        <member name="F:Util.Webs.TextWriters.StringBuilderWriter._writer">
+            <summary>
+            文本写入器
+            </summary>
+        </member>
+        <member name="M:Util.Webs.TextWriters.StringBuilderWriter.Write(System.String)">
+            <summary>
+            写入文本
+            </summary>
+            <param name="text">文本</param>
+        </member>
+        <member name="M:Util.Webs.TextWriters.StringBuilderWriter.GetResult">
+            <summary>
+            获取结果
+            </summary>
+        </member>
+        <member name="T:Util.Webs.TextWriters.TextWriter">
+            <summary>
+            文本写入器
+            </summary>
+        </member>
+        <member name="M:Util.Webs.TextWriters.TextWriter.#ctor(System.IO.TextWriter)">
+            <summary>
+            初始化文本写入器
+            </summary>
+            <param name="writer">文本写入器</param>
+        </member>
+        <member name="F:Util.Webs.TextWriters.TextWriter._writer">
+            <summary>
+            文本写入器
+            </summary>
+        </member>
+        <member name="M:Util.Webs.TextWriters.TextWriter.Write(System.String)">
+            <summary>
+            写入文本
+            </summary>
+            <param name="text">文本</param>
+        </member>
+        <member name="M:Util.Webs.TextWriters.TextWriter.GetResult">
+            <summary>
+            获取结果
+            </summary>
+        </member>
+        <member name="T:Util.Webs.TraceLogAttribute">
+            <summary>
+            记录跟踪日志
+            </summary>
+        </member>
+        <member name="M:Util.Webs.TraceLogAttribute.OnActionExecuting(System.Web.Mvc.ActionExecutingContext)">
+            <summary>
+            执行前
+            </summary>
+        </member>
+        <member name="M:Util.Webs.TraceLogAttribute.WriteLog(System.Web.Mvc.ActionExecutingContext)">
+            <summary>
+            执行前日志
+            </summary>
+        </member>
+        <member name="M:Util.Webs.TraceLogAttribute.AddParams(System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.Object}})">
+            <summary>
+            添加参数列表
+            </summary>
+        </member>
+        <member name="M:Util.Webs.TraceLogAttribute.IsSecret(System.String)">
+            <summary>
+            是否机密
+            </summary>
+        </member>
+        <member name="M:Util.Webs.TraceLogAttribute.AddParams(System.Collections.Generic.KeyValuePair{System.String,System.Object})">
+            <summary>
+            添加参数
+            </summary>
+        </member>
+        <member name="M:Util.Webs.TraceLogAttribute.OnActionExecuted(System.Web.Mvc.ActionExecutedContext)">
+            <summary>
+            执行后
+            </summary>
+        </member>
+        <member name="M:Util.Webs.TraceLogAttribute.WriteLog(System.Web.Mvc.ActionExecutedContext)">
+            <summary>
+            执行后日志
+            </summary>
+        </member>
+        <member name="P:Util.Webs.TraceLogAttribute.Ignore">
+            <summary>
+            是否忽略,为true不记录日志
+            </summary>
+        </member>
+        <member name="P:Util.Webs.TraceLogAttribute.Log">
+            <summary>
+            日志
+            </summary>
+        </member>
+        <member name="T:Util.Webs.ViewBase">
+            <summary>
+            基视图
+            </summary>
+        </member>
+        <member name="T:Util.Webs.ViewBase`1">
+            <summary>
+            基视图
+            </summary>
+            <typeparam name="TModel">实体</typeparam>
+        </member>
+        <member name="P:Util.Webs.ViewBase`1.Skin">
+            <summary>
+            皮肤
+            </summary>
+        </member>
+    </members>
+</doc>

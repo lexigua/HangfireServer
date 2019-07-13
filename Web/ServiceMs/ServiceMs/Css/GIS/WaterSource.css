@@ -1,0 +1,296 @@
+﻿body {
+}
+
+.aui-layer-img {
+    width: 40px;
+    height: 40px;
+}
+
+*:focus {
+    outline: none;
+}
+
+/*水资源地图分类选择checkbox*/
+
+.check-box {
+    position: absolute;
+    top: 14px;
+    right: 25px;
+    z-index: 99;
+}
+
+#checkbox {
+    width: 180px;
+    display: none;
+    position: absolute;
+    right: 0px;
+    top: 41px;
+    background: rgba(107,162,240, 0.7);
+    color: #fff;
+}
+
+.check-box ul {
+    padding: 10px;
+}
+
+.check-box li {
+    display: table;
+    vertical-align: middle;
+    line-height: 34px;
+    width: 100%;
+    white-space: normal;
+    text-overflow: ellipsis;
+    list-style: none;
+    overflow: hidden;
+}
+
+    .check-box li:hover {
+        background: rgba(76,143,237, 1);
+    }
+
+.check-btn img {
+    width: 50px;
+    cursor: pointer;
+}
+
+.check-box input[type="checkbox"] {
+    -webkit-appearance: none;
+}
+
+input[type="checkbox"] {
+    -webkit-appearance: none;
+    background: url(/Css/images/login/login55.png);
+    background-size: 100%;
+    height: 17px;
+    vertical-align: middle;
+    width: 17px;
+}
+
+.check-box label {
+    font-weight: bold;
+    font-size: 14px;
+    padding-left: 5px;
+    vertical-align: middle;
+}
+
+    input[type="checkbox"]:hover, .check-box label:hover {
+        font-weight: bold;
+        cursor: pointer;
+    }
+
+input[type="checkbox"]:checked {
+    background: url(/Css/images/login/login5.png);
+    background-size: 100%;
+}
+
+/*列表*/
+
+#tab3 .tabs-header, #tab3 .tabs, #tab3 .tabs a, #tab1 .tabs-header, #tab1 .tabs, #tab1 .tabs a, .tabs-header, .panel-body-noheader {
+    border: none !important;
+}
+
+#tab3 ul.tabs {
+    margin-top: 10px;
+}
+
+.tabs li {
+    margin: 0 !important;
+}
+
+#tab3 .tabs-selected a, #tab1 .tabs-selected a {
+    height: 33px;
+    line-height: 33px;
+    background: #4c8fed;
+    color: #fff;
+    margin-right: 0;
+}
+
+#tab3 ul li a, #tab1 ul li a {
+    letter-spacing: 2px;
+    color: #fff;
+    background: #bbb;
+    width: auto !important;
+    padding: 0 20px;
+}
+
+#tab3 .datagrid-header, .datagrid-header-inner, .datagrid-header-row {
+    height: 35px !important;
+    background: #e6effc !important;
+    border: none;
+    line-height: 35px !important;
+}
+
+.tabs-panels {
+    border: none;
+}
+
+.datagrid-body, .datagrid-htable {
+    padding:0 0 0 5px;
+}
+
+#tab1 {
+    width: 220px;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+    #tab1 .tabs ul, #tab1 .tabs ul li {
+        margin: 0;
+    }
+
+.tabs {
+    padding-left: 0;
+}
+
+#tab1 .tabs li a {
+    width: 70px !important;
+}
+
+.tabs-header {
+    padding-top: 0;
+}
+
+.datagrid-cell-rownumber {
+    margin: 0;
+    padding: 0 4px;
+    white-space: nowrap;
+    word-wrap: normal;
+    overflow: hidden;
+    height: 12px;
+    line-height: 12px;
+    font-size: 12px;
+}
+
+.datagrid-header-row, .datagrid-row {
+    height: 31px;
+}
+.tabs-scroller-right, .tabs-scroller-left {
+    display: none !important;
+}
+/*地图信息框*/
+.esriPopup .titlePane {
+    line-height: 25px;
+    background-color: #4c8fed;
+}
+
+.esriPopup .titleButton.maximize {
+    display: none;
+    visibility: hidden;
+    top: 7px;
+}
+
+.esriPopup .titleButton.close {
+    right: 7px;
+}
+
+.esriPopup .titleButton {
+    top: 5px;
+}
+
+.contentPane b {
+    width: 70px;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.contentPane ul, .contentPane ul li {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    line-height: 28px;
+}
+
+.contentPane span {
+    width: 180px;
+    display: inline-block;
+    line-height: 1.2em;
+}
+
+.contentPane li {
+    border-bottom: 1px #ccc dashed;
+}
+
+.contentPane ul {
+    padding-bottom: 5px;
+}
+
+/*tab1*/
+#tab1 {
+    padding-left: 35px;
+}
+
+.tab-slide {
+    position: absolute;
+    left: 0;
+    top: 160px;
+    width: 64px;
+    height: 64px;
+    background: #fff;
+    background: url(../../Css/images/GIS/arrowLeft.png)no-repeat;
+}
+
+.aui-tab-active {
+    background: url(../../Css/images/GIS/arrowRight.png)no-repeat;
+}
+
+#tab3 .tabs-header, #tab3 .tabs-wrap, #tab1 .tabs-header, #tab1 .tabs-wrap {
+    background-color: rgba(255,255,255,0);
+}
+
+#tab3 .tabs-wrap, #tab1 .tabs-wrap, #tab2 .tabs-wrap {
+    filter: alpha(opacity=10) !important;
+}
+
+.tabs {
+    width: 100%;
+}
+
+    .tabs > li {
+        margin: 0;
+    }
+
+#tab1 .tabs li a {
+    width: 70px !important;
+}
+
+td {
+    text-align: center;
+}
+
+.datagrid-cell-rownumber, .datagrid-td-rownumber, .datagrid-header-rownumber {
+    text-align: left !important;
+    width: 44px !important;
+}
+
+.tabs li a.tabs-inner, .tabs li.tabs-selected a.tabs-inner {
+    filter: alpha(opacity=100) !important;
+}
+
+.tabs-panels .panel ul li span {
+    position: relative;
+    bottom: 5px;
+}
+
+.contentPane span {
+    width: 120px;
+    margin-left: 30px;
+}
+
+.contentPane b {
+    width: 90px;
+}
+
+#aui-chk {
+    position: absolute;
+    top: 5px;
+    right: 235px;
+}
+
+#mychart3 {
+    float: left;
+    height: 252px;
+    width: 1500px;
+}
+
+

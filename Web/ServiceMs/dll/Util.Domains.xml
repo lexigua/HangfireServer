@@ -1,0 +1,1001 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Util.Domains</name>
+    </assembly>
+    <members>
+        <member name="T:Util.Domains.AggregateRoot">
+            <summary>
+            聚合根
+            </summary>
+        </member>
+        <member name="T:Util.Domains.AggregateRoot`1">
+            <summary>
+            聚合根
+            </summary>
+            <typeparam name="TKey">标识类型</typeparam>
+        </member>
+        <member name="T:Util.Domains.EntityBase`1">
+            <summary>
+            领域实体
+            </summary>
+            <typeparam name="TKey">标识类型</typeparam>
+        </member>
+        <member name="T:Util.Domains.DomainBase">
+            <summary>
+            领域层顶级基类
+            </summary>
+        </member>
+        <member name="T:Util.Domains.StateDescription">
+            <summary>
+            状态描述
+            </summary>
+        </member>
+        <member name="F:Util.Domains.StateDescription._description">
+            <summary>
+            描述
+            </summary>
+        </member>
+        <member name="M:Util.Domains.StateDescription.ToString">
+            <summary>
+            输出对象状态
+            </summary>
+        </member>
+        <member name="M:Util.Domains.StateDescription.AddDescriptions">
+            <summary>
+            添加描述
+            </summary>
+        </member>
+        <member name="M:Util.Domains.StateDescription.AddDescription(System.String)">
+            <summary>
+            添加描述
+            </summary>
+        </member>
+        <member name="M:Util.Domains.StateDescription.AddDescription``1(System.String,``0)">
+            <summary>
+            添加描述
+            </summary>
+        </member>
+        <member name="M:Util.Domains.DomainBase.#ctor">
+            <summary>
+            初始化领域层顶级基类
+            </summary>
+        </member>
+        <member name="F:Util.Domains.DomainBase._rules">
+            <summary>
+            验证规则集合
+            </summary>
+        </member>
+        <member name="F:Util.Domains.DomainBase._handler">
+            <summary>
+            验证处理器
+            </summary>
+        </member>
+        <member name="M:Util.Domains.DomainBase.SetValidationHandler(Util.Validations.IValidationHandler)">
+            <summary>
+            设置验证处理器
+            </summary>
+            <param name="handler">验证处理器</param>
+        </member>
+        <member name="M:Util.Domains.DomainBase.AddValidationRule(Util.Validations.IValidationRule)">
+            <summary>
+            添加验证规则
+            </summary>
+            <param name="rule">验证规则</param>
+        </member>
+        <member name="M:Util.Domains.DomainBase.Validate">
+            <summary>
+            验证
+            </summary>
+        </member>
+        <member name="M:Util.Domains.DomainBase.GetValidationResult">
+            <summary>
+            获取验证结果
+            </summary>
+        </member>
+        <member name="M:Util.Domains.DomainBase.Validate(Util.Validations.ValidationResultCollection)">
+            <summary>
+            验证并添加到验证结果集合
+            </summary>
+            <param name="results">验证结果集合</param>
+        </member>
+        <member name="M:Util.Domains.DomainBase.HandleValidationResult(Util.Validations.ValidationResultCollection)">
+            <summary>
+            处理验证结果
+            </summary>
+        </member>
+        <member name="M:Util.Domains.DomainBase.IsNull">
+            <summary>
+            是否空对象
+            </summary>
+        </member>
+        <member name="T:Util.Domains.IEntity`1">
+            <summary>
+            实体
+            </summary>
+            <typeparam name="TKey">标识类型</typeparam>
+        </member>
+        <member name="T:Util.Domains.IEntity">
+            <summary>
+            实体
+            </summary>
+        </member>
+        <member name="M:Util.Domains.IEntity.Init">
+            <summary>
+            初始化
+            </summary>
+        </member>
+        <member name="M:Util.Domains.IEntity.Validate">
+            <summary>
+            验证
+            </summary>
+        </member>
+        <member name="P:Util.Domains.IEntity`1.Id">
+            <summary>
+            标识
+            </summary>
+        </member>
+        <member name="M:Util.Domains.EntityBase`1.#ctor(`0)">
+            <summary>
+            初始化领域实体
+            </summary>
+            <param name="id">标识</param>
+        </member>
+        <member name="M:Util.Domains.EntityBase`1.Equals(System.Object)">
+            <summary>
+            相等运算
+            </summary>
+        </member>
+        <member name="M:Util.Domains.EntityBase`1.GetHashCode">
+            <summary>
+            获取哈希
+            </summary>
+        </member>
+        <member name="M:Util.Domains.EntityBase`1.op_Equality(Util.Domains.EntityBase{`0},Util.Domains.EntityBase{`0})">
+            <summary>
+            相等比较
+            </summary>
+            <param name="entity1">领域实体1</param>
+            <param name="entity2">领域实体2</param>
+        </member>
+        <member name="M:Util.Domains.EntityBase`1.op_Inequality(Util.Domains.EntityBase{`0},Util.Domains.EntityBase{`0})">
+            <summary>
+            不相等比较
+            </summary>
+            <param name="entity1">领域实体1</param>
+            <param name="entity2">领域实体2</param>
+        </member>
+        <member name="M:Util.Domains.EntityBase`1.Init">
+            <summary>
+            初始化
+            </summary>
+        </member>
+        <member name="M:Util.Domains.EntityBase`1.CreateId">
+            <summary>
+            创建标识
+            </summary>
+        </member>
+        <member name="M:Util.Domains.EntityBase`1.Validate(Util.Validations.ValidationResultCollection)">
+            <summary>
+            验证
+            </summary>
+        </member>
+        <member name="P:Util.Domains.EntityBase`1.Id">
+            <summary>
+            标识
+            </summary>
+        </member>
+        <member name="P:Util.Domains.EntityBase`1.Log">
+            <summary>
+            日志操作
+            </summary>
+        </member>
+        <member name="T:Util.Domains.IAggregateRoot`1">
+            <summary>
+            聚合根
+            </summary>
+            <typeparam name="TKey">标识类型</typeparam>
+        </member>
+        <member name="T:Util.Domains.IAggregateRoot">
+            <summary>
+            聚合根
+            </summary>
+        </member>
+        <member name="P:Util.Domains.IAggregateRoot.Version">
+            <summary>
+            版本号(乐观锁)
+            </summary>
+        </member>
+        <member name="M:Util.Domains.AggregateRoot`1.#ctor(`0)">
+            <summary>
+            初始化聚合根
+            </summary>
+            <param name="id">标识</param>
+        </member>
+        <member name="P:Util.Domains.AggregateRoot`1.Version">
+            <summary>
+            版本号(乐观锁)
+            </summary>
+        </member>
+        <member name="M:Util.Domains.AggregateRoot.#ctor(System.Guid)">
+            <summary>
+            初始化聚合根
+            </summary>
+            <param name="id">标识</param>
+        </member>
+        <member name="T:Util.Domains.ApplicationCache`1">
+            <summary>
+            应用程序缓存
+            </summary>
+            <typeparam name="T">缓存对象</typeparam>
+        </member>
+        <member name="M:Util.Domains.ApplicationCache`1.Get">
+            <summary>
+            获取对象
+            </summary>
+        </member>
+        <member name="M:Util.Domains.ApplicationCache`1.GetCache">
+            <summary>
+            获取缓存操作
+            </summary>
+        </member>
+        <member name="M:Util.Domains.ApplicationCache`1.GetKey">
+            <summary>
+            获取缓存键
+            </summary>
+        </member>
+        <member name="M:Util.Domains.ApplicationCache`1.Load">
+            <summary>
+            加载对象
+            </summary>
+        </member>
+        <member name="M:Util.Domains.ApplicationCache`1.LoadByRepository">
+            <summary>
+            从仓储中加载对象
+            </summary>
+        </member>
+        <member name="M:Util.Domains.ApplicationCache`1.GetTime">
+            <summary>
+            获取缓存时间,单位：秒
+            </summary>
+        </member>
+        <member name="T:Util.Domains.DomainResource">
+            <summary>
+              一个强类型的资源类，用于查找本地化的字符串等。
+            </summary>
+        </member>
+        <member name="P:Util.Domains.DomainResource.ResourceManager">
+            <summary>
+              返回此类使用的缓存的 ResourceManager 实例。
+            </summary>
+        </member>
+        <member name="P:Util.Domains.DomainResource.Culture">
+            <summary>
+              使用此强类型资源类，为所有资源查找
+              重写当前线程的 CurrentUICulture 属性。
+            </summary>
+        </member>
+        <member name="P:Util.Domains.DomainResource.SortIdIsNull">
+            <summary>
+              查找类似 排序号不能为空 的本地化字符串。
+            </summary>
+        </member>
+        <member name="T:Util.Domains.DomainServiceBase">
+            <summary>
+            领域服务
+            </summary>
+        </member>
+        <member name="T:Util.Domains.IDomainService">
+            <summary>
+            领域服务
+            </summary>
+        </member>
+        <member name="M:Util.Domains.DomainServiceBase.#ctor">
+            <summary>
+            初始化领域服务
+            </summary>
+        </member>
+        <member name="M:Util.Domains.DomainServiceBase.WriteLog``1(System.String,Util.Domains.IEntity{``0})">
+            <summary>
+            写日志
+            </summary>
+            <typeparam name="TKey">标识类型</typeparam>
+            <param name="caption">标题</param>
+            <param name="entity">实体</param>
+        </member>
+        <member name="P:Util.Domains.DomainServiceBase.Log">
+            <summary>
+            日志操作
+            </summary>
+        </member>
+        <member name="P:Util.Domains.DomainServiceBase.SelfId">
+            <summary>
+            获取当前用户编号
+            </summary>
+        </member>
+        <member name="T:Util.Domains.EntityBase">
+            <summary>
+            领域实体基类
+            </summary>
+        </member>
+        <member name="M:Util.Domains.EntityBase.#ctor(System.Guid)">
+            <summary>
+            初始化领域实体
+            </summary>
+            <param name="id">标识</param>
+        </member>
+        <member name="T:Util.Domains.ITreeEntity`3">
+            <summary>
+            树型实体
+            </summary>
+            <typeparam name="TEntity">实体类型</typeparam>
+            <typeparam name="TKey">实体标识类型</typeparam>
+            <typeparam name="TParentId">父编号类型</typeparam>
+        </member>
+        <member name="M:Util.Domains.ITreeEntity`3.InitPath">
+            <summary>
+            初始化路径
+            </summary>
+        </member>
+        <member name="M:Util.Domains.ITreeEntity`3.InitPath(`0)">
+            <summary>
+            初始化路径
+            </summary>
+            <param name="parent">父对象</param>
+        </member>
+        <member name="M:Util.Domains.ITreeEntity`3.GetParentIdsFromPath">
+            <summary>
+            从路径中获取所有上级节点编号
+            </summary>
+        </member>
+        <member name="P:Util.Domains.ITreeEntity`3.Parent">
+            <summary>
+            父对象
+            </summary>
+        </member>
+        <member name="P:Util.Domains.ITreeEntity`3.ParentId">
+            <summary>
+            父编号
+            </summary>
+        </member>
+        <member name="P:Util.Domains.ITreeEntity`3.Level">
+            <summary>
+            级数
+            </summary>
+        </member>
+        <member name="P:Util.Domains.ITreeEntity`3.SortId">
+            <summary>
+            排序号
+            </summary>
+        </member>
+        <member name="P:Util.Domains.ITreeEntity`3.Path">
+            <summary>
+            路径
+            </summary>
+        </member>
+        <member name="P:Util.Domains.ITreeEntity`3.Enabled">
+            <summary>
+            启用
+            </summary>
+        </member>
+        <member name="T:Util.Domains.ITreeEntityQuery">
+            <summary>
+            树型实体查询参数
+            </summary>
+        </member>
+        <member name="T:Util.Domains.ITreeEntityQuery`1">
+            <summary>
+            树型实体查询参数
+            </summary>
+            <typeparam name="TParentId">父编号类型</typeparam>
+        </member>
+        <member name="M:Util.Domains.ITreeEntityQuery`1.IsEmpty">
+            <summary>
+            查询参数是否全部为空
+            </summary>
+        </member>
+        <member name="P:Util.Domains.ITreeEntityQuery`1.ParentId">
+            <summary>
+            父编号
+            </summary>
+        </member>
+        <member name="P:Util.Domains.ITreeEntityQuery`1.Level">
+            <summary>
+            级数
+            </summary>
+        </member>
+        <member name="P:Util.Domains.ITreeEntityQuery`1.Path">
+            <summary>
+            路径
+            </summary>
+        </member>
+        <member name="P:Util.Domains.ITreeEntityQuery`1.Enabled">
+            <summary>
+            启用
+            </summary>
+        </member>
+        <member name="T:Util.Domains.Repositories.ICriteria">
+            <summary>
+            查询条件
+            </summary>
+        </member>
+        <member name="M:Util.Domains.Repositories.ICriteria.GetPredicate">
+            <summary>
+            获取谓词
+            </summary>
+        </member>
+        <member name="M:Util.Domains.Repositories.ICriteria.GetValues">
+            <summary>
+            获取值列表
+            </summary>
+        </member>
+        <member name="T:Util.Domains.Repositories.ICriteria`1">
+            <summary>
+            查询条件
+            </summary>
+            <typeparam name="TEntity">实体类型</typeparam>
+        </member>
+        <member name="M:Util.Domains.Repositories.ICriteria`1.GetPredicate">
+            <summary>
+            获取谓词
+            </summary>
+        </member>
+        <member name="T:Util.Domains.Repositories.IPager">
+            <summary>
+            分页
+            </summary>
+        </member>
+        <member name="P:Util.Domains.Repositories.IPager.Page">
+            <summary>
+            页数，即第几页，从1开始
+            </summary>
+        </member>
+        <member name="P:Util.Domains.Repositories.IPager.PageSize">
+            <summary>
+            每页显示行数
+            </summary>
+        </member>
+        <member name="P:Util.Domains.Repositories.IPager.TotalCount">
+            <summary>
+            总行数
+            </summary>
+        </member>
+        <member name="P:Util.Domains.Repositories.IPager.PageCount">
+            <summary>
+            总页数
+            </summary>
+        </member>
+        <member name="P:Util.Domains.Repositories.IPager.SkipCount">
+            <summary>
+            跳过的行数
+            </summary>
+        </member>
+        <member name="P:Util.Domains.Repositories.IPager.Order">
+            <summary>
+            排序条件
+            </summary>
+        </member>
+        <member name="P:Util.Domains.Repositories.IPager.StartNumber">
+            <summary>
+            起始行数
+            </summary>
+        </member>
+        <member name="P:Util.Domains.Repositories.IPager.EndNumber">
+            <summary>
+            结束行数
+            </summary>
+        </member>
+        <member name="T:Util.Domains.Repositories.IQueryBase`1">
+            <summary>
+            查询对象
+            </summary>
+            <typeparam name="TEntity">实体类型</typeparam>
+        </member>
+        <member name="M:Util.Domains.Repositories.IQueryBase`1.GetPredicate">
+            <summary>
+            获取谓词
+            </summary>
+        </member>
+        <member name="M:Util.Domains.Repositories.IQueryBase`1.GetOrderBy">
+            <summary>
+            获取排序
+            </summary>
+        </member>
+        <member name="T:Util.Domains.Repositories.IRepository`2">
+            <summary>
+            仓储
+            </summary>
+            <typeparam name="TEntity">实体类型</typeparam>
+            <typeparam name="TKey">实体标识类型</typeparam>
+        </member>
+        <member name="M:Util.Domains.Repositories.IRepository`2.Add(`0)">
+            <summary>
+            添加实体
+            </summary>
+            <param name="entity">实体</param>
+        </member>
+        <member name="M:Util.Domains.Repositories.IRepository`2.Add(System.Collections.Generic.IEnumerable{`0})">
+            <summary>
+            添加实体
+            </summary>
+            <param name="entities">实体</param>
+        </member>
+        <member name="M:Util.Domains.Repositories.IRepository`2.Update(`0)">
+            <summary>
+            修改实体
+            </summary>
+            <param name="entity">实体</param>
+        </member>
+        <member name="M:Util.Domains.Repositories.IRepository`2.Update(`0,`0)">
+            <summary>
+            修改实体
+            </summary>
+            <param name="newEntity">新实体</param>
+            <param name="oldEntity">数据库中旧的实体</param>
+        </member>
+        <member name="M:Util.Domains.Repositories.IRepository`2.Remove(`1)">
+            <summary>
+            移除实体
+            </summary>
+            <param name="id">实体标识</param>
+        </member>
+        <member name="M:Util.Domains.Repositories.IRepository`2.Remove(`0)">
+            <summary>
+            移除实体
+            </summary>
+            <param name="entity">实体</param>
+        </member>
+        <member name="M:Util.Domains.Repositories.IRepository`2.Remove(System.Collections.Generic.IEnumerable{`1})">
+            <summary>
+            移除实体集合
+            </summary>
+            <param name="ids">实体编号集合</param>
+        </member>
+        <member name="M:Util.Domains.Repositories.IRepository`2.Remove(System.Collections.Generic.IEnumerable{`0})">
+            <summary>
+            移除实体集合
+            </summary>
+            <param name="entities">实体集合</param>
+        </member>
+        <member name="M:Util.Domains.Repositories.IRepository`2.Remove(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}})">
+            <summary>
+            移除实体
+            </summary>
+            <param name="predicate">条件</param>
+        </member>
+        <member name="M:Util.Domains.Repositories.IRepository`2.FindAll">
+            <summary>
+            查找实体集合
+            </summary>
+        </member>
+        <member name="M:Util.Domains.Repositories.IRepository`2.Single(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}})">
+            <summary>
+            获取单个实体
+            </summary>
+            <param name="predicate">条件</param>
+        </member>
+        <member name="M:Util.Domains.Repositories.IRepository`2.Find">
+            <summary>
+            查找实体集合
+            </summary>
+        </member>
+        <member name="M:Util.Domains.Repositories.IRepository`2.Find(Util.Domains.Repositories.ICriteria)">
+            <summary>
+            查找实体集合
+            </summary>
+            <param name="criteria">条件</param>
+        </member>
+        <member name="M:Util.Domains.Repositories.IRepository`2.Find(Util.Domains.Repositories.ICriteria{`0})">
+            <summary>
+            查找实体集合
+            </summary>
+            <param name="criteria">条件</param>
+        </member>
+        <member name="M:Util.Domains.Repositories.IRepository`2.Find(System.Object[])">
+            <summary>
+            查找实体
+            </summary>
+            <param name="id">实体标识</param>
+        </member>
+        <member name="M:Util.Domains.Repositories.IRepository`2.Find(System.Collections.Generic.IEnumerable{`1})">
+            <summary>
+            查找实体列表
+            </summary>
+            <param name="ids">实体标识列表</param>
+        </member>
+        <member name="M:Util.Domains.Repositories.IRepository`2.Find(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}})">
+            <summary>
+            查找实体集合
+            </summary>
+            <param name="predicate">条件</param>
+        </member>
+        <member name="M:Util.Domains.Repositories.IRepository`2.FindList(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}})">
+            <summary>
+            查找实体集合
+            </summary>
+            <param name="predicate">条件</param>
+        </member>
+        <member name="M:Util.Domains.Repositories.IRepository`2.Exists(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}})">
+            <summary>
+            判断实体是否存在
+            </summary>
+            <param name="predicate">条件</param>
+        </member>
+        <member name="M:Util.Domains.Repositories.IRepository`2.Query(Util.Domains.Repositories.IQueryBase{`0})">
+            <summary>
+            查询
+            </summary>
+            <param name="query">查询对象</param>
+        </member>
+        <member name="M:Util.Domains.Repositories.IRepository`2.PagerQuery(Util.Domains.Repositories.IQueryBase{`0})">
+            <summary>
+            分页查询
+            </summary>
+            <param name="query">查询对象</param>
+        </member>
+        <member name="M:Util.Domains.Repositories.IRepository`2.Save">
+            <summary>
+            保存
+            </summary>
+        </member>
+        <member name="M:Util.Domains.Repositories.IRepository`2.Count(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}})">
+            <summary>
+            获取实体个数
+            </summary>
+            <param name="predicate">条件</param>
+        </member>
+        <member name="M:Util.Domains.Repositories.IRepository`2.Clear">
+            <summary>
+            清空实体
+            </summary>
+        </member>
+        <member name="M:Util.Domains.Repositories.IRepository`2.ClearCache">
+            <summary>
+            清空缓存
+            </summary>
+        </member>
+        <member name="M:Util.Domains.Repositories.IRepository`2.GetUnitOfWork">
+            <summary>
+            获取工作单元
+            </summary>
+        </member>
+        <member name="P:Util.Domains.Repositories.IRepository`2.Item(`1)">
+            <summary>
+            索引器查找，获取指定标识的实体
+            </summary>
+            <param name="id">实体标识</param>
+        </member>
+        <member name="T:Util.Domains.Repositories.IRepository`1">
+            <summary>
+            仓储
+            </summary>
+            <typeparam name="TEntity">实体类型</typeparam>
+        </member>
+        <member name="T:Util.Domains.Repositories.Pager">
+            <summary>
+            分页
+            </summary>
+        </member>
+        <member name="M:Util.Domains.Repositories.Pager.#ctor">
+            <summary>
+            初始化分页
+            </summary>
+        </member>
+        <member name="M:Util.Domains.Repositories.Pager.#ctor(System.Int32,System.Int32,System.String)">
+            <summary>
+            初始化分页
+            </summary>
+            <param name="page">页索引</param>
+            <param name="pageSize">每页显示行数,默认20</param> 
+            <param name="order">排序条件</param>
+        </member>
+        <member name="M:Util.Domains.Repositories.Pager.#ctor(System.Int32,System.Int32,System.Int32,System.String)">
+            <summary>
+            初始化分页
+            </summary>
+            <param name="page">页索引</param>
+            <param name="pageSize">每页显示行数,默认20</param> 
+            <param name="totalCount">总行数</param>
+            <param name="order">排序条件</param>
+        </member>
+        <member name="M:Util.Domains.Repositories.Pager.AddDescriptions">
+            <summary>
+            添加描述
+            </summary>
+        </member>
+        <member name="P:Util.Domains.Repositories.Pager.Page">
+            <summary>
+            页索引，即第几页，从1开始
+            </summary>
+        </member>
+        <member name="P:Util.Domains.Repositories.Pager.PageSize">
+            <summary>
+            每页显示行数
+            </summary>
+        </member>
+        <member name="P:Util.Domains.Repositories.Pager.TotalCount">
+            <summary>
+            总行数
+            </summary>
+        </member>
+        <member name="P:Util.Domains.Repositories.Pager.PageCount">
+            <summary>
+            总页数
+            </summary>
+        </member>
+        <member name="P:Util.Domains.Repositories.Pager.SkipCount">
+            <summary>
+            跳过的行数
+            </summary>
+        </member>
+        <member name="P:Util.Domains.Repositories.Pager.Order">
+            <summary>
+            排序条件
+            </summary>
+        </member>
+        <member name="P:Util.Domains.Repositories.Pager.StartNumber">
+            <summary>
+            起始行数
+            </summary>
+        </member>
+        <member name="P:Util.Domains.Repositories.Pager.EndNumber">
+            <summary>
+            结束行数
+            </summary>
+        </member>
+        <member name="T:Util.Domains.Repositories.PagerList`1">
+            <summary>
+            分页集合
+            </summary>
+            <typeparam name="T">元素类型</typeparam>
+        </member>
+        <member name="M:Util.Domains.Repositories.PagerList`1.#ctor(Util.Domains.Repositories.IPager)">
+            <summary>
+            分页集合
+            </summary>
+            <param name="pager">查询对象</param>
+        </member>
+        <member name="M:Util.Domains.Repositories.PagerList`1.#ctor(System.Int32)">
+            <summary>
+            分页集合
+            </summary>
+            <param name="totalCount">总行数</param>
+        </member>
+        <member name="M:Util.Domains.Repositories.PagerList`1.#ctor(System.Int32,System.Int32,System.Int32)">
+            <summary>
+            分页集合
+            </summary>
+            <param name="page">页索引</param>
+            <param name="pageSize">每页显示行数</param>
+            <param name="totalCount">总行数</param>
+        </member>
+        <member name="M:Util.Domains.Repositories.PagerList`1.#ctor(System.Int32,System.Int32,System.Int32,System.String)">
+            <summary>
+            分页集合
+            </summary>
+            <param name="page">页索引</param>
+            <param name="pageSize">每页显示行数</param>
+            <param name="totalCount">总行数</param>
+            <param name="order">排序条件</param>
+        </member>
+        <member name="M:Util.Domains.Repositories.PagerList`1.Convert``1(System.Func{`0,``0})">
+            <summary>
+            转换分页集合的元素类型
+            </summary>
+            <typeparam name="TResult">目标元素类型</typeparam>
+            <param name="converter">转换方法</param>
+        </member>
+        <member name="P:Util.Domains.Repositories.PagerList`1.Page">
+            <summary>
+            页索引，即第几页，从1开始
+            </summary>
+        </member>
+        <member name="P:Util.Domains.Repositories.PagerList`1.PageSize">
+            <summary>
+            每页显示行数
+            </summary>
+        </member>
+        <member name="P:Util.Domains.Repositories.PagerList`1.TotalCount">
+            <summary>
+            总行数
+            </summary>
+        </member>
+        <member name="P:Util.Domains.Repositories.PagerList`1.PageCount">
+            <summary>
+            总页数
+            </summary>
+        </member>
+        <member name="P:Util.Domains.Repositories.PagerList`1.Order">
+            <summary>
+            排序条件
+            </summary>
+        </member>
+        <member name="T:Util.Domains.TreeEntityBase`3">
+            <summary>
+            树型实体
+            </summary>
+            <typeparam name="TEntity">树型实体类型</typeparam>
+            <typeparam name="TKey">标识类型</typeparam>
+            <typeparam name="TParentId">父编号类型</typeparam>
+        </member>
+        <member name="M:Util.Domains.TreeEntityBase`3.#ctor(`1,System.String,System.Int32)">
+            <summary>
+            初始化树型实体
+            </summary>
+            <param name="id">标识</param>
+            <param name="path">路径</param>
+            <param name="level">级数</param>
+        </member>
+        <member name="M:Util.Domains.TreeEntityBase`3.InitPath(`0)">
+            <summary>
+            初始化路径
+            </summary>
+            <param name="parent">父对象</param>
+        </member>
+        <member name="M:Util.Domains.TreeEntityBase`3.InitPath">
+            <summary>
+            初始化路径
+            </summary>
+        </member>
+        <member name="M:Util.Domains.TreeEntityBase`3.InitFirstLevel">
+            <summary>
+            初始化1级节点
+            </summary>
+        </member>
+        <member name="M:Util.Domains.TreeEntityBase`3.InitChild(`0)">
+            <summary>
+            初始化下级节点
+            </summary>
+        </member>
+        <member name="M:Util.Domains.TreeEntityBase`3.GetParentIdsFromPath">
+            <summary>
+            从路径中获取所有上级节点编号
+            </summary>
+        </member>
+        <member name="P:Util.Domains.TreeEntityBase`3.Parent">
+            <summary>
+            父对象
+            </summary>
+        </member>
+        <member name="P:Util.Domains.TreeEntityBase`3.ParentId">
+            <summary>
+            父编号
+            </summary>
+        </member>
+        <member name="P:Util.Domains.TreeEntityBase`3.Path">
+            <summary>
+            路径
+            </summary>
+        </member>
+        <member name="P:Util.Domains.TreeEntityBase`3.Level">
+            <summary>
+            级数
+            </summary>
+        </member>
+        <member name="P:Util.Domains.TreeEntityBase`3.Enabled">
+            <summary>
+            启用
+            </summary>
+        </member>
+        <member name="P:Util.Domains.TreeEntityBase`3.SortId">
+            <summary>
+            排序号
+            </summary>
+        </member>
+        <member name="T:Util.Domains.TreeEntityBase`1">
+            <summary>
+            树型实体
+            </summary>
+            <typeparam name="TEntity">树型实体类型</typeparam>
+        </member>
+        <member name="M:Util.Domains.TreeEntityBase`1.#ctor(System.Guid,System.String,System.Int32)">
+            <summary>
+            初始化树型实体
+            </summary>
+            <param name="id">标识</param>
+            <param name="path">路径</param>
+            <param name="level">级数</param>
+        </member>
+        <member name="T:Util.Domains.TreeEntityQuery">
+            <summary>
+            树型实体查询参数
+            </summary>
+        </member>
+        <member name="M:Util.Domains.TreeEntityQuery.#ctor">
+            <summary>
+            初始化树型实体查询参数
+            </summary>
+        </member>
+        <member name="M:Util.Domains.TreeEntityQuery.AddDescriptions">
+            <summary>
+            添加描述
+            </summary>
+        </member>
+        <member name="F:Util.Domains.TreeEntityQuery._isEmpty">
+            <summary>
+            参数是否为空
+            </summary>
+        </member>
+        <member name="M:Util.Domains.TreeEntityQuery.IsEmpty">
+            <summary>
+            查询参数是否全部为空
+            </summary>
+        </member>
+        <member name="M:Util.Domains.TreeEntityQuery.CheckEmpty">
+            <summary>
+            检查查询参数是否全部为空值
+            </summary>
+        </member>
+        <member name="M:Util.Domains.TreeEntityQuery.AddValue``1(``0)">
+            <summary>
+            添加参数值
+            </summary>
+        </member>
+        <member name="P:Util.Domains.TreeEntityQuery.ParentId">
+            <summary>
+            父编号
+            </summary>
+        </member>
+        <member name="P:Util.Domains.TreeEntityQuery.Level">
+            <summary>
+            级数
+            </summary>
+        </member>
+        <member name="P:Util.Domains.TreeEntityQuery.Path">
+            <summary>
+            路径
+            </summary>
+        </member>
+        <member name="P:Util.Domains.TreeEntityQuery.Enabled">
+            <summary>
+            启用
+            </summary>
+        </member>
+        <member name="T:Util.Domains.ValidationFactory">
+            <summary>
+            验证工厂
+            </summary>
+        </member>
+        <member name="M:Util.Domains.ValidationFactory.Create">
+            <summary>
+            创建验证操作
+            </summary>
+        </member>
+        <member name="T:Util.Domains.ValueObjectBase`1">
+            <summary>
+            值对象
+            </summary>
+            <typeparam name="TValueObject">值对象类型</typeparam>
+        </member>
+        <member name="M:Util.Domains.ValueObjectBase`1.Equals(`0)">
+            <summary>
+            相等性比较
+            </summary>
+        </member>
+        <member name="M:Util.Domains.ValueObjectBase`1.Equals(System.Object)">
+            <summary>
+            相等性比较
+            </summary>
+        </member>
+        <member name="M:Util.Domains.ValueObjectBase`1.op_Equality(Util.Domains.ValueObjectBase{`0},Util.Domains.ValueObjectBase{`0})">
+            <summary>
+            相等性比较
+            </summary>
+        </member>
+        <member name="M:Util.Domains.ValueObjectBase`1.op_Inequality(Util.Domains.ValueObjectBase{`0},Util.Domains.ValueObjectBase{`0})">
+            <summary>
+            不相等比较
+            </summary>
+        </member>
+        <member name="M:Util.Domains.ValueObjectBase`1.GetHashCode">
+            <summary>
+            获取哈希
+            </summary>
+        </member>
+        <member name="M:Util.Domains.ValueObjectBase`1.Clone">
+            <summary>
+            克隆副本
+            </summary>
+        </member>
+    </members>
+</doc>

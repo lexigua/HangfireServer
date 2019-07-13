@@ -1,0 +1,343 @@
+﻿body {
+    height: 100%;
+    width: 100%;
+}
+html, body, * {
+    font-family:'Microsoft YaHei' !important;
+}
+#map {
+     height: 100% !important;
+    width: 100%;
+}
+
+.content {
+    padding: 0 0 0 0 !important;
+}
+
+.action .zoomTo {
+    display: none;
+}
+#data_list {
+    height:252px !important;
+}
+#mychart1,#mychart2,#mychart3 {
+    height:242px !important;
+    margin-top:10px;
+}
+
+.aui-panel-tool {
+    width: 48px;
+    height: 58px;
+    display:inline-block;
+    background: url(../../Css/images/GIS/arrowLeft2.png)no-repeat;
+
+}
+.aui-p-active {
+    background: url(../../Css/images/GIS/arrowRight2.png)no-repeat;
+}
+
+.aui-panel-title {
+    position:absolute;
+    left:137px;
+    bottom:-8px;
+    width: 1.5em;
+    height: 50px;
+    text-align: center;
+    cursor: pointer;
+    vertical-align: bottom;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    font-weight: bold;
+}
+
+
+.tab-slide {
+    cursor:pointer;
+}
+.aui-slide {
+        display: inline-block;
+   background: url('../../Css/images/GIS/arrowTop.png') no-repeat;
+    width: 58px;
+    height: 35px;
+    right: 35px;
+    position: fixed;
+    z-index: 12131 !important;
+    bottom: -13px;
+    cursor:pointer;
+}
+.auiactive {
+    background: url('../../Css/images/GIS/arrowBottom.png') no-repeat;
+    position: fixed;
+    bottom:-16px;
+    right:35px;
+}
+
+
+.aui-panel {
+     width: 137px;
+}
+/*右上角表格头部按钮tabIE9*/
+#tab1 .tabs-wrap,.tabs-header,.tabs-tool{
+    filter: alpha(opacity=10) !important;
+}
+#tab1 {
+     padding-left:23px !important;
+}
+/*IE9右侧表格出现滚动条，兼容，*/
+      .datagrid-view1 {
+        width:0px !important;
+        display:none;
+    }
+
+        /*搜索框*/
+    .searchDiv {
+        position: absolute;
+        left: 260px;
+        top: 12px;
+    }
+
+    .searchInput {
+        width: 180px;
+        border: none;
+        background-color: rgba(76,143,237,0.8);
+        height: 30px;
+        padding: 0 35px 0 15px;
+        color: #fff;
+        font-size: 14px;
+    }
+
+        .searchInput:hover {
+            background-color: rgba(76,143,237,1);
+        }
+
+        .searchInput:active {
+            background-color: rgba(76,143,237,1);
+        }
+
+    .searchImgs {
+        position: relative;
+        top: 5px;
+        right: 38px;
+        cursor: pointer;
+    }
+
+        .searchImgs:hover {
+            width: 20px;
+            height: 20px;
+        }
+      /*placeholder颜色修改兼容*/
+          ::-webkit-input-placeholder {
+        color: #fff;
+    }
+
+    :-moz-placeholder {
+        color: #fff;
+    }
+
+    ::-moz-placeholder {
+        color: #fff;
+    }
+
+    :-ms-input-placeholder {
+        color: #fff;
+    }
+
+
+
+    /*左侧图例*/
+#tab4 .tabs, #tab4 .tabs a {
+    border:none !important;
+}
+#tab4 .tabs-selected a {
+    height: 33px;
+    line-height: 33px;
+    background: #4c8fed;
+    color: #fff;
+    margin-right:0;
+}
+#tab4 ul {
+    padding:0;
+    width:137px !important;
+    margin:0 !important;
+}
+#tab4 .legendImgCon li{
+    height:27px;
+    line-height: 27px;
+}
+    #tab4 ul li .legendImg {
+       margin:0 4px 0 10px;
+    }
+#tab4 .ckLegend {
+    padding:0 0 13px 10px;
+}
+#tab4 ul li a{
+    letter-spacing: 2px;
+    color:#fff;
+    background:#bbb;
+    padding:0px 20px 0px 19px;
+    }
+#tab4 .panel-body {
+   background-color: rgba(174,207,249,0.5);
+   padding:12px 0 5px 0 !important;
+}
+.tabs-scroller-right,.tabs-scroller-left {
+    display:none !important;
+}
+#tab4 .tabs-header,#tab4 .tabs-wrap{
+background-color:rgba(255,255,255,0);
+        }
+#tab4 #aui-panel {
+    background-color:rgba(255,255,255,0);
+}
+
+
+    .auto_hidden {
+        width: 204px;
+        border: none;
+        position: absolute;
+        display: none;
+        background-color: white;
+    }
+
+    .auto_show {
+        width: 204px;
+        border: none;
+        position: absolute;
+        z-index: 9999; /* 设置对象的层叠顺序 */
+        display: block;
+        background-color: rgba(76,143,237,0.1);
+        border: 1px solid #b5d5ff;
+    }
+
+    .auto_onmouseover {
+        color: #ffffff;
+        background-color: rgba(76,143,237,0.7);
+        padding: 4px 10px;
+    }
+
+    .auto_onmouseout {
+        color: #000000;
+        padding:4px 10px;
+    }
+    /*图例的头部按钮式文本框*/
+    .legendTop {
+    width:137px;
+    height:29px;
+    line-height:29px;
+    text-align:center;
+    background-color:#4c8fed;
+    color:#fff;
+    border-top-right-radius:5px;
+    border-top-left-radius:5px;
+}
+.clearDiv {
+    clear:both;
+}
+
+.mapChange {
+    position: absolute;
+    left: 70px;
+    top: 20px;
+    letter-spacing: -0.5em;
+    font-family: 'Microsoft YaHei';
+    width:160px;
+}
+
+.streetMap {
+    padding: 9px 15px;
+    background-color: #4c8fed;
+    margin: 0;
+    color: #fff;
+    letter-spacing: normal;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+
+.satelliteMap {
+    padding: 9px 15px;
+    background-color: #bbb;
+    margin: 0;
+    color: #fff;
+    letter-spacing: normal;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+.mapChange:hover {
+    cursor: pointer;
+}
+/*搜索框样式*/
+   #searchTab {
+        background-color: rgba(76,143,237,0.2);
+    }
+     .chooseCondition {
+        margin-left: 15px;
+    }
+     #searchTab .textbox {
+        margin: 0 5px;
+    }
+    #divMain .panel.combo-p {
+        border: 1px solid #35baf6;
+    }
+        #divMain .panel.combo-p .combo-panel {
+            max-height:200px;
+        }
+        /**搜索*/
+#searchbutton.l-btn {
+
+}
+ /****图例*/
+ #aui-panel {
+     /*background-color:rgba(255,255,255,0);*/
+    position:absolute;bottom:30px;left:0px;
+}
+ #aui-panel .aui-panel-content{
+    height:100%;
+   background-color:rgba(174,207,249,0.5);
+   }
+#aui-panel .aui-panel-content {
+    padding:13px 0 13px 10px;
+}
+ #aui-panel ul, .aui-panel li {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+ #aui-panelul {
+    width: 138px;
+}
+
+ #aui-panel .aui-panel-content ul li .legendLine{
+    float:left;
+    width:35px;
+    height:16px;
+line-height:16px;
+margin:0px 0;
+}
+ #aui-panel .legendValue {
+    width:89px !important;
+}
+  #aui-panel .legendValues {
+    width:76px !important;
+}
+ #aui-panel .legendTitle {
+    width:130px !important;
+}
+ #aui-panel .aui-panel-content ul li .legendSpan {
+    display: inline-block;
+    line-height: 25px;
+    vertical-align: top;
+}
+
+ #aui-panel .aui-panel-content .legendImg {
+    width:25px;
+    height:25px;
+}
+ #tab3 {
+    height:288px !important;
+    position:absolute;
+    bottom:-252px;
+    left:0px;
+    width:100% !important;
+}

@@ -1,0 +1,335 @@
+﻿@*<ul id="leftMenuList"></ul>*@
+
+<link href="~/Css/MenuLeftCss/normalize.css" rel="stylesheet" />
+<link href="~/Css/MenuLeftCss/styles.css" rel="stylesheet" />
+<link href="~/Css/fonts/4.2.0/font-awesome.min.css" rel="stylesheet" />
+<script src="~/Scripts/MenuLeftJs/stopExecutionOnTimeout.js?t=1"></script>
+<script src="~/Scripts/MenuLeftJs/jquery.velocity.min.js"></script>
+<div class="">
+    <script type="text/javascript">
+        var str = ""
+        //$("#mtree li").hover(function () {
+        //    alert($(this).html());
+        //})
+    </script>
+
+    <div class="show_wrap">
+        <div class="htmleaf-container">
+            <div class="htmleaf-content bgcolor-3">
+                <ul style="" class="mtree" id="mtree">
+                    @if (ViewData["EnergyLeader"]!= "true")
+                    {
+                        foreach (var item in @Model)
+                        {
+                            if (item.Nodes == "[]")
+                            {
+                                <li class="mtree-node"><a href="#" url=@item.Url text=@item.Name onclick="onMTreeClick(this)"><img src=@item.Icon />@item.Name</a></li>
+                            }
+                            else
+                            {
+                                <li class='mtree-node mtree-closed'>
+                                    <a href="#"><img src=@item.Icon />@item.Name</a>
+                                    <ul style='display: none;' class="secondTree"></ul>
+                                    <script>
+                                        var str = "";
+                                        @Html.Raw("var data =" + @item.Nodes);
+                                        str += bindMTree(data, str);
+                                        $(".secondTree:last").append(str);
+
+                                    </script>
+                                </li>
+                            }
+                        }
+                    }
+
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    $(document).ready(function () {
+        readMTree();
+
+    });
+    (function ($, window, document, undefined) {
+        if ($('ul.mtree').length) {
+            var collapsed = true;
+            var close_same_level = false;
+            var duration = 400;
+            var listAnim = true;
+            var easing = 'easeOutQuart';
+            $('.mtree ul').css({
+                'overflow': 'hidden',
+                'height': collapsed ? 0 : 'auto',
+                'display': collapsed ? 'none' : 'block'
+            });
+            var node = $('.mtree li:has(ul)');
+            node.each(function (index, val) {
+                $(this).children(':first-child').css('cursor', 'pointer');
+                $(this).addClass('mtree-node mtree-' + (collapsed ? 'closed' : 'open'));
+                $(this).children('ul').addClass('mtree-level-' + ($(this).parentsUntil($('ul.mtree'), 'ul').length +
+
+                    1));
+            });
+            $('.mtree li > *:first-child').on('click.mtree-active', function (e) {
+                if ($(this).parent().hasClass('mtree-closed')) {
+                    $('.mtree-active').not($(this).parent()).removeClass('mtree-active');
+                    $(this).parent().addClass('mtree-active');
+                } else if ($(this).parent().hasClass('mtree-open')) {
+                    $(this).parent().removeClass('mtree-active');
+                } else {
+                    $('.mtree-active').not($(this).parent()).removeClass('mtree-active');
+                    $(this).parent().addClass('mtree-active');
+                }
+            });
+            node.children(':first-child').on('click.mtree', function (e) {
+                var el = $(this).parent().children('ul').first();
+
+                var isOpen = $(this).parent().hasClass('mtree-open');
+                if ((close_same_level || $('.csl').hasClass('active')) && !isOpen) {
+                    var close_items = $(this).closest('ul').children('.mtree-open').not($(this).parent()).children
+
+                    ('ul');
+                    if ($.Velocity) {
+                        close_items.velocity({ height: 0 }, {
+                            duration: duration,
+                            easing: easing,
+                            display: 'none',
+                            delay: 100,
+                            complete: function () {
+                                setNodeClass($(this).parent(), true);
+                            }
+                        });
+                    } else {
+                        close_items.delay(100).slideToggle(duration, function () {
+                            setNodeClass($(this).parent(), true);
+                        });
+                    }
+                }
+                el.css({ 'height': 'auto' });
+                if (!isOpen && $.Velocity && listAnim)
+                    el.find(' > li, li.mtree-open > ul > li').velocity('stop').velocity
+
+                    ('list');
+                //var c = el.length;
+                //var dd = c.length;
+                console.log(el);
+                console.log(el.outerHeight());
+                //console.log(c.outerHeight());
+                // console.log(el.children('ul').outerHeight());
+                //var d = $(el).children("li");
+                //console.log(d);
+                //console.log(d.outerHeight());
+                //var min;
+                //var ff = el.find('ul');
+                //if (ff.length == 0) {
+                //    min = el.outerHeight();
+                //} else {
+                //    min = 50;
+                //}
+                if ($.Velocity) {
+                    el.velocity('stop').velocity({
+                        height: isOpen ? [
+                            0,
+                           el.outerHeight()
+                        ] : [
+                            el.outerHeight(),
+                            0
+                        ]
+                    }, {
+                        queue: false,
+                        duration: duration,
+                        easing: easing,
+                        display: isOpen ? 'none' : 'block',
+                        begin: setNodeClass($(this).parent(), isOpen),
+                        complete: function () {
+                            if (!isOpen)
+                                $(this).css('height', 'auto');
+                        }
+                    });
+                } else {
+                    setNodeClass($(this).parent(), isOpen);
+                    el.slideToggle(duration);
+                }
+                e.preventDefault();
+            });
+            function setNodeClass(el, isOpen) {
+                if (isOpen) {
+                    el.removeClass('mtree-open').addClass('mtree-closed');
+                } else {
+                    el.removeClass('mtree-closed').addClass('mtree-open');
+                }
+            }
+            if ($.Velocity && listAnim) {
+                $.Velocity.Sequences.list = function (element, options, index, size) {
+                    $.Velocity.animate(element, {
+                        opacity: [
+                            1,
+                            0
+                        ],
+                        translateY: [
+                            0,
+                            -(index + 1)
+                        ]
+                    }, {
+                        delay: index * (duration / size / 2),
+                        duration: duration,
+                        easing: easing
+                    });
+                };
+            }
+            if ($('.mtree').css('opacity') == 0) {
+                if ($.Velocity) {
+                    $('.mtree').css('opacity', 1).children().css('opacity', 0).velocity('list');
+                } else {
+                    $('.mtree').show(400);
+                }
+            }
+        }
+    }(jQuery, this, this.document));
+
+    function readMTree() {
+        $('body').remove(".mtree-skin-selector");
+        var mtree = $('ul.mtree');
+        mtree.wrap('<div class=mtree-demo></div>');
+        var skins = [
+            'transit',
+            'bubba',
+            'skinny',
+            'jet',
+            'nix'
+        ];
+        mtree.addClass(skins[0]);
+        $('body').prepend('<div class="mtree-skin-selector"><ul class="button-group radius"></ul></div>');
+        var s = $('.mtree-skin-selector');
+        $.each(skins, function (index, val) {
+            s.find('ul').append('<li><button class="small skin">' + val + '</button></li>');
+        });
+        s.find('ul').append('<li><button class="small csl active">Close Same Level</button></li>');
+        s.find('button.skin').each(function (index) {
+            $(this).on('click.mtree-skin-selector', function () {
+                s.find('button.skin.active').removeClass('active');
+                $(this).addClass('active');
+                mtree.removeClass(skins.join(' ')).addClass(skins[index]);
+            });
+        });
+        s.find('button:first').addClass('active');
+        s.find('.csl').on('click.mtree-close-same-level', function () {
+            $(this).toggleClass('active');
+        });
+    }
+
+
+    function bindClick() {
+        $('.mtree li > *:first-child').on('click.mtree-active', function (e) {
+            var parent = $(this).parent();
+            if ($(this).parent().hasClass('mtree-closed')) {
+                parent.parent().children('.mtree-open').addClass('mtree-closed');
+                parent.parent().children('.mtree-open').children('ul').slideUp(400);
+                parent.parent().children('.mtree-open').removeClass('mtree-open');
+                parent.removeClass('mtree-closed');
+                parent.addClass('mtree-open');
+                $(this).next().slideDown(400);
+                $('.mtree-active').not($(this).parent()).removeClass('mtree-active');
+                $(this).parent().addClass('mtree-active');
+            } else if ($(this).parent().hasClass('mtree-open')) {
+                $(this).parent().removeClass('mtree-active');
+                parent.removeClass('mtree-open');
+                parent.addClass('mtree-closed');
+                $(this).next().slideUp(400);
+            } else {
+                $('.mtree-active').not($(this).parent()).removeClass('mtree-active');
+                $(this).parent().addClass('mtree-active');
+            }
+        });
+    }
+    //左侧再次点击消失选中和收起菜单
+    //$(".mtree-level-1").find("li").click(function () {
+    //    var _this = $(this);
+    //    var _cli = _this.parent().hasClass("mtree-level-2");
+    //    var _li = $(".secondTree").find("li");
+    //    var mac = _this.hasClass("mtree-active");
+    //    var mno = _this.hasClass("mtree-node");
+    //    if (!_cli) {
+    //        if (!mno) {
+    //            mac ? _this.addClass("mtree-active") : _this.removeClass("mtree-active");
+    //            $.each(_li, function () {
+    //                var _this2 = $(this);
+    //                var mop = _this2.hasClass("mtree-node");
+    //                if (mop) {
+    //                    _this2.find("ul").slideUp(400);
+    //                    _this2.removeClass("mtree-open");
+    //                    _this2.removeClass("mtree-active");
+    //                    _this2.addClass("mtree-closed");
+    //                }
+    //            });
+    //        }
+    //    } else {
+    //        mac ? _this.addClass("mtree-active") : _this.removeClass("mtree-active");
+            
+    //    }
+    //})
+    $("#mtree").click(function (e) {
+        var ev = e || window.event;
+        var even = ev.target || ev.srcElement;
+        var cli = $("#mtree").children("li");
+        if (even.nodeName == "A") {
+            var _li = even.parentElement;
+            var _ul = even.parentElement.parentElement;
+            var _umer = $(_ul).hasClass("mtree");
+            if (_umer) {
+               /*一级菜单点击控制*/
+                var ac = $(_li).hasClass("mtree-active");
+                var closed = $(_li).find("ul").length;
+                if (closed == 0) {
+                    ac ? "" : $(_li).addClass("mtree-active");
+                    $.each(cli, function () {
+                        var _this = $(this);
+                        var mop = _this.hasClass("mtree-open");
+                        if (mop) {
+                            _this.find("ul").slideUp(400);
+                            var ono = _this.find(".mtree-level-1").children("li");
+                            $.each(ono, function () {
+                                var _this2 = $(this);
+                                var cop = _this2.hasClass("mtree-node");
+                                if (cop) {
+                                    _this2.removeClass("mtree-open");
+                                    _this2.removeClass("mtree-active");
+                                    _this2.addClass("mtree-closed");
+                                }
+                            });
+                            _this.removeClass("mtree-open");
+                            _this.removeClass("mtree-active");
+                            _this.addClass("mtree-closed");
+                        }
+                    })
+                }
+                /*一级菜单点击时，关闭其他一级菜单的三级菜单*/
+                $(_li).find('.mtree-open').removeClass('mtree-open').addClass('mtree-closed').children('ul').css("display","none");
+            }
+
+        }
+        
+    })
+    //$("#mtree>li").click(function () {
+        //var cc = $("#mtree>.mtree-node");
+        //var dd =$("#mtree>.mtree-node.mtree-active");
+        //$.each(cc, function () {
+        //    if (cc == dd) {
+
+        //    } else {
+        //        cc.find('.mtree-open').removeClass('mtree-open').addClass('mtree-closed');
+        //    }
+            
+        //})
+        //var c =$(this).hasClass('mtree-open');
+        //if (c) {
+        //    alert("t");
+        //} else {
+        //    $(this).find('.mtree-open').removeClass('.mtree-open');
+        //    alert('f');
+        //    }
+        //event.stopPropagation();
+   // })
+</script>

@@ -1,0 +1,8 @@
+/*#divQuery dl:nth-child(1) dt label 
+,#divQuery dl:nth-child(2) dt label 
+,#divQuery dl:nth-child(9) dt label{
+    width: 50px;
+}*/
+#divQuery dl dt label {
+    width: 72px;
+}

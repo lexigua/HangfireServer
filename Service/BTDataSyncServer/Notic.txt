@@ -1,0 +1,8 @@
+﻿SELECT * FROM  dbo.e_Base_BTCCustPayCard       --还款卡信息记录表 billTypeID
+SELECT * FROM  e_Base_BTCTrusteeshiper         --新增表
+SELECT * FROM e_Base_PayOrder                  --流水号  
+SELECT * FROM dbo.e_Base_TrustLog              --托管绑卡日志
+SELECT * FROM e_base_PayRecord                 --打款还款以及打款还款回调日志
+SELECT * FROM  dbo.e_Base_BankAccountSetting   --打款绑定银行卡表，用于保存银行卡信息   由后台维护配置
+SELECT * FROM dbo.e_Base_Trusteeshiper         --打款托管人设置表，用于保存托管人信息     由后台维护配置
+SELECT * FROM  dbo.e_Base_TrusteeshiperForDept --打款托管人团队关联表，用于保存托管人，团队，业务类型的关联，多个托管可能共用一个托管ID  由后台维护配置

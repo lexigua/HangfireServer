@@ -1,0 +1,76 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Util.DI.Autofac</name>
+    </assembly>
+    <members>
+        <member name="T:Util.DI.Autofac.ConfigBase">
+            <summary>
+            Ioc配置模块
+            </summary>
+        </member>
+        <member name="T:Util.DI.Autofac.Container">
+            <summary>
+            Autofac对象容器
+            </summary>
+        </member>
+        <member name="M:Util.DI.Autofac.Container.#ctor(Autofac.Core.IModule[])">
+            <summary>
+            初始化Autofac对象容器
+            </summary>
+            <param name="modules">配置模块</param>
+        </member>
+        <member name="M:Util.DI.Autofac.Container.#ctor(System.Action{Autofac.ContainerBuilder},Autofac.Core.IModule[])">
+            <summary>
+            初始化Autofac对象容器
+            </summary>
+            <param name="action">在注册模块前执行的操作</param>
+            <param name="modules">配置模块</param>
+        </member>
+        <member name="F:Util.DI.Autofac.Container._container">
+            <summary>
+            容器
+            </summary>
+        </member>
+        <member name="M:Util.DI.Autofac.Container.CreateBuilder(Autofac.Core.IModule[])">
+            <summary>
+            创建容器生成器
+            </summary>
+            <param name="modules">配置模块</param>
+        </member>
+        <member name="M:Util.DI.Autofac.Container.CreateBuilder(System.Action{Autofac.ContainerBuilder},Autofac.Core.IModule[])">
+            <summary>
+            创建容器生成器
+            </summary>
+            <param name="action">在注册模块前执行的操作</param>
+            <param name="modules">配置模块</param>
+        </member>
+        <member name="M:Util.DI.Autofac.Container.Create``1">
+            <summary>
+            创建对象
+            </summary>
+            <typeparam name="T">对象类型</typeparam>
+        </member>
+        <member name="M:Util.DI.Autofac.Container.Create(System.Type)">
+            <summary>
+            创建对象
+            </summary>
+            <param name="type">对象类型</param>
+        </member>
+        <member name="M:Util.DI.Autofac.Container.Init(System.Action{Autofac.ContainerBuilder},Autofac.Core.IModule[])">
+            <summary>
+            初始化容器
+            </summary>
+            <param name="action">在注册模块前执行的操作</param>
+            <param name="modules">依赖配置</param>
+        </member>
+        <member name="M:Util.DI.Autofac.Container.RegisterMvc(System.Reflection.Assembly,System.Action{Autofac.ContainerBuilder},Autofac.Core.IModule[])">
+            <summary>
+            为Mvc注册依赖
+            </summary>
+            <param name="mvcAssembly">mvc项目所在的程序集</param>
+            <param name="action">在注册模块前执行的操作</param>
+            <param name="modules">依赖配置</param>
+        </member>
+    </members>
+</doc>

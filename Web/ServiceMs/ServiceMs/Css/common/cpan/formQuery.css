@@ -1,0 +1,8 @@
+﻿/*查询栏的样式补丁*/
+
+#formQuery .button{margin-top: -3px !important}
+#formQuery dl:first-child{width: 160px !important}
+#formQuery dl:first-child dt{width: 40px !important; }
+#formQuery dl dt label {
+            line-height: 22px;
+        }

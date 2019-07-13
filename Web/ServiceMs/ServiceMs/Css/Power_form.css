@@ -1,0 +1,69 @@
+h4 {
+	margin: 0;
+	padding: 5px 0;
+	background-color: #d6e3fb;
+}
+
+
+.Title_h4 {
+	color: #333333;
+}
+
+#CategoryNamedd .textbox {
+	width: 220px !important;
+}
+
+#divQuery dl #myId .textbox {
+	width: 121px !important;
+}
+
+#myId .textbox input {
+	width: 98px !important;
+
+}
+/*.Power_form #formQuery dl:nth-child(1) {
+	width: 195px!important;
+}*/
+#formQuery > dl > dd > input {
+    border:1px solid #34baf6;
+    padding:0 3px;
+}
+
+     .Title_h4 {
+        position: relative;
+    }
+
+    #headTitle {
+        font-size: 20px;
+        text-align: center;
+    }
+
+    .topTipss {
+        text-align: right;
+        background-color: #d6e3fb;
+        position: absolute;
+        top: 10px;
+        right: 20px;
+    }
+
+
+    /*统计时间样式*/
+    #formQuery dl label {
+        padding-right: 16px;
+    }
+
+    #formQuery dl:nth-child(1) label {
+        width: 50px;
+    }
+
+    #formQuery dl:nth-child(2) label {
+        width: 16px;
+    }
+
+    .l-btn-left {
+        line-height: 20px;
+    }
+
+    .divQueryForm .form dd {
+        width: 150px;
+    }

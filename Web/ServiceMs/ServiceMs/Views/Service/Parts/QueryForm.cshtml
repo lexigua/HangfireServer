@@ -1,0 +1,55 @@
+﻿@using Util.Webs.EasyUi
+@using Util.Webs.EasyUi.Forms.Comboxs
+@model ServiceMs.Models.ServerInfoQuery
+@{
+    var x = @Html.EasyUi();
+}
+@*<style>
+    #formQuery dl:nth-child(1) label {
+        width: 50px;
+    }
+
+    #formQuery dl:nth-child(2) label {
+        width: 24px;
+    }
+
+    #formQuery dl:nth-child(3) label {
+        width: 24px;
+    }
+</style>*@
+<script type="text/javascript">
+    //function RemoveQuery() {
+    //    $("#QMenuState").textbox("setValue", "");
+    //}
+</script>
+@*<link href="~/Css/cpan/fiveQuery.css" rel="stylesheet" />*@
+<div id="divQuery" class="divQueryForm">
+    @using (x.Form("formQuery").AddClass("form").Begin())
+    {
+       
+        <dl>
+            <dt>@Html.LabelFor(t => t.TaskName)</dt>
+            <dd>
+                @x.TextBox(t => t.TaskName)
+            </dd>
+        </dl>
+        <dl>
+            <dt>@Html.LabelFor(t=>t.AddPerson)</dt>
+            <dd>@x.TextBox(t => t.AddPerson)</dd>
+        </dl>
+        <dl>
+            <dt>@Html.LabelFor(t=>t.IsUsable)</dt>
+            <dd>@x.Combox(t => t.IsUsable).Add(new List<ComboxItem>(){new ComboxItem("--请选择--",""),new ComboxItem("是","true"),new ComboxItem("否","false")})</dd>
+        </dl>
+
+        <div class="inlineBlock">
+            <span class="button">
+                @x.Button("查 询").Width(70).Icon("icon-search").Query()
+            </span>
+            <span class="button">
+                @x.Button("重 置").Width(70).Icon("icon-remove").Refresh()
+            </span>
+            <div class="clearStyles"></div>
+        </div>
+    }
+</div>

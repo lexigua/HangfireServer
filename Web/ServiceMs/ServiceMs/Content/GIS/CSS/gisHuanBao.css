@@ -1,0 +1,834 @@
+﻿body {
+    font-family:'Microsoft YaHei' !important;
+}
+/*html {
+    overflow:hidden;
+}*/
+.navbar-brand > img {
+    display:inline !important;
+}
+.navbar {
+    margin-bottom: 0px !important;
+}
+.navbar-inverse .navbar-nav>.active>a, .navbar-inverse .navbar-nav>.active>a:focus, .navbar-inverse .navbar-nav>.active>a:hover {
+    background-color:#556a83 ;
+}
+.navbar-inverse {
+            background-color: #9fa2a5;
+            border: none;
+        }
+            .navbar-inverse .navbar-brand, .navbar-inverse .navbar-nav > li > a {
+                color: white;
+            }
+            .navbar-inverse .navbar-nav > li:hover {
+                background-color: #748093;
+            }
+        .dropMap {
+            color: white;
+            border: none;
+            background-color: #eff8ff;
+            padding: 0; 
+        }
+        .dropdown-menu {
+            min-width: 100px;
+        }
+        .navbar-inverse .navbar-nav .open .dropdown-menu>li>a
+         {
+            color: white;
+        }
+.navbar-inverse .navbar-nav .open .dropdown-menu > li>a:hover{
+    
+    background-color:#cbd2d8;
+}
+.dropdown-menu li a:hover {
+    background-color:#cbd2d8;
+    color:white;
+}
+        .dropMap > li {
+            border-top: 1px solid lightgray;
+        }
+.dropMap li a {
+    color:gray;
+}
+        .navbar-inverse .navbar-nav > .open > a, .navbar-inverse .navbar-nav > .open > a:hover, .navbar-inverse .navbar-nav > .open > a:focus {
+            background-color: #596a7f;
+        }
+
+        .navbar-inverse .navbar-toggle {
+            border-color: white;
+            border-radius:4px;
+            behavior: url(js/PIE.htc);
+        }
+
+        .navbar-inverse .navbar-collapse, .navbar-inverse .navbar-form {
+            border-color: white;
+        }
+
+        .navbar-fixed-top .navbar-collapse, .navbar-fixed-bottom .navbar-collapse {
+            max-height: 600px;
+        }
+ .navbar-inverse .navbar-toggle:hover {
+    background-color:#748093;
+}
+.navbar-inverse .navbar-toggle:focus {
+    background-color: #9fa2a5;
+}
+.searchGroup {
+    min-width:165px !important;
+    position:fixed;
+            top:55px;
+            right:99px;
+            z-index:10;
+}
+
+.pullIcon {
+    margin:13px 0 0 10px;
+}
+        #mapDiv {
+            min-height: 100px;
+            max-height: 1200px;
+        }
+        .edit-search {
+            display: none;
+            position: fixed;
+            top: 60px;
+            right: 20px;
+            z-index: 400;
+            width: 340px;
+            height: 130px;
+        }
+.modal-header {
+    position:relative;
+    z-index:30;
+    background-color:#728092 ;
+    color:white;
+    border-top-left-radius:5px;
+    border-top-right-radius:5px;
+    behavior: url(js/PIE.htc);
+}
+
+.modal-content {
+    border-radius:6px;
+   -moz-border-radius:6px;
+       -webkit-border-radius:6px;
+    box-shadow: 0 5px 15px rgba(0,0,0,.5);
+     -moz-box-shadow: 0 5px 15px rgba(0,0,0,.5);
+    -webkit-box-shadow: 0 5px 15px rgba(0,0,0,.5);
+    behavior: url(js/PIE.htc);
+}
+.operate:focus {
+    outline:none;
+}
+        .operation {
+            display:none;
+            min-width: 450px;
+            z-index:20;
+        }
+.operation1 {
+            min-width: 260px !important;
+            width:260px;
+            position: fixed;
+            top: 150px;
+            right:102px;
+}
+.operation2 {
+            min-width: 386px;
+             width:386px;
+            position: fixed;
+            top: 150px;
+            right:102px;
+}
+.operation3 {
+    min-width: 330px;
+    width: 330px;
+    position: fixed;
+    top: 150px;
+    right:102px;
+}
+.operation4 {
+    min-width:275px;
+    width:275px;
+    position: fixed;
+           top: 150px;
+            right:102px;
+}
+.operation5 {
+    min-width:300px;
+    width:300px;
+            position: fixed;
+            top: 150px;
+            right:102px;
+}
+.operation6 {
+            min-width:840px;
+            width:600px;
+            position: fixed;
+            top: 15px;
+            right:102px;
+}
+.operation8 {
+            min-width: 416px;
+             width:386px;
+            position: fixed;
+            top: 150px;
+            right:102px;
+}
+.operation7 {
+            min-width: 310px;
+             width:310px;
+            position: fixed;
+            top: 150px;
+            right:102px;
+}
+
+.glyphicon {
+    z-index: 10;
+}
+.searchbox {
+
+    margin-top:10px;
+}
+.input-group {
+        display:block;
+        width:161px;
+}
+.input-group .form-control
+ {
+    width:119px;
+}
+.bars{
+            position:fixed;
+            top:15px;
+            left:54px;
+            z-index:30;
+        }
+.barSate {
+    position:fixed;
+    top:15px;
+    right:120px;
+    z-index:30;
+}
+.barAir {
+     position:fixed;
+    top:15px;
+    right:300px;
+    z-index:30;
+}
+        .icon-bar {
+            background-color:white;
+            z-index:13;
+        }
+        .basemap,.satellitemap {
+            background-color:#728092;
+            color:white;
+           border:1px solid #ede7e7;         
+        }
+.basemap {
+    border-top-left-radius:4px;
+    border-bottom-left-radius:4px;
+    border-bottom-right-radius:0px;
+    border-top-right-radius:0px;
+    behavior: url(js/PIE.htc);
+}
+.satellitemap {
+    border-bottom-right-radius:4px;
+    border-top-right-radius:4px;
+    border-top-left-radius:0px;
+    border-bottom-left-radius:0px;
+    behavior: url(js/PIE.htc);
+}
+        /*.basemap:hover,.satellitemap:hover,.basemap:focus,.satellitemap:focus{
+                background-color:#607ba5 !important;
+               border:1px solid #ede7e7 !important;
+                color:white !important;
+            }*/
+.basemap:hover,.basemap:focus {
+    height:34px;
+    width:68px;
+    background-color:#607ba5 !important;
+    border:1px solid #ede7e7 !important;
+    color:white !important;
+    border-top-left-radius:4px;
+    border-bottom-left-radius:4px;
+    border-bottom-right-radius:0px;
+    border-top-right-radius:0px;
+    behavior: url(js/PIE.htc);
+}
+.satellitemap:hover,.satellitemap:focus {
+    height:34px;
+    width:68px;
+    background-color:#607ba5 !important;
+    border:1px solid #ede7e7 !important;
+    color:white !important;
+    border-bottom-right-radius:4px;
+    border-top-right-radius:4px;
+    border-top-left-radius:0px;
+    border-bottom-left-radius:0px;
+    behavior: url(js/PIE.htc);
+}
+.mapfirst{
+    background-color:#607ba5;
+}
+.searchBtn:focus,.searchBtn:hover {
+    background-color:lightgray;
+    border-top:1px solid lightgray !important;
+    border-bottom:1px solid lightgray !important;
+}
+.searchBtn {
+    background-color:#ede7e7;
+    border-left:none;
+    margin-left:0px;
+    padding: 4px 12px 8px 12px !important;
+    /*搜索框的radius，没得效果*/
+    border-radius:4px;
+    border-top-left-radius:0;
+    border-bottom-left-radius:0;
+    behavior: url(js/PIE.htc);
+}
+.input-group-btn:last-child > .btn {
+    margin-left:0px;
+}
+.basemap:focus,.satellitemap:focus,input:focus,.searchBtn:focus {
+            outline:none !important;
+            }
+.glyphicon-search {
+    color:gray;
+}
+.glyphicon-remove {
+    position:absolute;
+    right:14px;
+    top:17px;
+}
+.glyphicon-chevron-up,.glyphicon-chevron-down {
+    position:absolute;
+    right:44px;
+    top:17px;
+}
+.glyphicon-chevron-down {
+    display:none;
+}
+.modal-title {
+    text-align:center;
+}
+.modal-header {
+    border-bottom:none;
+}
+.edit-change {
+    display:block;
+}
+/*测量css*/
+#titlePane{
+        width:240px;
+      }
+      .claro .dijitTitlePaneTitle {
+        background: #fff;
+        font-weight:600;
+        border: none;
+        border-bottom:solid 1px #29201A;
+        border-top:solid 1px #29201A;
+      }
+      .claro .dijitTitlePaneTitleHover {
+        background:#eee;
+      }
+      .claro .dijitTitlePaneTitleActive {
+        background:#808775;
+      }
+      .claro .dijitTitlePaneContentOuter {
+        border-right: none;
+        border-bottom: none;
+        border-left: none;
+      }
+
+      .claro .dijitTitlePaneContentInner {
+    padding: 20px;
+}
+      div#titlePane_titleBarNode {
+    display: none;
+}
+/*测量css*/
+
+
+
+/**/
+ /*时间轴*/
+        /*#bottomPanel {
+          
+           
+            margin: 0 auto;
+            
+            position: absolute;
+            bottom: 2.5em;
+        }
+
+        #timeInfo {
+            border-radius: 4px;
+            border: solid 2px #ccc;
+            background-color: #fff;
+            display: block;
+            padding: 5px;
+            position: relative;
+            text-align: center;
+            width: 750px;
+            height: 55px;
+            z-index: 99;
+        }*/
+
+
+        #bottomPanel {
+        left: 38%;
+        margin: 0 auto;
+        margin-left: -500px;
+        position: absolute; 
+        bottom: 2.5em;
+      }
+
+      #timeInfo{
+        border-radius: 4px;
+        behavior: url(js/PIE.htc);
+        border: solid 2px #ccc;
+        background-color: #fff;
+        display: block;
+        padding: 5px;
+        position: relative;
+        text-align: center;
+        width: 1300px;
+        z-index: 99;
+      }
+.Wdate {
+    display:inline;
+    margin:20px 5px  0px 5px !important;
+    width:186px !important;
+    height:34px !important;
+
+}
+#hotButton {
+    margin:37px 0  40px 76px;
+  display:inline;
+}
+         /*时间轴*/
+/*标绘按钮*/
+#info {
+    display:block;
+    padding:20px 0 0 7px;
+}
+
+.biaohui-remove {
+    margin:15px 30px 0 0;
+}
+.claro .dijitButton .dijitButtonNode {
+min-width:60px;
+}
+.dijitButton {
+    margin:8px 13px;
+}
+.modal-body {
+    padding:0px 0 25px 40px;
+}
+.mapLayer {
+    margin:30px 0 20px 0;
+}
+.btn-choose {
+    padding:6px 16px;
+}
+.label-condition {
+    margin:0px 1px 0 15px;
+}
+.searchtext {
+    display:inline;
+    padding-left:0px;
+}
+#searchClear {
+    position:absolute;
+   top:0px;
+   right:30px;
+}
+#searchtext,#radiusText {
+    display:inline;
+    width:180px;
+}
+#search {
+    margin:-86px 0 0px 246px;
+}
+#searchAround {
+   position:absolute;
+   top:53px;
+   right:30px;
+}
+    #search:focus, #searchAround:focus {
+        outline:none;
+    }
+.Plotting {
+    margin:10px 0;
+}
+.pull {
+    position:absolute;
+    right:40px;
+    top:15px;
+    width:25px !important;
+    height:25px;
+    background-color:white;
+    border-radius:15px;
+    -moz-border-radius:15px;
+    -webkit-border-radius:15px;
+    behavior: url(js/PIE.htc);
+    padding:2px 4px 5px 4px;
+    color:#728092;
+    z-index:32;
+}
+.pullDown {
+   display:none;
+}
+.closes {  
+    position:absolute;
+    top:15px;
+    right:9px;
+    height:25px;
+    padding:1px 6px 5px 5px;
+    border-radius:15px;
+    -moz-border-radius:15px;
+    -webkit-border-radius:15px;
+    behavior: url(js/PIE.htc);
+    background-color:#ffa496;
+}
+.pull:hover {
+    background-color:#dbe2e9;
+}
+.closes:hover,.closes:focus {
+    background-color:#ff6951;
+    border-radius:15px;
+    -moz-border-radius:15px;
+    -webkit-border-radius:15px;
+    behavior: url(js/PIE.htc);
+}
+#cleargraphic {
+    margin:8px 27px 0 13px;
+}
+#baoCungraphic {
+    margin-top:8px;
+}
+/*标绘文本*/
+.biaoHuiText {
+    width:180px;
+    display:inline;
+    margin-right:8px;
+    width:180px !important; 
+    display:inline !important;
+    margin-right:8px !important;
+}
+/*标绘tab*/
+#myTab {
+    margin:20px 0 0 0px;
+    border-radius:10px;
+}
+#myTab li{
+    list-style:none;
+    display:inline;
+}
+    #myTab li a {
+        background-color:#ede7e7;
+         padding:5px 15px;    
+    }
+    #myTab li a:hover,#myTab li a:focus {
+        text-decoration:none;
+        background-color:#607ba5;
+        color:white;
+    }
+.biaohuis a {
+    border-right:1px solid white;
+    border-bottom-left-radius:6px;
+    border-top-left-radius:6px;
+     behavior: url(js/PIE.htc);
+}
+.shilis a {
+    border-bottom-right-radius:6px;
+    border-top-right-radius:6px;
+     behavior: url(js/PIE.htc);
+}
+.backcolor {
+    background-color:#607ba5 !important;
+    color:white;
+}
+#message {
+    margin-top:40px;
+}
+/*顶部搜索*/
+.ui-helper-hidden-accessible {
+    display:none;
+}
+.ui-autocomplete {
+    position: absolute;
+    top: 0;
+    left: 0;
+    cursor: default;
+}
+.ui-menu {
+    list-style: none;
+    padding:5px 0;
+    margin: 0;
+    display: block;
+    outline: 0;
+}
+    .ui-menu .ui-menu {
+        margin-top: -3px;
+        position: absolute;
+    }
+.ui-menu-icons .ui-menu-item a {
+        position: relative;
+        padding-left: 25px;
+    }
+.ui-menu .ui-menu-item:hover{
+    background-color:#e9e7e7;
+}
+   .ui-menu .ui-menu-item a {
+        text-decoration: none;
+        display: block;
+        padding: 2px 15px;
+        line-height: 1.8;
+        min-height: 0;
+        font-weight: 400;
+            border-top:1px solid #e9e7e7;
+    }
+      .ui-widget-content {
+          background-color:white;
+    border: 1px solid #e9e7e7;
+    border-bottom-left-radius:8px;
+    border-bottom-right-radius:8px;
+    behavior: url(js/PIE.htc);
+    color: #222;
+}
+/*图层样式*/
+.content1 {
+    clear:both;
+    margin:0 0 0 30px;
+}
+.close {
+    opacity:0.9 !important;
+}
+.esriPopup .titlePane, .esriPopup.light .titlePane {
+    background-color:#b2b9bf !important;
+    color:white !important;
+}
+.esriPopup.light .titleButton {
+   background: url("../images/popup.png") no-repeat;
+}
+.esriPopup .titleButton.next {
+      right: 36px !important;
+  background-position: -16px 0 !important;
+  width: 9px;
+  height: 17px;
+}
+.esriPopup .titleButton.prev {
+    right: 55px !important;
+    background-position: -26px 0;
+}
+
+.esriSimpleSlider {
+    border-radius:5px;
+    behavior: url(js/PIE.htc);
+}
+.input { padding: 5px; margin: 0; border: 1px solid #beceeb; }
+.clear { display: none; position: absolute; width: 16px; height: 16px; margin: 6px 0 0 -20px; background: url(clear.png);}
+.input::-ms-clear { display: none; }
+.input:valid + .clear {
+    display: inline;
+}
+/*导航改为侧边栏*/
+   body {
+            padding-top:0px;
+        }
+         .sidebar {
+  width: 80px;
+  height:100%;
+  position:fixed;
+  right:0;
+  top:0px;
+  border: 1px solid #ccc;
+  border-width: 0 1px 0 0;
+  z-index:10;
+   background-color: #9fa2a5;
+   color:white;
+}
+         .sidebar ul li {
+            display:block !important; 
+            text-align:center;        
+            width: 80px;
+            padding:6px 0px;
+         }
+            .sidebar ul li:hover{
+                background-color:#748093 !important;
+                cursor:pointer;
+            }
+        .navbar-nav {
+            margin:0px;
+        }
+.head-pullUp {
+   padding:10px 0 20px 0;
+}
+.head-pullDown {
+    position:absolute;
+    top:15px;
+    right:20px;
+    z-index:1;
+    display:none;
+}
+
+/*去掉文本框自动产生的x*/
+input[type=text]::-ms-clear {  display:none;}
+
+/*jquery.leanModal*/
+/*#lean_overlay {
+    position: fixed;
+    z-index:100;
+    top: 0px;
+    left: 0px;
+    height:100%;
+    width:100%;
+    background: #000;
+    display: none;
+}*/
+#biaohuimodal {  
+     display:none;
+     position:fixed;
+     top:35%;
+     left:40%; 
+    background-color: #E7F0F5;
+    width: 300px;
+    height: 220px;
+    border-radius: 10px;
+    z-index:310;
+    text-align:center;
+    padding:15px;
+}
+#bgDiv {
+    display: none;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    right:0px;
+    background-color: #777;
+    filter:progid:DXImageTransform.Microsoft.Alpha(style=3,opacity=25,finishOpacity=75);
+    opacity: 0.6;
+    z-index:300;
+}
+.biaohuiAlert {
+    padding: 15px 0px 0px 0px;
+}
+.biaohui-save h4 {
+    font-weight:600;
+    color:#607ba5;
+}
+    .biaohuiAlert label {
+        color:#607ba5;
+        text-align:left;
+        width:60px;
+    }
+    .biaohuiAlert input {
+        width: 182px;
+        height:32px;
+        padding-left:15px;
+        margin-left:10px;
+        border:1px solid #ede7e7;
+        border-radius:7px;
+        behavior: url(js/PIE.htc);
+    }
+#biaohuiCunchu,#biaohuiCancle{
+    margin:18px 7px 0px 7px;
+}
+
+.hotlabel {
+
+    padding-left:10px;
+
+}
+
+#gview_sentimenthotGrid {
+    margin:20px 0 0 0 !important; 
+
+}
+/*更多*/
+.mainHref {
+    padding:15px 0 0 10px;
+}
+.mainHref li{
+    list-style:none;
+    margin:10px 0 0 0;
+}
+    .mainHref li a {
+        text-decoration:none;
+        padding-left:10px;
+    }
+        .mainHref li a:hover {
+            color:#728092;
+        }
+
+        /*新添加的*/
+        .operation10 {
+            min-width: 230px;
+             width:230px;
+            position: fixed;
+            top: 150px;
+            right:102px;
+}
+.content10 {
+    text-align:center;
+}
+.btn-content {
+    width:120px;
+    margin:20px 0 0 10px;
+}
+.btn-content button {
+    width:70px;
+    margin:5px 0;
+}
+
+.region {
+    position:fixed;
+    bottom:60px;
+    left:0px;
+    z-index:32;
+    background-color:#9fa2a5 ;
+    color:white;
+    border-top-right-radius:10px;
+    border-bottom-right-radius:10px;
+     behavior: url(js/PIE.htc);
+}
+.chooseRegion {
+    padding:6px 30px;
+}
+.regionImg {
+    position:absolute;
+    top:40%;
+    right:-7px;
+}
+.regionShowImg {
+    position:absolute;
+    bottom:124px;
+    left:-5px;
+    z-index:35;
+    display:none;
+}
+/*图层*/
+
+#AirPoint button {
+    margin: 5px
+}
+#AirPoint button:first-child {
+    margin-top: 20px;
+}
+#QueryButton {
+    margin:23px 130px 20px 62px;
+}
+.timeChoose {
+    margin-top: 0px;
+}
+.reportStyle {
+    margin: 18px 0 0 0; 
+}
+.imgTab {
+    width: 250px;
+    height: 80px;
+    position: fixed;
+    left: 30px;
+    bottom: 20px;
+    z-index: 300;
+}

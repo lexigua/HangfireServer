@@ -1,0 +1,81 @@
+﻿
+    .divDetail .detailContent dl, #form dl{
+        width: 400px;
+        padding: 0 0 10px 0;
+        color: #333;
+    }
+    #form dl {
+        margin:0 20px;
+    }
+        
+         .divDetail .detailContent dl:nth-child(2n), #form dl:nth-child(2n+1) {
+            border-bottom: 1px solid #e6e6e6;
+            margin-bottom: 10px;
+        }
+    .divDetail .detailContent dl:last-child {
+        border-bottom:none;
+    }
+         .divDetail .detailContent dl dt, #form dl dt {
+            width: 140px;
+        }
+
+            .divDetail .detailContent dl dt label,.formYT dt label {
+                float: left;
+                width: 120px;
+                text-align: right;
+                margin-right: 4px;
+                /*white-space: nowrap;
+                text-overflow: ellipsis;修改详情不换行，多余的字用...代替*/
+                overflow: hidden;
+            }
+            #form dl dt label {
+                float: left;
+                width: 120px;
+                text-align: right;
+                margin-right: 4px;
+                /*white-space: nowrap;
+                text-overflow: ellipsis;*/
+                overflow: hidden;
+            }
+        #form dl dd span{
+            border: none;
+            float:left;
+        }
+        /*#form dl dd input {
+            float: left;
+            width: auto !important;
+        }*/
+            
+             .divDetail .detailContent dd, #form dd {
+                width: 250px;
+            }
+
+    #dialogButtons a:hover {
+        background-color: #34baf6 !important;
+        color: #fff !important;
+    }
+
+    #dialogButtons a {
+        background-color: #fff !important;
+        color: #34baf6 !important;
+        border: 1px solid #34baf6;
+        border-radius: 3px !important;
+    }
+
+
+    /**详情弹窗*/
+.divForm.divFormYT #form,.divForm #appendix,.divForm.divFormYT  #appendix .divDetail{
+    padding:0px;
+}
+#basisProperty > .divDetail {
+    padding:0;
+}
+.divForm.divFormYT  #basisProperty .detailContent,.divForm.divFormYT  #appendix .detailContent {
+    padding:10px 20px;
+}
+.window-body .divForm.divFormYT {
+    padding:10px 40px;
+}
+.divFormYT .formYT {
+    padding:0px !important;
+}
