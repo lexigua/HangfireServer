@@ -1,0 +1,46 @@
+﻿@model IList<ServiceMs.Models.MenuDto>
+<div class="topMan">
+    <div class="topRightImg">
+        任务调度系统
+    </div>
+    <div id="leftControl"></div>
+    <div class="topMenuBar">
+       
+        <div id="eictNow" class="topRoles" onclick="javascript: $.messager.confirm('系统提示', '您确定要注销吗?', function(r) { if (r) { window.top.location.href = '/Login/index'; } });"><img class="topRolesImg logOutImg1" src="~/Css/icons/logOut.png"/><img class="topRolesImg logOutImg2" src="~/Css/icons/logOuuu.png"/><span class="topRolesSpan topRolesSpan1">注销</span></div>
+        <div class="topRoles">
+            <img class="topRolesImg" src="~/Css/icons/role.png"/>
+            <span class="topRolesSpan">
+                <label>@ViewData["Dept"]-@ViewData["Staff"]</label>
+            </span>
+        </div>
+        <div class="topDatas topRoles"></div>
+       
+    </div>
+
+
+</div>
+<script>
+    $(document).ready(function () {
+        $("#eictNow").mouseover(function () {
+            $(".logOutImg1").css("display", "none");
+            $(".logOutImg2").css("display", "inline-block");
+            $(".topRolesSpan1").css("color", "#34baf6 ");
+        })
+        $("#addviceChange").mouseover(function () {
+            $(".addviceImg1").css("display", "none");
+            $(".addviceImg2").css("display", "inline-block");
+            $(".topRolesSpan2").css("color", "#34baf6 ");
+        })
+        $("#eictNow").mouseout(function () {
+            $(".logOutImg2").css("display", "none");
+            $(".logOutImg1").css("display", "inline-block");
+            $(".topRolesSpan1").css("color", "#fff");
+        })
+        $("#addviceChange").mouseout(function () {
+            $(".addviceImg2").css("display", "none");
+            $(".addviceImg1").css("display", "inline-block");
+            $(".topRolesSpan2").css("color", "#fff");
+        })
+    })
+</script>
+

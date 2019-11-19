@@ -40,8 +40,12 @@ namespace ServiceMs.Base
                         {
                             try
                             {
-                                var value = Convert.ChangeType(childNode.InnerText, property.PropertyType);
-                                property.SetValue(dto, value);
+                                if (!string.IsNullOrEmpty(childNode.InnerText))
+                                {
+                                    var value = Convert.ChangeType(childNode.InnerText, property.PropertyType);
+                                    property.SetValue(dto, value);
+                                }
+
                             }
                             catch (Exception ex)
                             {
@@ -142,7 +146,12 @@ namespace ServiceMs.Base
                             var childItem = properties.FirstOrDefault(t => t.Name == child.Name);
                             if (childItem != null)
                             {
-                                child.InnerText = childItem.GetValue(item).ToString();
+                                var val = childItem.GetValue(item);
+                                if (val!=null)
+                                {
+                                    child.InnerText = val.ToString();
+                                }
+                                
                             }
                         }
                         break;

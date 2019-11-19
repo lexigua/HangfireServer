@@ -7,8 +7,8 @@ using System.Reflection;
 using System.ServiceProcess;
 using BTDataSyncServer;
 using BTDataSyncServer.Common;
-using BTDataSyncServer.Method;
 using BTDataSyncServer.Model;
+using BTWindowsServer.Method;
 using Hangfire;
 using Microsoft.Owin.Hosting;
 
@@ -18,22 +18,8 @@ namespace BTWindowsServer
     {
         public BTWindowsServer()
         {
-            try
-            {
-                LogHelper.WriteLog("服务初始化开始");
-                InitializeComponent();
-
-                GlobalConfiguration.Configuration.UseSqlServerStorage("HangFireDataBase");
-                var listenAddr = ConfigurationManager.AppSettings["ListenerAddr"];
-                StartOptions options = new StartOptions();
-                options.Urls.Add(listenAddr);
-                WebApp.Start<Startup>(options);
-                LogHelper.WriteLog("服务初始化结束");
-            }
-            catch (Exception ex)
-            {
-                LogHelper.WriteLog("服务初始化异常,"+ex.Message);
-            }
+            InitializeComponent();
+           
         }
 
         //要执行的任务列表
@@ -41,10 +27,36 @@ namespace BTWindowsServer
 
         protected override void OnStart(string[] args)
         {
+            //服务初始化部分
             try
             {
+                LogHelper.WriteLog("服务初始化开始");
 
 
+                //为HangFire指定数据库连接
+                GlobalConfiguration.Configuration.UseSqlServerStorage("HangFireDataBase");
+                //重试次数设置
+                GlobalJobFilters.Filters.Add(new AutomaticRetryAttribute() { Attempts = 4 });
+                var listenAddrs = ConfigurationManager.AppSettings["ListenerAddr"];
+
+                //为Hangfire创建宿主Web服务并指定监听地址和端口  例如：http://localhost:9019
+                StartOptions options = new StartOptions();
+                var listenAddrArray = listenAddrs.Split(',');
+                foreach (var addr in listenAddrArray)
+                {
+                    options.Urls.Add(addr);
+                }
+                WebApp.Start<Startup>(options);
+                LogHelper.WriteLog("服务初始化结束");
+            }
+            catch (Exception ex)
+            {
+                LogHelper.WriteLog("服务初始化异常," + ex.Message);
+            }
+
+
+            try
+            {
                 LogHelper.WriteLog("开始读取配置文件");
 
                 var configFileName = AppDomain.CurrentDomain.BaseDirectory + "Config\\" + "BTWindowsServerConfig.xml";
@@ -64,17 +76,14 @@ namespace BTWindowsServer
                 }
                 LogHelper.WriteLog("配置文件读取完成");
 
-                #region 新调度方式
                 LogHelper.WriteLog("开始添加任务列表");
                 var serverInfos = _serverList.Where(t => t.IsUsable).ToList();
                 foreach (var serverInfo in serverInfos)
                 {
                     AddJob(serverInfo);
                 }
-
                 LogHelper.WriteLog("任务列表添加完成");
 
-                #endregion
             }
             catch (Exception ex)
             {
@@ -88,7 +97,6 @@ namespace BTWindowsServer
         /// <param name="methodServerInfo"></param>
         private void AddJob(ServerInfo methodServerInfo)
         {
-
             try
             {
                 RecurringJob.RemoveIfExists(methodServerInfo.TaskName);
@@ -97,11 +105,16 @@ namespace BTWindowsServer
 
                 if (method != null)
                 {
-                    RecurringJob.AddOrUpdate(methodServerInfo.TaskName, () => ServerMethod.Execute(methodServerInfo.TaskMethod, methodServerInfo), methodServerInfo.ExecTime, TimeZoneInfo.Local);
+                    RecurringJob.AddOrUpdate(methodServerInfo.TaskName,
+                        () => ServerMethod.Execute(methodServerInfo.TaskMethod, methodServerInfo),
+                        methodServerInfo.ExecTime, TimeZoneInfo.Local);
                 }
-                else if (methodServerInfo.TaskMethod.ToLower().StartsWith("http://") || methodServerInfo.TaskMethod.ToLower().StartsWith("https://"))
+                else if (methodServerInfo.TaskMethod.ToLower().StartsWith("http://")
+                         || methodServerInfo.TaskMethod.ToLower().StartsWith("https://"))
                 {
-                    RecurringJob.AddOrUpdate(methodServerInfo.TaskName, () => ServerMethod.ExcuteApi(methodServerInfo), methodServerInfo.ExecTime, TimeZoneInfo.Local);
+                    RecurringJob.AddOrUpdate(methodServerInfo.TaskName,
+                        () => ServerMethod.ExcuteApi(methodServerInfo),
+                        methodServerInfo.ExecTime, TimeZoneInfo.Local);
                 }
                 else
                 {
@@ -114,7 +127,6 @@ namespace BTWindowsServer
             {
                 LogHelper.WriteLog("加入任务队列失败," + ex.Message, methodServerInfo.TaskName);
             }
-
         }
 
         /// <summary>
@@ -135,7 +147,6 @@ namespace BTWindowsServer
                 if (serverInfo.IsUsable)
                 {
                     RecurringJob.RemoveIfExists(serverInfo.TaskName);
-
                     LogHelper.WriteLog("服务停止，任务已停止执行。", serverInfo.TaskName);
                 }
             }

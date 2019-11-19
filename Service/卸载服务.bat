@@ -1,7 +1,7 @@
-@echo.服务删除BTWindowsServer 
+@echo.服务删除BTWindowsServer1
 @echo off  
-@net stop BTWindowsServer 
-@sc delete BTWindowsServer 
+@net stop BTWindowsServer1
+@sc delete BTWindowsServer1
 @echo off  
 @echo.删除结束！  
 @pause 

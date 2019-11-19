@@ -1,0 +1,445 @@
+﻿/*.icon-add {
+    background: url(icons/icons.png) no-repeat -100px 0;
+}*/
+.icon-add {
+    background: url(images/icon/aui-icon-add.png) no-repeat center center;
+    background-size:94%;
+      background-position: 0px 0 !important;
+}
+
+
+.icon-file-add {
+        background: url(images/icon/icon-file-add.png) no-repeat 0 0;
+    background-size:100%;
+}
+.icon-menu-add {
+      background: url(images/icon/icon-bm-add.png) no-repeat center center;
+    background-size:100%;
+}
+.icon-menu-add2 {
+      background: url(images/icon/icon-bm-add2.png) no-repeat center center;
+    background-size:100%;
+}
+.icon-bm-add {
+      background: url(images/icon/icon-bm-add.png) no-repeat center center;
+    background-size:100%;
+}
+.icon-bm-add2 {
+      background: url(images/icon/icon-bm-add2.png) no-repeat center center;
+    background-size:100%;
+}
+.icon-user-add {
+      background: url(images/icon/icon-user-add.png) no-repeat center center;
+    background-size:100%;
+}
+.icon-user-edit {
+      background: url(images/icon/aui-icon-edit.png) no-repeat center center;
+    background-size:100%;
+}
+.icon-user-ok {
+      background: url(images/icon/icon-user-ok.png) no-repeat center center;
+    background-size:100%;
+}
+.icon-user-disable {
+      background: url(images/icon/icon-user-disable.png) no-repeat center center;
+    background-size:100%;
+}
+.icon-user-delete {
+      background: url(images/icon/icon-delete.png) no-repeat center center;
+    background-size:100%;
+}
+.icon-user-permission {
+      background: url(images/icon/icon-user-permission.png) no-repeat center center;
+    background-size:100%;
+}
+.icon-user-setting {
+      background: url(images/icon/icon-user-setting.png) no-repeat center center;
+    background-size:100%;
+}
+.icon-user-password {
+      background: url(images/icon/icon-password.png) no-repeat center center;
+    background-size:100%;
+}
+
+
+.icon-preview {
+          background: url(images/icon/icon-preview.png) no-repeat center center;
+    background-size:100%;
+}
+
+.icon-add2 {
+    background: url(icons/add.png) no-repeat center center;
+}
+
+.icon-add3 {
+    background: url(icons/add_2.png) no-repeat center center;
+}
+
+.icon-add4 {
+    background: url(icons/icons.png) no-repeat -20px 0;
+}
+
+.icon-addToUp {
+    background: url(icons/icons.png) no-repeat -240px 0;
+}
+
+.icon-addToDown {
+    background: url(icons/icons.png) no-repeat 0 -20px;
+}
+.icon-staff {
+    background: url(icons/icons.png) no-repeat -100px -480px;
+}
+.icon-Dept {
+    background: url(icons/icons.png) no-repeat -280px -300px;
+}
+.icon-edit {
+    /*background: url(icons/icons.png) no-repeat -180px 0;*/
+    background: url(images/icon/aui-icon-edit.png) no-repeat center center;
+        background-size:100%;
+}
+    .icon-edit:last-of-type {
+    background: url(images/icon/aui-icon-edit.png) no-repeat;
+        background-size:100%;
+        
+    }
+
+.icon-edit2 {
+    background: url(icons/edit.png) no-repeat center center;
+}
+
+.icon-edit3 {
+    background: url(icons/edit_2.png) no-repeat center center;
+}
+
+.icon-delete {
+    /*background: url(icons/icons.png) no-repeat -140px 0;*/
+    background:url(images/icon/icon-delete.png)no-repeat center center;
+    background-size:100%;
+}
+
+.icon-delete2 {
+    background: url(icons/delete.png) no-repeat center center;
+}
+
+.icon-delete3 {
+    background: url(icons/icons.png) no-repeat -140px -120px;
+}
+
+.icon-delete4 {
+    background: url(icons/icons.png) no-repeat -40px -140px;
+}
+
+.icon-search {
+    /*background: url(icons/icons.png) no-repeat -220px -200px;*/
+    background:url(images/icon/icon-search.png)no-repeat center center;
+    background-size:100%;
+}
+
+.icon-search2 {
+    background: url(icons/search.png) no-repeat center center;
+}
+
+.icon-refresh {
+    /*background: url(icons/icons.png) no-repeat -140px -40px;*/
+    background:url(images/icon/icon-refresh.png)no-repeat center center;
+    background-size:100%;
+}
+
+.icon-reload {
+    background: url(icons/reload.png) no-repeat center center;
+    /*background:url(images/icon/icon-refresh.png)no-repeat center center;*/
+    background-size:100%;
+}
+#btnReload .icon-reload{
+	 background: url(icons/reload2.png) no-repeat center center;
+	 background-size:100%;
+}
+.icon-house {
+    background: url(icons/house.png) no-repeat center center;
+}
+
+.icon-ok {
+    background: url(icons/ok.png) no-repeat center center;
+}
+
+.icon-ok2 {
+    background: url(icons/icons.png) no-repeat 0 0;
+}
+
+.icon-cancel {
+    /*background: url(icons/cancel.png) no-repeat center center;*/
+            background:url(images/icon/cancel.png)no-repeat center center;
+    background-size:100%;
+}
+
+.icon-cancel2 {
+    /*background: url(icons/icons.png) no-repeat -120px -40px;*/
+    background:url(images/icon/cancel.png)no-repeat center center;
+    background-size:100%;
+}
+
+.icon-no {
+    background: url(icons/no.png) no-repeat center center;
+}
+
+.icon-remove {
+    background: url(icons/remove.png) no-repeat center center;
+}
+
+.icon-look {
+    background: url(images/icon/lookDetail.png) no-repeat center center;
+    background-size:100%;
+}
+
+.icon-eye {
+    background: url(icons/eye.png) no-repeat center center;
+}
+
+.icon-export {
+    background: url(icons/icons.png) no-repeat -260px 0;
+}
+
+.icon-save {
+    /*background: url(icons/icons.png) no-repeat -160px -140px;*/
+        background:url(images/icon/icon-save.png)no-repeat center center;
+    background-size:100%;
+}
+
+
+.icon-up {
+    /*background: url(icons/icons.png) no-repeat -300px -500px;*/
+    background:url(images/icon/icon-up.png)no-repeat center center;
+    background-size:100%;
+}
+.icon-down2 {
+    background:url(images/icon/icon-dn.png)no-repeat center center;
+    background-size:100%;
+}
+
+.icon-fix {
+    background: url(icons/icons.png) no-repeat -380px -200px;
+}
+
+.icon-rainbow {
+    background: url(icons/icons.png) no-repeat -300px -340px;
+}
+
+.icon-rainbow2 {
+    background: url(icons/icons.png) no-repeat -200px -460px;
+}
+
+.icon-menu {
+    background: url(icons/CategorizeMenu.png) no-repeat;
+}
+
+.icon-System {
+    background: url(icons/icons.png) no-repeat -20px -100px;
+}
+
+.icon-Allocation {
+    background: url(icons/icons.png) no-repeat -180px -100px;
+}
+
+.icon-Basis {
+    background: url(icons/icons.png) no-repeat 0px -60px;
+}
+
+.icon-Monitor {
+    background: url(icons/icons.png) no-repeat -260px -20px;
+}
+
+.icon-Administration {
+    background: url(icons/icons.png) no-repeat -300px -80px;
+}
+
+.icon-Individual {
+    background: url(icons/icons.png) no-repeat -140px -480px;
+}
+
+.icon-Gis {
+    background: url(icons/icons.png) no-repeat -120px -260px;
+}
+
+.icon-skin {
+    background: url('icons/icon-skin.png') no-repeat center left;
+}
+
+.icon-coslps {
+    background: url('icons/coslps.png') no-repeat center left;
+}
+
+.icon-down {
+    background: url('icons/down.png') no-repeat center left;
+}
+
+.icon-updatepwd {
+    background: url('icons/updatepwd.png') no-repeat center left;
+}
+
+.icon-help {
+    background: url('icons/help.png') no-repeat center center;
+}
+
+.icon-F11-screen {
+    background: url('icons/F11-Screen2.png') no-repeat center center;
+}
+
+.icon-screen {
+    background: url('icons/fullScreen.png') no-repeat center center;
+}
+.icon-tq {
+    background: url(icons/icons.png) no-repeat -220px -140px;
+}
+.icon-js {
+    background: url(icons/icons.png) no-repeat -80px -80px;
+}
+.icon-sypage {
+    background: url(icons/icons.png) no-repeat -180px -280px;
+}
+.icon-bginfo {
+    background: url(icons/icons.png) no-repeat -60px -240px;
+}
+.icon-bghc {
+    background: url(icons/icons.png) no-repeat 0px -320px;
+}
+.icon-download {
+    background: url(icons/download.png) no-repeat center center;
+}
+.icon-upload {
+    background: url(icons/upload.png) no-repeat center center;
+}
+.icon-xmlx {
+    background: url(icons/xmtj.png) no-repeat center center;
+}
+.icon-xmxg {
+    background: url(icons/xmxg.png) no-repeat center center;
+}
+.icon-xmfp {
+    background: url(icons/xmfp.png) no-repeat center center;
+}
+.icon-xmcy {
+    background: url(icons/icons.png) no-repeat -240px -300px;
+}
+.icon-cypage {
+    background: url(icons/icons.png) no-repeat -160px -280px;
+}
+.icon-yplz {
+    background: url(icons/icons.png) no-repeat -220px -140px;
+}
+.icon-cypages {
+    background: url(icons/icons.png) no-repeat -240px -280px;
+}
+.icon-sypages {
+    background: url(icons/icons.png) no-repeat -200px -280px;
+}
+.icon-jcbg {
+    background: url(icons/icons.png) no-repeat -60px -320px;
+}
+.icon-info {
+    background: url(icons/icons.png) no-repeat -40px -200px;
+}
+.icon-select {
+    background: url(icons/select.png) no-repeat;
+}
+.icon-clear {
+    background: url(icons/clear.png) no-repeat;
+}
+.icon-business {
+    background: url(icons/business.png) no-repeat;
+}
+.icon-Type {
+    background: url(icons/Type.png) no-repeat;
+}
+.icon-cType {
+    background: url(icons/cType.png) no-repeat;
+}
+.icon-yw {
+    background: url(icons/yw.png) no-repeat;
+}
+
+.icon-message {
+    background: url(icons/icon1.gif) no-repeat 0 3px;
+}
+
+.icon-send {
+    background: url(icons/icons.png) no-repeat -260px 0;
+}
+.icon-down {
+    /*background: url(icons/icons.png) no-repeat -280px -500px;*/
+        background:url(images/icon/icon-down.png)no-repeat center center;
+    background-size:100%;
+}
+.icon-setDepart {
+    background: url(images/icon/setDepart.png) no-repeat center center;
+    background-size:100%;
+}
+.icon-templates {
+    background: url(images/icon/setDepart.png) no-repeat center center;
+    background-size:100%;
+}
+.icon-mapChange {
+     background: url(images/icon/mapChange.png) no-repeat center center;
+    background-size:100%;
+}
+.icon-takeOut {
+     background: url(images/icon/takeOut.png) no-repeat center center;
+    background-size:86%;
+}
+.icon-childPart {
+     background: url(images/icon/icon-bm-add2.png) no-repeat center center;
+    background-size:100%;
+}
+.icon-0-0{
+	background-image: url(images/icon/shenhe.png)!important;
+}
+.icon-szjg{
+	background-image: url(images/icon/setDepart.png);
+}
+.icon-sx{
+	background-image: url(images/icon/icon-refresh.png);
+}
+.icon-file-add2{
+	background-image: url(images/icon/mobanxiazai.png);
+}
+.icon-file-add3{
+	background-image: url(images/icon/pldaoru.png);
+}
+.icon-nextParts {
+    background-image:url(images/icon/icon-bm-add2.png);
+}
+.icon-commit {
+     background-image:url(images/icon/commit.png);
+}
+.icon-bringIn {
+     background-image:url(images/icon/bringIn.png);
+}
+.icon-fileManage {
+    background-image:url(images/icon/fileManage.png);
+}
+.icon-picManage {
+     background-image:url(images/icon/picManage.png);
+}
+.icon-gxmoban {
+    background-image:url(images/icon/gxmoban.png);
+}
+.icon-upData {
+    background-image:url(images/icon/upData.png);
+
+}
+.icon-shenhe {
+    background-image: url(images/icon/shenhe.png);
+    background-repeat:no-repeat;
+}
+.icon-chooseAll {
+     background-image: url(images/icon/chooseAll.png);
+    background-repeat:no-repeat;
+}
+.icon-deleteInput {
+                       background-image: url(images/deleteChoose.png);
+    background-repeat:no-repeat;
+    padding:2px 8px;
+    cursor:pointer;
+}
+.icon-dataChange {
+    background-image: url(images/dataShow.png);
+}

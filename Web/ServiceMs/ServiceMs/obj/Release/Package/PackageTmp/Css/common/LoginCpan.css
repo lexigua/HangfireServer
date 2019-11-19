@@ -1,0 +1,310 @@
+﻿::-webkit-input-placeholder {
+    color: white;
+}
+
+:-moz-placeholder {
+    color: white;
+}
+
+::-moz-placeholder {
+    color: white;
+}
+
+:-ms-input-placeholder {
+    color: white;
+}
+
+#noPass:hover {
+    color: green;
+}
+
+html {
+    overflow: hidden;
+}
+
+.datagrid-mask-msg {
+    height: auto !important;
+}
+
+.bgIMg {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    z-index: -11;
+}
+
+.header {
+    height: 60px;
+    padding: 15px 30px 0 40px;
+}
+
+.imgHeader1 {
+    display: block;
+    float: left;
+    height: 50px;
+}
+
+.imgHeader2 {
+    display: block;
+    float: left;
+    margin: 15px 0 0 12px;
+    height: 35px;
+}
+
+.headerIMGRight {
+    float: right;
+    color: white;
+    margin: 25px 0 0 11px;
+    cursor: pointer;
+}
+
+.phone {
+    display: block;
+    float: right;
+    height: 20px;
+    margin-top: 26px;
+    cursor: pointer;
+}
+
+#loginForm .login {
+    width: 60%;
+    margin: 0 20%;
+}
+
+    #loginForm .login .user {
+        border: 1px solid #fdfdff;
+        height: 40px;
+        border-radius: 6px;
+        color: white;
+        font-size: 23px;
+    }
+
+        #loginForm .login .user .left {
+            width: 34px;
+            float: left;
+            overflow: hidden;
+            padding: 8px 0 0px 5px;
+        }
+
+            #loginForm .login .user .left img {
+                height: 22px;
+                width: 22px;
+            }
+
+        #loginForm .login .user .right {
+            width: calc(100% - 34px);
+            -webkit-calc(100% - 34px);
+            -moz-calc(100% - 34px);
+            float: left;
+            height: 40px;
+        }
+#loginForm input {
+    background-color: rgba(0, 0, 0, 0) !important;
+}
+#LoginCode {
+    border: 0px;
+    height: 36px;
+    width: 100%;
+}
+
+#loginForm .login .password {
+    border: 1px solid #fdfdff;
+    height: 40px;
+    border-radius: 6px;
+    color: white;
+    font-size: 23px;
+    margin-top: 28px;
+}
+
+    #loginForm .login .password .left {
+        width: 34px;
+        float: left;
+        overflow: hidden;
+        padding: 9px 0 0px 5px;
+    }
+
+        #loginForm .login .password .left img {
+            height: 22px;
+            width: 14px;
+        }
+
+    #loginForm .login .password .right {
+        width: calc(100% - 34px);
+        -webkit-calc(100% - 34px);
+        -moz-calc(100% - 34px);
+        float: left;
+        height: 40px;
+    }
+
+#LoginPwd {
+    background-color: rgba(255,255,255,0);
+    border: 0px;
+    height: 38px;
+    width: 100%;
+    padding-left: 0px !important;
+    border-radius: 0px;
+}
+
+#errorMessage {
+    text-align: left;
+    height: 25px;
+}
+
+#btnLogin {
+    height: 33px;
+    background: white;
+    color: #5c5c5c;
+    line-height: 33px;
+    text-align: center;
+    font-size: 17px;
+    border-radius: 6px;
+    margin-top: 17px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.noPassWord {
+    margin-top: 22px;
+}
+
+.user .right input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0px 1000px #4d9aef inset;
+    border: 0px solid #226BE8 !important;
+    color: white !important;
+}
+
+.password .right input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0px 1000px #4d9aef inset;
+    border: 0px solid #236BE7 !important;
+}
+
+button, input, select, textarea {
+    font-size: 19px !important;
+}
+
+#div_loading_msg {
+    left: 47% !important;
+}
+
+@media screen and (max-width: 1300px) {
+    .changeImgL {
+        width: 160px;
+        height: 160px;
+        margin-top: 30px;
+        cursor: pointer;
+        transition: all 0.3s;
+        -webkit-transition: all 0.3s;
+        -moz-transition: all 0.3s;
+        -o-transition: all 0.3s;
+        -ms-transition: all 0.3s;
+    }
+
+    .showBig {
+        /*width:210px !important;
+            height:210px !important;*/
+        /*position:relative;
+            bottom:25px;
+            right:25px;*/
+        transform: scale(1.2);
+        -webkit-transform: scale(1.2);
+        -moz-transform: scale(1.2);
+        -o-transform: scale(1.2);
+        -ms-transform: scale(1.2);
+        transform-origin: center center;
+        -webkit-transform-origin: center center;
+        -moz-transform-origin: center center;
+        -o-transform-origin: center center;
+        -ms-transform-origin: center center;
+    }
+}
+
+@media screen and (min-width: 1300px) {
+    .changeImgL {
+        width: 210px;
+        height: 210px;
+        margin-top: 30px;
+        cursor: pointer;
+        transition: all 0.3s;
+        -webkit-transition: all 0.3s;
+        -moz-transition: all 0.3s;
+        -o-transition: all 0.3s;
+        -ms-transition: all 0.3s;
+    }
+
+    .showBig {
+        /*width:280px !important;
+            height:280px !important;*/
+        /*position:relative;*/
+        /*bottom:35px;
+            right:35px;*/
+        transform: scale(1.2);
+        -webkit-transform: scale(1.2);
+        -moz-transform: scale(1.2);
+        -o-transform: scale(1.2);
+        -ms-transform: scale(1.2);
+        transform-origin: center center;
+        -webkit-transform-origin: center center;
+        -moz-transform-origin: center center;
+        -o-transform-origin: center center;
+        -ms-transform-origin: center center;
+    }
+}
+
+@media screen and (min-width: 1500px) {
+    .changeImgL {
+        width: 260px;
+        height: 260px;
+        margin-top: 30px;
+        cursor: pointer;
+        transition: all 0.3s;
+        -webkit-transition: all 0.3s;
+        -moz-transition: all 0.3s;
+        -o-transition: all 0.3s;
+        -ms-transition: all 0.3s;
+    }
+
+    .showBig {
+        /*width:330px !important;
+            height:330px !important;*/
+        /* position:relative;
+            bottom:35px;
+             right:35px;*/
+        transform: scale(1.2);
+        -webkit-transform: scale(1.2);
+        -moz-transform: scale(1.2);
+        -o-transform: scale(1.2);
+        -ms-transform: scale(1.2);
+        transform-origin: center center;
+        -webkit-transform-origin: center center;
+        -moz-transform-origin: center center;
+        -o-transform-origin: center center;
+        -ms-transform-origin: center center;
+    }
+}
+
+#loginForm .login .sinimg {
+    height: 40px;
+    border-radius: 6px;
+    color: white;
+    font-size: 23px;
+    margin-top: 28px;
+}
+
+#loginForm .login .imgCode {
+    background-color: rgba(255,255,255,0)!important;
+    border: 1px solid #fdfdff;
+    width: 48%;
+    float: left;
+    height: 38px;
+}
+
+#loginForm .login .showimg {
+    width: 50%;
+    float: right;
+    height: 38px;
+}
+input {
+    -moz-user-select: text;
+}

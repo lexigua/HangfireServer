@@ -1,4 +1,3 @@
-E:\Users\HangfireSchedule\Web\ServiceMs\ServiceMs\obj\Debug\ServiceMs.csprojResolveAssemblyReference.cache
 E:\Users\HangfireSchedule\Web\ServiceMs\ServiceMs\bin\ServiceMs.dll.config
 E:\Users\HangfireSchedule\Web\ServiceMs\ServiceMs\bin\ServiceMs.dll
 E:\Users\HangfireSchedule\Web\ServiceMs\ServiceMs\bin\ServiceMs.pdb
@@ -68,3 +67,6 @@ E:\Users\HangfireSchedule\Web\ServiceMs\ServiceMs\bin\zh-Hans\System.Web.WebPage
 E:\Users\HangfireSchedule\Web\ServiceMs\ServiceMs\obj\Debug\ServiceMs.dll
 E:\Users\HangfireSchedule\Web\ServiceMs\ServiceMs\obj\Debug\ServiceMs.pdb
 E:\Users\HangfireSchedule\Web\ServiceMs\ServiceMs\bin\log4net.dll
+E:\Users\HangfireSchedule\Web\ServiceMs\ServiceMs\obj\Debug\ServiceMs.csproj.CoreCompileInputs.cache
+E:\Users\HangfireSchedule\Web\ServiceMs\ServiceMs\obj\Debug\ServiceMs.csproj.CopyComplete
+E:\Users\HangfireSchedule\Web\ServiceMs\ServiceMs\obj\Debug\ServiceMs.csprojAssemblyReference.cache

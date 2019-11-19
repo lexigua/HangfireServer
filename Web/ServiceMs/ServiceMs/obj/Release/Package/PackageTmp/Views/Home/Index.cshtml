@@ -1,0 +1,682 @@
+﻿@model IList<ServiceMs.Models.MenuDto>
+@{
+    ViewBag.Title = "任务调度系统";
+}
+@section head{
+    <script src="~/Scripts/html5.js"></script>
+
+    <script type="text/javascript" src="~/Scripts/kindeditor/kindeditor-min.js"></script>
+    <script src="~/Scripts/JQuery/jquery.jdirk.js"></script>
+    <script type="text/javascript" src="/Scripts/Projects/project.js"></script>
+    <script src="~/Scripts/Common/BaseInspect.js"></script>
+    <script src="~/Scripts/Utils/util.js"></script>
+    <style type="text/css">
+        </style>
+
+    <script type="text/javascript">
+        //意见反馈
+        function onSuggestionFeedback() {
+            $.easyui.dialog({
+                title: "意见反馈",
+                url: "/Systems/SystemSuggestionFeedback/add",
+                width: 700,
+                height: 420,
+                maximizable: false
+            });
+        }
+
+        var systemM = 0;
+        var personalM = 0;
+        var taskM = 0;
+
+        function reloadTabGrid(title) {
+            if ($("#divMainTabs").tabs('exists', title)) {
+                $('#divMainTabs').tabs('select', title);
+                window.top.reload_Abnormal_Monitor.call();
+            }
+        }
+
+        //修改密码
+        function changePassword() {
+            $.easyui.dialog({
+                title: '修改密码',
+                buttons: '',
+                url: '/Systems/ChangePassword/Index',
+                width: 400,
+                height: 260
+            });
+        }
+
+
+        function checkStaff(value, row, index) {
+            if (value != "" && value != null) {
+                return value;
+            }
+            return '系统管理员';
+        }
+
+        function checkUrl(value, row, index) {
+            if (value != "" && value != null) {
+                return '<a href="javascript:openOther(\'' + row.TaskMoudle + '\',\'' + row.TaskUrl + '\')">查看</a>';
+            }
+            return '';
+        }
+
+        function openOther(title, taskurl) {
+            checkPrivi(title, taskurl);
+        }
+
+        function ref(element) {
+            $('#acceptData').datagrid('load');
+        }
+
+        function tabsClick() {
+            var tab = $('#Mtabs').tabs('getSelected');
+            var index = $('#Mtabs').tabs('getTabIndex', tab);
+        }
+
+        function resetPager(element, value) {
+            var opts = $(element).datagrid('options');
+            var pager = $(element).datagrid('getPager');
+            opts.pageNumber = 1;
+            opts.pageSize = opts.pageSize;
+            pager.pagination('refresh', {
+                pageNumber: 1,
+                pageSize: opts.pageSize
+            });
+            if (value != null) {
+                if (value == "1") {
+                    acceptData();
+                } else {
+                    sendDataBind();
+                }
+            }
+
+        }
+
+
+        //判断该用户是否有权限
+        function checkPrivi(title, taskurl) {
+            $.ajax({
+                type: "Post",
+                url: "/Systems/SystemMenu/CheckMenuPrivi",
+                data: { menuUrl: taskurl },
+                dataTeyp: "json",
+                success: function(result) {
+                    if (result == "1") {
+                        $.project.addToMainTabs(title, taskurl, "", true);
+                        $("#myMessage").dialog("close");
+                    } else {
+                        $.messager.alert("提示", "您无权操作！", "info");
+                    }
+                },
+                error:
+                    function(xmlhttpRequest, textStatus, errorThrown) {
+                        $.messager.alert("提示", "网络错误，请刷新重试！", "info");
+                    }
+            });
+        }
+
+        $(function() {
+            $("#wrap").remove();
+            menuChange();
+            var body = $("body");
+            var leftmenu = $("#west");
+            var topmenu = $("#topmenu ul li");
+            var selectedLiClass = $("#topmenu ul .selectedLiClass");
+            topmenu.toggleClass("topMenuChange");
+            leftmenu.toggleClass("themeleftmenu");
+            body.toggleClass("themebody");
+            $('#mainBgImg img').toggleClass("hideShow");
+            $('#theme').on('click',
+                function() {
+                    var body = $("body");
+                    var leftmenu = $("#west");
+                    var topmenu = $("#topmenu ul li");
+                    var selectedLiClass = $("#topmenu ul .selectedLiClass");
+                    topmenu.toggleClass("topMenuChange");
+                    leftmenu.toggleClass("themeleftmenu");
+                    body.toggleClass("themebody");
+                    $('#mainBgImg img').toggleClass("hideShow");
+                });
+            //  cpan
+            $('#tabPartScreen').click(function() { //content变大样式调整background-color: #eeeeee;
+                $('#divMain .layout-expand-north').css('background-color', '#eeeeee');
+                $('#divMain .layout-expand-west').css('background-color', '#eeeeee');
+                $('#divMain .layout-expand-west .panel-header').css('border-width', '0');
+            });
+
+            //获得当前时间
+            $('#divMain .mtree-skin-selecto').remove();
+            getNowTime();
+            //  cpan
+            $('#Mtabs').tabs({
+                border: false,
+                onSelect: function(title, index) {
+                    if (index == 0) {
+                        resetPager("#acceptData", "1");
+                        acceptData();
+                    } else {
+                        sendDataBind();
+                        resetPager("#sendData", "2");
+                    }
+                }
+            });
+            $("#topMenus>div:eq(0)").click();
+        });
+
+        //获得当前时间cpan
+        function getNowTime() {
+            var myDate = new Date();
+            var weekStr = '';
+            if (myDate.getDay() == 0) {
+                weekStr = '星期日';
+            } else if (myDate.getDay() == 1) {
+                weekStr = '星期一';
+            } else if (myDate.getDay() == 2) {
+                weekStr = '星期二';
+            } else if (myDate.getDay() == 3) {
+                weekStr = '星期三';
+            } else if (myDate.getDay() == 4) {
+                weekStr = '星期四';
+            } else if (myDate.getDay() == 5) {
+                weekStr = '星期五';
+            } else if (myDate.getDay() == 6) {
+                weekStr = '星期六';
+            }
+            $('.topDatas').text(myDate.getFullYear() + '年' + (myDate.getMonth() + 1) + '月' + myDate.getDate() + '日' + '  ' + weekStr);
+        }
+
+        function onTopMenuClicked(data, obj, roleId) {
+            $("#loginRole").val(roleId);
+            $.post("/Home/WriteCurentRole", { roleId: roleId });
+            $.easyui.removeLoading();
+            $("#menuItem_CloseAll").click();
+            $("#topMenus>.topMenuBtn").removeClass("selectedLiClass");
+            obj.addClass("selectedLiClass");
+            $("#mtree").hide();
+            var htmlstr = "";
+            htmlstr = bindMTree(data, htmlstr);
+            $("#mtree").html(htmlstr);
+            $("#mtree").slideDown(600);
+            bindClick();
+            menuChange();
+        }
+
+//绑定左边菜单
+        // var level = 0;
+        function bindMTree(nodes, str) {
+            $.each(nodes, function(i, item) {
+                var iconsImg = "";
+                if (item.iconCls != null && item.iconCls != "") {
+                    iconsImg = "<img src='" + item.iconCls + "'/>";
+                }
+                // level++;
+                if (item.children && item.children.length > 0) {
+                    str += "<li class='mtree-node mtree-closed'><a href='#'>" + iconsImg + item.text + "</a>";
+                    str += "<ul style='display: none;'>";
+                    str += bindMTree(item.children, "");
+                    str += "</ul>";
+                    str += "</li>";
+                } else {
+                    if (item.attributes.level == 1) {
+                        str += "<li class='mtree-node '><a href='#'  url='" + item.attributes.url + "' text='" + item.text + "' onclick='onMTreeClick(this)'>" + iconsImg + item.text + "</a></li>";
+                    } else {
+                        str += " <li><a href='#' url='" + item.attributes.url + "' text='" + item.text + "' onclick='onMTreeClick(this)'>" + iconsImg + item.text + "</a></li>";
+                    }
+                }
+            });
+            //$('.mtree li > *:first-child').on('click.mtree-active', function (e) {
+            //    alert($(this));
+            //    if ($(this).parent().hasClass('mtree-closed')) {
+            //        $('.mtree-active').not($(this).parent()).removeClass('mtree-active');
+            //        $(this).parent().addClass('mtree-active');
+            //    } else if ($(this).parent().hasClass('mtree-open')) {
+            //        $(this).parent().removeClass('mtree-active');
+            //    } else {
+            //        $('.mtree-active').not($(this).parent()).removeClass('mtree-active');
+            //        $(this).parent().toggleClass('mtree-active');
+            //    }
+            //});
+            return str;
+        }
+
+        function onMTreeClick(data) {
+            var node = { attributes: { url: data.attributes.url.nodeValue }, text: data.attributes.text.nodeValue }
+            $.project.clickMainMenuNode(node);
+        }
+    </script>
+
+    <link href="~/Css/cpan/cpan.css" rel="stylesheet"/>
+    <link href="~/Css/cpan/homeIndex.css" rel="stylesheet"/>
+
+}
+<input id="loginRole" type="hidden" value="@ViewData["RoleId"]"/>
+<div id="wrap" style="position: absolute; background: #fff; z-index: 10; height: 100%; width: 100%;"></div>
+<div id="mainBgImg" style="height: 50%; width: 100%; position: fixed; left: 0px; top: 0px;">
+    <img style="height: 154px; width: 100%; position: fixed; left: 0px; top: 0px;" src="~/Css/images/mainBG1.png" />
+</div>
+<div data-options="region:'north'" id="top" style="height: 66px; background: none;">
+    @Html.Partial("Index/Top")
+</div>
+<div region="south" style="height: 30px; background: #CDECFF; border: 0px solid white;">
+    <div class="footer">版权所有 ：xxx</div>
+</div>
+<ul id="hoverMenus"></ul>
+<div region="west" id="west" split="true" iconcls="icon-menu" title="  ">
+    <div class="easyui-accordion" fit="true" border="false" style="background: #CDECFF;">
+        @Html.Partial("Index/Left")
+    </div>
+</div>
+
+<div id="mainPanle" region="center" style="height:100% !important;background: #eee; overflow-y: hidden;">
+    @Html.Partial("Index/Center")
+</div>
+<div id="div_index_data"></div>
+
+@*加载完成解决页面横条问题*@
+
+<style>
+    #hoverMenus {
+        width: 160px;
+        height: auto;
+        background-color: #172b44;
+        position: absolute;
+        left: 60px;
+        z-index: 2000;
+        border-top-right-radius: 6px;
+        border-bottom-right-radius: 6px;
+        padding: 9px 0 9px 0px;
+        font-size: 13px;
+        display: none;
+    }
+
+        #hoverMenus > li {
+            cursor: pointer;
+            position: relative;
+            color: #8aaacd;
+        }
+
+            #hoverMenus > li > a {
+                padding: 5px 0px 6px 10px;
+                display: inline-block;
+                width: 148px;
+                color: #8aaacd;
+            }
+
+            #hoverMenus > li:hover {
+                color: #00a4ff;
+            }
+
+            #hoverMenus > li > a:hover {
+                color: #00a4ff;
+                background-color: #000;
+            }
+
+            #hoverMenus > li > a.yangting:before {
+                content: url(../../Css/images/menu/left.png);
+                color: #8aaacd;
+                position: absolute;
+                top: 6px;
+                left: 125px;
+            }
+            #hoverMenus > li.slideLeft > a.yangting:before {
+                content:'';
+                color: #8aaacd;
+                position: absolute;
+                top: 6px;
+                left: 125px;
+            }
+    .currentMenu {
+        height: auto !important;
+        display: block !important;
+    }
+
+    .currentBefore {
+        background-color: #000 !important;
+        color: #00a4ff !important;
+    }
+
+        .currentBefore:before {
+            content: url(../../Css/images/menu/bottom.png) !important;
+            color: #8aaacd;
+            position: absolute;
+            top: 3px !important;
+            left: 125px;
+        }
+
+    #hoverMenus > li > ul {
+        border-top: 1px solid #222c38;
+        background-color: #121212;
+    }
+
+        #hoverMenus > li > ul > li {
+            border-bottom: 1px solid #222c38;
+            padding: 5px 0 5px 25px;
+        }
+
+            #hoverMenus > li > ul > li > a {
+                padding: 4px 0;
+                color: #8aaacd;
+            }
+
+                #hoverMenus > li > ul > li > a:hover {
+                    color: #00a4ff;
+                }
+
+</style>
+@* 主题切换 *@
+<script type="text/javascript">
+    
+    function menuChange() {
+        var c = 0;
+        var widthCenter = document.documentElement.clientWidth;
+        var timer = '';
+        var widthCenter1, widthCenter2, left1, left2, left4, widthPrev;
+        //widthCenter2 = widthCenter - 60;
+        //widthPrev = widthCenter;
+        $(window).resize(function (e) {
+
+            if (timer == undefined) {
+
+            } else {
+                clearTimeout(timer);
+            }
+            timer = setTimeout(function () {
+                widthCenter = document.documentElement.clientWidth;
+                if (c == 0) {
+                    widthCenter2 = widthCenter - 210;
+                    $("#divMain>.layout-panel-center.leftCenterMove").animate({ width: widthCenter2 + "px" });
+                    $("#mainPanle").animate({ width: widthCenter2 + "px" });
+                    $("#divMainTabs").animate({ width: widthCenter2 + "px" });
+                    $("#divMainTabs>.tabs-header.tabs-header-noborder").animate({ width: widthCenter2 + "px" });
+                    $("#divMainTabs>.tabs-panels.tabs-panels-noborder").animate({ width: widthCenter2 + "px" });
+                    $("#divMainTabs>.tabs-panels.tabs-panels-noborder>.panel").animate({ width: widthCenter2 + "px" });
+                    $("#divMainTabs>.tabs-panels.tabs-panels-noborder .panel>.panel-body.panel-body-noheader.panel-body-noborder.panel-noscroll").animate({ width: "100%" });
+                    $("#divMainTabs>.tabs-panels.tabs-panels-noborder .panel>.panel-body.panel-body-noheader.panel-body-noborder.panel-noscroll>.easyui-layout.layout.easyui-fluid").animate({ width: "100%" });
+
+                } else {
+                    widthCenter2 = widthCenter - 60;
+                    $("#divMain>.layout-panel-center.leftCenterMove").animate({ width: widthCenter2 + "px" });
+                    $("#mainPanle").animate({ width: widthCenter2 + "px" });
+                    $("#divMainTabs").animate({ width: widthCenter2 + "px" });
+                    $("#divMainTabs>.tabs-header.tabs-header-noborder").animate({ width: widthCenter2 + "px" });
+                    $("#divMainTabs>.tabs-panels.tabs-panels-noborder").animate({ width: widthCenter2 + "px" });
+                    $("#divMainTabs>.tabs-panels.tabs-panels-noborder>.panel").animate({ width: widthCenter2 + "px" });
+                    $("#divMainTabs>.tabs-panels.tabs-panels-noborder .panel>.panel-body.panel-body-noheader.panel-body-noborder.panel-noscroll").animate({ width: "100%" });
+                    $("#divMainTabs>.tabs-panels.tabs-panels-noborder .panel>.panel-body.panel-body-noheader.panel-body-noborder.panel-noscroll>.easyui-layout.layout.easyui-fluid").animate({ width: "100%" });
+                    /*鼠标移动到菜单上，右侧显示下级菜单*/
+
+                }
+                //widthPrev = widthCenter;
+
+
+            }, 200);
+
+            //widthCenter = document.documentElement.clientWidth;
+            // $("#leftcontrol").click();
+
+        });
+        $("#mtree>li").hover(
+           function () {
+               if (c == 1) {
+                   var bodyHeight = $(window).height();
+
+                   var menuNext = $(this).children("ul").html();
+                   $("#hoverMenus").html(menuNext);
+                   var menuOffset = $(this).offset().top;
+                   var menuHeight = $("#hoverMenus").height();
+                   var menuOffsets = menuOffset - menuHeight / 2 + 10;
+                   var offsetHeight = menuOffsets + menuHeight;
+                   var menuOffsetss = menuOffsets - 66;
+                   if (menuOffsetss <= 0) {
+                       //顶部的高度超过上边浏览器时
+                       menuOffsets = 66;
+                   } else if (offsetHeight >= bodyHeight) {
+                       //底部的菜单超过底边浏览器时
+                       menuOffsets = bodyHeight - menuHeight - 30;
+                   }
+                   $("#hoverMenus").css("top", menuOffsets + "px").css("display", "inline-block");
+
+                   //$("#hoverMenus>li>a").removeClass('yangting');
+               }
+               var menuListLi = $("#hoverMenus>li");
+               var menuListUl = $("#hoverMenus>li>ul");
+               $("#hoverMenus>li>a").click(function () {
+                   //有三级菜单时，显示控制
+                   if ($(this).next().html() == undefined) {
+                       $("#hoverMenus").css("display", "none");
+                   } else {
+                       //$(this).next('ul').slideToggle(600);
+                       //$(this).next('ul').toggleClass("currentMenu");
+                       //$(this).next('ul').prev().toggleClass("currentBefore");
+                       if ($(this).next("ul").css("display") == "block") {
+                           $(this).next("ul").removeClass("currentMenu");
+                           $(this).next("ul").prev().removeClass("currentBefore");
+                       } else {
+                           $(this).parent().parent().find("li>ul").each(function (i) {
+                               if ($(menuListUl[i]).css("display") == "block") {
+                                   $(menuListUl[i]).slideUp(300);
+                                   $(menuListUl[i]).removeClass("currentMenu");
+                                   $(menuListUl[i]).prev().removeClass("currentBefore");
+                               }
+                           })
+                           $(this).next("ul").addClass("currentMenu").slideDown(300);
+                           $(this).next('ul').prev().addClass("currentBefore");
+                       }
+
+
+                       var menuHeight2 = $("#hoverMenus").outerHeight();
+                       menuOffsets = menuOffset - menuHeight / 2 + 10;
+                       var offsetHeight = menuHeight2 + menuOffsets;
+                       if (offsetHeight >= bodyHeight) {
+
+                           //如果三级菜单太长时，改变二级菜单的offset
+                           menuOffsets = bodyHeight - menuHeight2 - 30;
+                       }
+                       $("#hoverMenus").css("top", menuOffsets + "px");
+                   }
+               })
+               $("#hoverMenus>li>ul>li>a").click(function () {
+                   $("#hoverMenus").css("display", "none");
+               });
+
+               $("#hoverMenus").hover(function () {
+
+               },
+               function () {
+                   setTimeout(function () {
+                       $("#hoverMenus").css("display", "none");
+                   }, 200);
+
+               });
+           },
+           function () {
+               //$("#hoverMenus").css("display", "none");
+           }
+           );
+
+        $("#topMenus .topMenuBtn ").click(function () {
+            if (c == 1) {
+                widthCenter2 = widthCenter - 210;
+                $("ul.mtree.transit li.mtree-node > a>img").animate({ left: -10 },300);
+                $("#divMain>.layout-split-west").removeClass("leftMove");
+                $("#divMain>.layout-panel-center").removeClass("leftCenterMove");
+                $("#divMain>.layout-panel-center").animate({ left: left4 + "px", width: widthCenter2 + "px" });
+                $("#mainPanle").animate({ width: "100%" }, 300);
+                $("#divMainTabs").animate({ width: "100%" }, 300);
+                $("#divMainTabs>.tabs-header.tabs-header-noborder").animate({ width: "100%" }, 300);
+                $("#divMainTabs>.tabs-panels.tabs-panels-noborder").animate({ width: "100%" }, 300);
+                $("#divMainTabs>.tabs-panels.tabs-panels-noborder .panel").animate({ width: "100%" });
+                $("#divMainTabs>.tabs-panels.tabs-panels-noborder .panel>.panel-body").animate({ width: "100%" }, 300);
+                $("#divMainTabs>.tabs-panels.tabs-panels-noborder .panel>.panel-body>.easyui-layout").animate({ width: "100%" }, 300);
+                
+                $("ul.mtree.transit li.mtree-node > a").removeClass("yangting");
+                c = 0;
+                $("#hoverMenus").css("display", "none");
+            }
+        });
+
+        var timer1, timer2;
+        $("#leftControl").click(function () {
+            //适应屏幕分辨率
+            //left1 = -150;
+            // left2 = 60;
+            // left4 = 210;
+            widthCenter1 = widthCenter - 210;
+            if (c == 0) {
+                widthCenter2 = widthCenter - 60;
+                //$("ul.mtree.transit li.mtree-node > a>img").animate({ left: 150 }, 500);
+
+                //清除所有未完成动画，避免相互干扰
+                $("#divMain *").stop(true);
+
+                $(".topMan.topRightImg").animate({"width":60},300)
+
+                //tree中小图标动画
+                $("ul.mtree.transit li.mtree-node > a>img").animate({ left: 150 }, 300);
+
+                /*侧边栏文字淡入淡出效果*/
+                var n = 1;
+                !!timer2&&clearInterval(timer2);
+                timer1 = setInterval(function() {
+                    n = n*0.8;
+                    $("ul.mtree.transit li.mtree-node > a").css("color", "rgba(255,255,255," + n + ")");
+                    if (n <= 0) {
+                        clearInterval(timer1);
+                    }
+                }, 35);
+                /*侧边栏文字淡入淡出效果 end*/
+
+                /*$("#divMain>.layout-split-west").addClass("leftMove");*/
+                $("ul.mtree.transit li.mtree-node").addClass("slideLeft");
+                $("#divMain>.layout-split-west").animate({ left: -150 }, 300);
+
+                $("#divMain>.layout-panel-center").addClass("leftCenterMove");
+
+                /*重复2次设置width 可避免动画看起来不同步*/
+                $("#divMain>.layout-panel-center.leftCenterMove").animate({ left: 60 + "px", width: widthCenter2 + "px" }, 300);
+                $("#divMain>.layout-panel-center.leftCenterMove").animate({ width: widthCenter2 + "px" }, 300);
+                /*重复2次设置width 可避免动画看起来不同步 end*/
+
+                /*内容块各个嵌套层的动画*/
+                $("#mainPanle").animate({ width: widthCenter2 }, 300);
+                $("#divMainTabs").animate({ width: widthCenter2 }, 300);
+                $("#divMainTabs>.tabs-header.tabs-header-noborder").animate({ width: widthCenter2 }, 300);
+                $("#divMainTabs>.tabs-panels.tabs-panels-noborder").animate({ width: widthCenter2 }, 300);
+                $("#divMainTabs>.tabs-panels.tabs-panels-noborder .panel").animate({ width: widthCenter2 }, 300);
+                $("#divMainTabs>.tabs-panels.tabs-panels-noborder .panel>.panel-body.panel-body-noheader.panel-body-noborder.panel-noscroll").animate({ width: widthCenter2 }, 300);
+                $("#divMainTabs>.tabs-panels.tabs-panels-noborder .panel>.panel-body.panel-body-noheader.panel-body-noborder.panel-noscroll>.easyui-layout.layout.easyui-fluid").animate({ width: widthCenter2 }, 300);
+                /*内容块各个嵌套层的动画 end*/
+                
+                $("ul.mtree.transit li.mtree-node > a").addClass("yangting");
+                $("ul.mtree.transit li.mtree-node.mtree-open ul").slideUp(100);//二级菜单打开的要收起来
+                $("ul.mtree.transit li.mtree-node.mtree-open").addClass("mtree-closed").removeClass("mtree-open").removeClass("mtree-active");//打开的二级菜单对应的箭头before要改变样式
+                
+                c = 1;
+
+            } else {
+                //清除所有未完成动画，避免相互干扰
+                $("#divMain *").stop(true);
+
+                //tree中小图标动画
+                $("ul.mtree.transit li.mtree-node > a>img").animate({ left: -10 }, 300);
+                /*侧边栏文字淡入淡出效果*/
+                var n = 0.02;
+                !!timer1&&clearInterval(timer1);
+                timer2 = setInterval(function () {
+                    n = n*1.4;
+                    $("ul.mtree.transit li.mtree-node > a").css("color", "rgba(255,255,255," + n + ")");
+                    if (n >= 1) {
+                        clearInterval(timer2);
+                    }
+                }, 35);
+                /*侧边栏文字淡入淡出效果 end*/
+
+
+                $("ul.mtree.transit li.mtree-node").removeClass("slideLeft");
+                $("#divMain>.layout-split-west").animate({ left: 0 },300);
+
+                $("#divMain>.layout-panel-center").removeClass("leftCenterMove");
+                /*重复2次设置width 可避免动画看起来不同步*/
+                $("#divMain>.layout-panel-center").animate({ left: 210 + "px", width: widthCenter1 + "px" }, 300);
+                $("#divMain>.layout-panel-center").animate({ width: widthCenter1 + "px" }, 300);
+                /*重复2次设置width 可避免动画看起来不同步 end*/
+
+
+                $("#mainPanle").animate({ width: "100%" }, 300);
+                $("#divMainTabs").animate({ width: "100%" }, 300);
+                $("#divMainTabs>.tabs-header.tabs-header-noborder").animate({ width: "100%" }, 300);
+                $("#divMainTabs>.tabs-panels.tabs-panels-noborder").animate({ width: "100%" }, 300);
+                $("#divMainTabs>.tabs-panels.tabs-panels-noborder .panel").animate({ width: "100%" }, 300);
+                $("#divMainTabs>.tabs-panels.tabs-panels-noborder .panel>.panel-body").animate({ width: "100%" }, 300);
+                $("#divMainTabs>.tabs-panels.tabs-panels-noborder .panel>.panel-body>.easyui-layout").animate({ width: "100%" }, 300);
+                
+                $("ul.mtree.transit li.mtree-node > a").removeClass("yangting");
+                c = 0;
+                $("#hoverMenus").css("display", "none");
+            }
+            $("ul.mtree.transit li.mtree-node > a").click(function () {
+                if (c == 1) {
+                    //清除所有未完成动画，避免相互干扰
+                    $("#divMain *").stop(true);
+
+                    //tree中小图标动画
+                    $("ul.mtree.transit li.mtree-node > a>img").animate({ left: -10 }, 300);
+                    /*侧边栏文字淡入淡出效果*/
+                    var n = 0.02;
+                    !!timer1 && clearInterval(timer1);
+                    timer2 = setInterval(function () {
+                        n = n * 1.4;
+                        $("ul.mtree.transit li.mtree-node>a").css("color", "rgba(255,255,255," + n + ")");
+                        if (n >= 1) {
+                            clearInterval(timer2);
+                        }
+                    }, 35);
+                    /*侧边栏文字淡入淡出效果 end*/
+
+
+                    $("ul.mtree.transit li.mtree-node").removeClass("slideLeft");
+                    $("#divMain>.layout-split-west").animate({ left: 0 }, 300);
+
+                    $("#divMain>.layout-panel-center").removeClass("leftCenterMove");
+                    /*重复2次设置width 可避免动画看起来不同步*/
+                    $("#divMain>.layout-panel-center").animate({ left: 210 + "px", width: widthCenter1 + "px" }, 300);
+                    $("#divMain>.layout-panel-center").animate({ width: widthCenter1 + "px" }, 300);
+                    /*重复2次设置width 可避免动画看起来不同步 end*/
+
+
+                    $("#mainPanle").animate({ width: "100%" }, 300);
+                    $("#divMainTabs").animate({ width: "100%" }, 300);
+                    $("#divMainTabs>.tabs-header.tabs-header-noborder").animate({ width: "100%" }, 300);
+                    $("#divMainTabs>.tabs-panels.tabs-panels-noborder").animate({ width: "100%" }, 300);
+                    $("#divMainTabs>.tabs-panels.tabs-panels-noborder .panel").animate({ width: "100%" }, 300);
+                    $("#divMainTabs>.tabs-panels.tabs-panels-noborder .panel>.panel-body").animate({ width: "100%" }, 300);
+                    $("#divMainTabs>.tabs-panels.tabs-panels-noborder .panel>.panel-body>.easyui-layout").animate({ width: "100%" }, 300);
+
+                    $("ul.mtree.transit li.mtree-node > a").removeClass("yangting");
+                    c = 0;
+                    $("#hoverMenus").css("display", "none");
+                }
+            })
+        })
+    }
+    //    $('#theme').on('click', function () {
+    //        alert(3);
+    //        var body = $("body");
+    //        var leftmenu = $("#west");
+    //        leftmenu.toggleClass("themeleftmenu");
+    //        body.toggleClass("themebody");
+    //        $('#mainBgImg img').toggleClass("hideShow");
+    //    })
+    //})
+    ////意见反馈
+    //function onSuggestionFeedback() {
+    //    $.easyui.dialog({
+    //        title: "意见反馈",
+    //        url: "/Systems/SystemSuggestionFeedback/add",
+    //        width: 800,
+    //        height: 600
+    //    });
+    //}
+</script>

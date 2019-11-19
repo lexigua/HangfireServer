@@ -1,0 +1,64 @@
+﻿@using Util.Webs.EasyUi
+@using Util.Webs.EasyUi.Forms.Comboxs
+@model ServiceMs.Models.ServerInfo
+@{
+    ViewBag.Title = "任务列表";
+    Layout = "~/Views/Shared/ContentLayout.cshtml";
+    var x = @Html.EasyUi();
+}
+    <script type="text/javascript">
+        function ReStartService() {
+            $.messager.confirm("提示", "重启服务可能会影响一些任务执行，确定重启？", function (r) {
+                if (r) {
+                    $.easyui.showLoadingByStr("重启中...");
+                    $.ajax({
+                        url: "/Service/ReStartService?random=" + (new Date().getTime()),
+                        type: "get",
+                        dataType: "JSON",
+                        success: function (r) {
+                            $.messager.alert("提示", r.Message);
+                            $.easyui.removeLoading();
+                        },
+                        error: function () {
+                            $.easyui.removeLoading();
+                            $.messager.alert("提示", "处理失败");
+                        }
+                    });
+                }
+            });
+        }
+    </script>
+    <style>
+        .tooltip.tooltip-bottom + div {
+            overflow-y: hidden !important;
+        }
+    </style>
+@section top {
+    @*工具栏*@
+    <div class="toolbar">
+        @x.Button("新增任务").Icon("icon-add").ToolTip("新增后记得保存数据").Plain().AddByGrid()
+        @x.Button("编辑任务").Icon("icon-edit").ToolTip("编辑后记得保存数据").Plain().EditByGrid()
+        @x.Button("取消编辑").Icon("icon-cancel2").Plain().CancelByGrid()
+        @x.Button("删除任务").Icon("icon-delete").ToolTip("删除后记得保存数据").Plain().DeleteByGrid()
+        @x.Button("保 存").Icon("icon-save").ToolTip("保存后记得重启服务").Plain().SaveByGrid("/Service/save")
+        @x.Button("刷 新").Icon("icon-refresh").Plain().Refresh()
+        @x.Button("重启服务").Icon("icon-refresh").Plain().Click("ReStartService()")
+    </div>
+}
+@section content {
+    @*查询表单*@
+    @Html.Partial("Parts/QueryForm")
+    @*表格*@
+    @(x.Grid("grid").Toolbar("divQuery").Url("/Service/query")
+          .Fit().FitColumns()
+          .Columns(
+              x.GridColumn(t => t.TaskName, 80, true).Required(),
+              x.GridColumn(t => t.IsUsable, 30, true).Combox(new List<ComboxItem>() { new ComboxItem("是",true), new ComboxItem("否", false) }),
+              x.GridColumn(t => t.ExecTime, 50, true),
+              x.GridColumn(t => t.TaskMethod, 200, true).Required(),
+              x.GridColumn(t => t.AddPerson, 30, true).Required(),
+              x.GridColumn(t => t.AddTime, 30, true).Required(),
+              x.GridColumn(t => t.TaskKey, 50, true)
+          ).SingleSelect(true)
+          )
+}

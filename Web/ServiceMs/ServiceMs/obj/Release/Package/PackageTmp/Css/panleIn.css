@@ -1,0 +1,62 @@
+/*统计年鉴图标开始*/
+.tree-folder {
+	background-image: url(../Css/images/weidakai.png);
+	background-position: 0px 3px;
+	background-size: 98%;
+}
+
+.tree-folder-open {
+	background-image: url(../Css/images/dakai.png);
+}
+
+.tree-node .tree-icon.tree-file {
+	background-image: url(../Css/images/wen.png);
+	background-position: 2px 2px;
+	background-size: 80%;
+}
+/*结束*/
+
+.panel-header {
+    background:url(../Css/images/bg_03.png);
+    border-bottom: none;
+    height: 29px !important;
+}
+.panel-title {
+    height: 29px !important;
+    line-height: 29px;
+    color:rgb(14, 45, 95);
+    font-size: 14px;
+    text-indent: 6px;
+}
+.layout-expand .panel-header, .layout-expand .panel-body {
+    background-color:#eff7fc!important;
+}
+.panel-tool a:hover {
+    background-color: transparent!important;    
+}
+
+.panel.layout-panel.layout-panel-north .panel-header {
+	display: none;
+}
+
+.panel.layout-panel.layout-panel-north .easyui-panel.content.panel-body.layout-body {
+	/*height: 46px!important;*/
+	margin-bottom: 1px;
+	border: none;
+}
+
+.layout-button-left {
+	background-position: 0 3px;
+}
+
+.layout-split-west {
+	border-color: #ecf1f5;
+}
+.panel.combo-p {
+    /*overflow:auto;*/
+    /*border:1px solid #35baf6;*/
+    border-top:none;
+}
+    .panel.combo-p .combo-panel.panel-body.panel-body-noheader {
+        border:none;
+    }

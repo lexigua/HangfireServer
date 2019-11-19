@@ -1,7 +1,7 @@
 ﻿using BTDataSyncServer.Common;
 using BTDataSyncServer.Model;
 
-namespace BTDataSyncServer.Method
+namespace BTWindowsServer.Method
 {
     public static class ServerMethod
     {

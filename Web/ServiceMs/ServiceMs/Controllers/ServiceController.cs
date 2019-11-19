@@ -105,9 +105,12 @@ namespace ServiceMs.Controllers
                 {
                     service.Stop();
                     service.WaitForStatus(ServiceControllerStatus.Stopped);
+                    
                 }
+                Thread.Sleep(1000);
                 service.Start();
                 service.WaitForStatus(ServiceControllerStatus.Running);
+              
             }
             catch (Exception ex)
             {

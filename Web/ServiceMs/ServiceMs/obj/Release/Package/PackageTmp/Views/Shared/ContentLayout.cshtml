@@ -1,0 +1,25 @@
+﻿@using Util.Webs.EasyUi
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var x = Html.EasyUi();
+}
+@section head {
+    @RenderSection("head", false)
+}
+@using (x.Layout(true).Begin())
+{
+    using (x.LayoutRegion().Top().AddClass("center").AddStyle("padding", "0px").AddStyle("margin", "0px").Begin())
+    {
+    @*顶部区域*@
+        @RenderSection("top", false)
+    }
+    @*内容区域*@
+    using (x.LayoutRegion().Center().AddClass("center").Begin())
+    {
+        @RenderSection("content",false)
+        @RenderBody()
+        @Html.AntiForgeryToken()
+    }
+}
+

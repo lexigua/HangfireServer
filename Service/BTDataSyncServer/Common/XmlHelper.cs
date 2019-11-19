@@ -200,7 +200,7 @@ namespace BTDataSyncServer.Common
                     foreach (XmlNode childNode in childNodes)
                     {
                         var property = typeof(T).GetProperty(childNode.Name);
-                        if (property != null)
+                        if (property != null&&!string.IsNullOrEmpty(childNode.InnerText))
                         {
                             try
                             {
@@ -209,7 +209,7 @@ namespace BTDataSyncServer.Common
                             }
                             catch (Exception ex)
                             {
-                                throw new Exception(string.Format("字段【{0}】赋值出错,{1}",property.Name,ex.Message));
+                                throw new Exception($"字段【{property.Name}】赋值出错,{ex.Message}");
                             }
                         }
                     }

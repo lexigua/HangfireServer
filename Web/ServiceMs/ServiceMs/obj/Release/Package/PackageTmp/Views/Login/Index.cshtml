@@ -1,0 +1,140 @@
+﻿@{
+    ViewBag.Title = "系统登录";
+
+}
+@section head{
+    <script src="~/Scripts/RSA/aes.js"></script>
+    <script src="~/Scripts/RSA/pad-zeropadding.js"></script>
+    <link rel="icon" href="favicon.ico" type="image/x-icon" />
+    <link rel="SHORTCUT ICON" href="favicon.ico" type="image/x-icon" />
+    <link href="~/Css/common/login.css" rel="stylesheet" />
+    <link href="~/Css/Cpan.css" rel="stylesheet" />
+    <link href="~/Css/common/LoginCpan.css" rel="stylesheet" />
+    <script src="~/Scripts/JQuery/jquery.min.js"></script>
+    <script src="~/Scripts/Utils/jquery.util.easyui.js"></script>
+    <script src="/Scripts/jquery.validate.min.js" type="text/javascript"></script>
+    <script src="~/Scripts/Common/jquery.cookie.js"></script>
+    <script src="~/Scripts/Common/login.js"></script>
+    <script src="~/Scripts/loginjs/imgHover.min.js"></script>
+    <script src="~/Scripts/RSA/Barrett.js"></script>
+    <script src="~/Scripts/RSA/BigInt.js"></script>
+    <script src="~/Scripts/RSA/RSA.js"></script>
+    <link href="~/Css/bootstrap.min.css" rel="stylesheet" />
+
+    <script type="text/javascript">
+        $(function () {
+            getFocus("#input_box");
+            $("#btnLogin").click(function () {
+                $.easyui.showLoadingByStr("登录中...");
+                uLogin();
+            });
+            /*$("#loginForm input").focus(function() {
+
+            });*/
+            $("#loginForm input").keydown(function () {
+                appendHtml("#errorMessage", "");
+            });
+            document.onkeydown = function (event) { // enter 键
+                var e = event || window.event || arguments.callee.caller.arguments[0];
+                if (e && e.keyCode == 13) {
+                    uLogin();
+                }
+            };
+            $('.changeImgL').on("mouseover ", function () { // 图片放大缩小
+                $('.changeImgL').removeClass('showBig');
+                $(this).addClass('showBig');
+            });
+
+           
+
+        });
+
+       
+        function clickRemenberPws2(obj) {
+            if ($(obj).find("img").attr('src') == '/Css/images/login/login5.png') {
+                $(obj).find("img").attr('src', '/Css/images/login/login55.png');
+                $('#txtRemenberPws').val(0);
+            } else {
+                $(obj).find("img").attr('src', '/Css/images/login/login5.png');
+                $('#txtRemenberPws').val(1);
+            }
+        }
+    </script>
+}
+<body scroll="no" style="overflow-x: hidden">
+   
+    <img class="bgIMg" style="" src="~/Css/images/login/loginBac1.png" />
+    <div class="container-fluid">
+        @*<div class="row">
+            <div class="col-sm-12">
+                <div class="header" style="color: white;font-size: 25px;">
+                    任务调度管理系统
+                </div>
+            </div>
+        </div>*@
+        <div class="row" style="margin-top: 8%; margin-left: 30%;">
+            
+            <div class="col-sm-8" style="padding-left: 35px;">
+                
+                <form id="loginForm" method="post">
+                    <div class="loginBox" style="width: 80%; height: 500px; margin: 0 100px 0 0; position: relative; top: 0">
+                        <img style="width: 100%; height: 100%; z-index: 1; position: absolute; left: 0px; top: 0px;" src="../../Css/images/login/loginUeserBg.png" />
+                       
+                        <div class="login" style="z-index: 111; position: absolute; left: 0px; top: 135px; z-index: 2">
+                            <div class="user" style="">
+                                <div class="left" style="">
+                                    <img style="" src="~/Css/images/login/login3.png">
+                                </div>
+                                <div class="right" style="">
+                                    <input name="LoginCode" id="LoginCode" class="mui-input-clear" placeholder="用户名" style="" />
+                                </div>
+                            </div>
+                            <div class="password" name="LoginPwd" style="">
+                                <div class="left" style="">
+                                    <img style="" src="~/Css/images/login/login4.png">
+                                </div>
+                                <div class="right" style="">
+                                    <input id="LoginPwd" type="password" class="mui-input-clear" placeholder="密&nbsp;&nbsp;码" style="" />
+                                </div>
+                            </div>
+                            <div class="sinimg" style="">
+                                <div class="imginput" style="">
+                                    <input name="imgCode" class="imgCode" id="imgCode" class="mui-input-clear" placeholder="" style="" />
+                                </div>
+                                <img src="/Login/CheckCode?ID=1" id="showimg" class="showimg" alt="单击可刷新" onclick="ClickRemoveChangeCode() " />
+                            </div>
+                            <div id="errorMessage" style=""> </div>
+                            <div class="loginBtn" id="btnLogin" style="">
+                                登录
+                            </div>
+                            <div class="noPassWord" style="">
+                                <div class="left" style="width: 100%; float: left; overflow: hidden; padding: 6px 0 2px 2px;">
+                                    <div style="float: left;" onclick=" clickRemenberPws2(this) ">
+                                        <img style="height: 22px; width: 22px; float: left; cursor: pointer;" src="/Css/images/login/login5.png">
+                                        <input id="txtRemenberPws" name="txtRemenberPws" type="hidden" value="1" />
+                                        <div style="float: left; padding: 2px 0 0 3px; color: white; font-size: 13px; font-weight: bold; cursor: pointer;">记住密码</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                       
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script>
+        $(function () {
+            var current = new Date().getTime();
+            $("#showimg").attr("src", "/Login/CheckCode?id=" + current);
+        });
+        function ClickRemoveChangeCode() {
+            $("#imgCode").val("");
+            getFocus("#imgCode");
+            var current = new Date().getTime();
+            $("#showimg").attr("src", "/Login/CheckCode?id=" + current);
+        }
+       
+    </script>
+</body>

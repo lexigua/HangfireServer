@@ -1,0 +1,48 @@
+﻿ .tabs{
+        width:100%;
+    }
+    .tabs>li {
+        margin:0;        
+    }
+    #tab1 .tabs li a {
+    width:70px !important;
+    }
+    td{
+        text-align:center;
+    }
+    .tabs li a.tabs-inner, .tabs li.tabs-selected a.tabs-inner {
+        filter: alpha(opacity=100) !important;
+    }
+    .datagrid-cell-rownumber, .datagrid-td-rownumber, .datagrid-header-rownumber {
+        text-align: left !important;
+        width: 44px !important;
+    }
+    .contentPane span {
+      width:100px;
+      margin-left:30px;
+    }
+    .contentPane b {
+      width:90px;
+    }
+
+    .aui-panel .aui-panel-content ul li span {
+        position: relative;
+        bottom: 5px;
+    }
+    #mychart1 {
+        float: left;
+        height: 252px;
+    }
+    #mychart2 {
+        float: left;
+        left: 10px;
+        height: 252px;
+    }
+    #aui-chk {
+        position: absolute;
+        top: 5px;
+        right: 235px;
+    }
+    .datagrid-body ,.datagrid-htable{
+    padding:0 0 0 5px;
+    }
